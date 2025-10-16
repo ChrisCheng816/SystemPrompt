@@ -1,0 +1,29 @@
+{
+    "model_name": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "language": "python",
+    "style": "naive",
+    "example_num": 3,
+    "counter": 3,
+    "elapsed_time": "0:02:56",
+    "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method without errors from the natural language description.  \nFollow these rules strictly:\n1. Output only code, no explanations or comments.\n2. The code must include all necessary imports, libraries and dependencies.",
+    "BLEU_Smooth": {
+        "bleu": 0.23758367146005815,
+        "precisions": [
+            0.7285999303290369,
+            0.5622926767032406,
+            0.5019115237575096,
+            0.46844864410070547
+        ],
+        "brevity_penalty": 0.42646305417253805,
+        "length_ratio": 0.5398898881783675,
+        "translation_length": 31576,
+        "reference_length": 58486
+    },
+    "CodeBleu": {
+        "codebleu": 28.810667538663942,
+        "ngram_match_score": 0.2335012273413986,
+        "weighted_ngram_match_score": 0.29915713813223704,
+        "syntax_match_score": 0.37558359621451104,
+        "dataflow_match_score": 0.24418473985841105
+    }
+}

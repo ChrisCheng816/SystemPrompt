@@ -1,0 +1,29 @@
+{
+    "model_name": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "language": "python",
+    "style": "zero",
+    "example_num": 0,
+    "counter": 0,
+    "elapsed_time": "0:03:33",
+    "system_prompt": "You are a highly skilled code generator.",
+    "BLEU_Smooth": {
+        "bleu": 0.2569984200882855,
+        "precisions": [
+            0.6554157290885352,
+            0.48662548564720354,
+            0.4248108670585257,
+            0.3919121600588618
+        ],
+        "brevity_penalty": 0.5353729653275913,
+        "length_ratio": 0.6154635297336115,
+        "translation_length": 35996,
+        "reference_length": 58486
+    },
+    "CodeBleu": {
+        "codebleu": 29.42264135738735,
+        "ngram_match_score": 0.25484973706554626,
+        "weighted_ngram_match_score": 0.2962982717567207,
+        "syntax_match_score": 0.376403785488959,
+        "dataflow_match_score": 0.2493538599842679
+    }
+}

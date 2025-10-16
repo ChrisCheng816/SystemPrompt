@@ -1,0 +1,3216 @@
+LoggerRateLimiter.java:37: error: illegal start of type
+import java.util.HashMap;
+^
+LoggerRateLimiter.java:37: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+LoggerRateLimiter.java:38: error: illegal start of type
+import java.util.Map;
+^
+LoggerRateLimiter.java:38: error: <identifier> expected
+import java.util.Map;
+                    ^
+4 errors
+InsertDeleteGetRandomO1.java:54: error: illegal start of type
+import java.util.HashSet;
+^
+InsertDeleteGetRandomO1.java:54: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+InsertDeleteGetRandomO1.java:55: error: illegal start of type
+import java.util.Set;
+^
+InsertDeleteGetRandomO1.java:55: error: <identifier> expected
+import java.util.Set;
+                    ^
+4 errors
+InsertDeleteGetRandomO1.java:42: error: illegal start of type
+import java.util.HashSet;
+^
+InsertDeleteGetRandomO1.java:42: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+InsertDeleteGetRandomO1.java:43: error: illegal start of type
+import java.util.Set;
+^
+InsertDeleteGetRandomO1.java:43: error: <identifier> expected
+import java.util.Set;
+                    ^
+4 errors
+ArrayUtils.java:2562: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2630: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2698: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2766: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2834: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2902: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2970: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3927: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3958: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3989: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4020: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4051: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4082: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4113: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean net.hasor.utils.ArrayUtils.isSameLength(byte[], byte[])'
+	at net.hasor.utils.ArrayUtils_isSameLength.main(ArrayUtils_isSameLength.java:51)
+ArrayUtils.java:2988: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2988: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ObjectUtils.java:212: error: illegal start of type
+import org.apache.commons.lang3.StringUtils;
+^
+ObjectUtils.java:212: error: <identifier> expected
+import org.apache.commons.lang3.StringUtils;
+                                           ^
+2 errors
+BooleanUtils.java:646: error: no suitable method found for toBoolean(Boolean)
+        return toBoolean(toBooleanObject(str));
+               ^
+    method BooleanUtils.toBoolean(int) is not applicable
+      (argument mismatch; Boolean cannot be converted to int)
+    method BooleanUtils.toBoolean(String) is not applicable
+      (argument mismatch; Boolean cannot be converted to String)
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+14 warnings
+ArrayUtils.java:599: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:599: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:659: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:659: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:2784: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2784: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+StringUtils.java:5253: error: illegal start of type
+import java.lang.StringBuilder;
+^
+StringUtils.java:5253: error: <identifier> expected
+import java.lang.StringBuilder;
+                              ^
+2 errors
+NumberUtils.java:561: error: illegal start of type
+import java.util.regex.Pattern;
+^
+NumberUtils.java:561: error: <identifier> expected
+import java.util.regex.Pattern;
+                              ^
+2 errors
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+16 warnings
+ArrayUtils.java:2556: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2624: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2692: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2760: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2828: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2896: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2964: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3921: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3952: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3983: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4014: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4045: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4076: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4107: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:619: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:619: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:2124: error: no suitable method found for isEmpty(double[])
+        if (ArrayUtils.isEmpty(array)) {
+                      ^
+    method ArrayUtils.isEmpty(Object[]) is not applicable
+      (argument mismatch; double[] cannot be converted to Object[])
+    method ArrayUtils.isEmpty(long[]) is not applicable
+      (argument mismatch; double[] cannot be converted to long[])
+    method ArrayUtils.isEmpty(int[]) is not applicable
+      (argument mismatch; double[] cannot be converted to int[])
+    method ArrayUtils.isEmpty(short[]) is not applicable
+      (argument mismatch; double[] cannot be converted to short[])
+    method ArrayUtils.isEmpty(char[]) is not applicable
+      (argument mismatch; double[] cannot be converted to char[])
+    method ArrayUtils.isEmpty(byte[]) is not applicable
+      (argument mismatch; double[] cannot be converted to byte[])
+    method ArrayUtils.isEmpty(float[]) is not applicable
+      (argument mismatch; double[] cannot be converted to float[])
+    method ArrayUtils.isEmpty(boolean[]) is not applicable
+      (argument mismatch; double[] cannot be converted to boolean[])
+ArrayUtils.java:2156: error: no suitable method found for isEmpty(double[])
+        if (ArrayUtils.isEmpty(array)) {
+                      ^
+    method ArrayUtils.isEmpty(Object[]) is not applicable
+      (argument mismatch; double[] cannot be converted to Object[])
+    method ArrayUtils.isEmpty(long[]) is not applicable
+      (argument mismatch; double[] cannot be converted to long[])
+    method ArrayUtils.isEmpty(int[]) is not applicable
+      (argument mismatch; double[] cannot be converted to int[])
+    method ArrayUtils.isEmpty(short[]) is not applicable
+      (argument mismatch; double[] cannot be converted to short[])
+    method ArrayUtils.isEmpty(char[]) is not applicable
+      (argument mismatch; double[] cannot be converted to char[])
+    method ArrayUtils.isEmpty(byte[]) is not applicable
+      (argument mismatch; double[] cannot be converted to byte[])
+    method ArrayUtils.isEmpty(float[]) is not applicable
+      (argument mismatch; double[] cannot be converted to float[])
+    method ArrayUtils.isEmpty(boolean[]) is not applicable
+      (argument mismatch; double[] cannot be converted to boolean[])
+ArrayUtils.java:2218: error: no suitable method found for isEmpty(double[])
+        if (ArrayUtils.isEmpty(array)) {
+                      ^
+    method ArrayUtils.isEmpty(Object[]) is not applicable
+      (argument mismatch; double[] cannot be converted to Object[])
+    method ArrayUtils.isEmpty(long[]) is not applicable
+      (argument mismatch; double[] cannot be converted to long[])
+    method ArrayUtils.isEmpty(int[]) is not applicable
+      (argument mismatch; double[] cannot be converted to int[])
+    method ArrayUtils.isEmpty(short[]) is not applicable
+      (argument mismatch; double[] cannot be converted to short[])
+    method ArrayUtils.isEmpty(char[]) is not applicable
+      (argument mismatch; double[] cannot be converted to char[])
+    method ArrayUtils.isEmpty(byte[]) is not applicable
+      (argument mismatch; double[] cannot be converted to byte[])
+    method ArrayUtils.isEmpty(float[]) is not applicable
+      (argument mismatch; double[] cannot be converted to float[])
+    method ArrayUtils.isEmpty(boolean[]) is not applicable
+      (argument mismatch; double[] cannot be converted to boolean[])
+ArrayUtils.java:2252: error: no suitable method found for isEmpty(double[])
+        if (ArrayUtils.isEmpty(array)) {
+                      ^
+    method ArrayUtils.isEmpty(Object[]) is not applicable
+      (argument mismatch; double[] cannot be converted to Object[])
+    method ArrayUtils.isEmpty(long[]) is not applicable
+      (argument mismatch; double[] cannot be converted to long[])
+    method ArrayUtils.isEmpty(int[]) is not applicable
+      (argument mismatch; double[] cannot be converted to int[])
+    method ArrayUtils.isEmpty(short[]) is not applicable
+      (argument mismatch; double[] cannot be converted to short[])
+    method ArrayUtils.isEmpty(char[]) is not applicable
+      (argument mismatch; double[] cannot be converted to char[])
+    method ArrayUtils.isEmpty(byte[]) is not applicable
+      (argument mismatch; double[] cannot be converted to byte[])
+    method ArrayUtils.isEmpty(float[]) is not applicable
+      (argument mismatch; double[] cannot be converted to float[])
+    method ArrayUtils.isEmpty(boolean[]) is not applicable
+      (argument mismatch; double[] cannot be converted to boolean[])
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3928: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3959: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3990: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4021: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4052: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4083: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4114: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+4 errors
+14 warnings
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean net.hasor.utils.BooleanUtils.isNotTrue(java.lang.Boolean)'
+	at net.hasor.utils.BooleanUtils_isNotTrue.main(BooleanUtils_isNotTrue.java:4)
+ArrayUtils.java:2852: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2852: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+16 warnings
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+ArrayUtils.java:2648: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2648: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+16 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean net.hasor.utils.CharUtils.isAsciiControl(char)'
+	at net.hasor.utils.CharUtils_isAsciiControl.main(CharUtils_isAsciiControl.java:19)
+ArrayUtils.java:3033: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:3033: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:2761: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2761: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:2512: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2512: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:2693: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2693: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ArrayUtils.java:2897: error: illegal start of type
+import java.util.Arrays;
+^
+ArrayUtils.java:2897: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+16 warnings
+CharUtils.java:87: error: illegal start of type
+import java.util.HashMap;
+^
+CharUtils.java:87: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+CharUtils.java:88: error: illegal start of type
+import java.util.Map;
+^
+CharUtils.java:88: error: <identifier> expected
+import java.util.Map;
+                    ^
+4 errors
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean net.hasor.utils.CharUtils.isAsciiAlphaUpper(char)'
+	at net.hasor.utils.CharUtils_isAsciiAlphaUpper.main(CharUtils_isAsciiAlphaUpper.java:4)
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'int net.hasor.utils.StringUtils.length(java.lang.String)'
+	at net.hasor.utils.StringUtils_length.main(StringUtils_length.java:10)
+CommonCodeUtils.java:91: error: illegal start of type
+import java.util.Base64;
+^
+CommonCodeUtils.java:91: error: <identifier> expected
+import java.util.Base64;
+                       ^
+2 errors
+ArrayUtils.java:2562: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2630: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2698: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2766: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2834: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2902: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2970: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3927: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3958: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3989: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4020: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4051: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4082: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4113: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean net.hasor.utils.ArrayUtils.isSameLength(double[], double[])'
+	at net.hasor.utils.ArrayUtils_isSameLength.main(ArrayUtils_isSameLength.java:36)
+ArrayUtils.java:2563: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2631: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2699: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2767: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2835: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2903: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2971: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3342: error: no suitable method found for clone(char[])
+            return ArrayUtils.clone(array2);
+                             ^
+    method ArrayUtils.clone(Object[]) is not applicable
+      (argument mismatch; char[] cannot be converted to Object[])
+    method ArrayUtils.clone(long[]) is not applicable
+      (argument mismatch; char[] cannot be converted to long[])
+    method ArrayUtils.clone(int[]) is not applicable
+      (argument mismatch; char[] cannot be converted to int[])
+    method ArrayUtils.clone(short[]) is not applicable
+      (argument mismatch; char[] cannot be converted to short[])
+    method ArrayUtils.clone(byte[]) is not applicable
+      (argument mismatch; char[] cannot be converted to byte[])
+    method ArrayUtils.clone(double[]) is not applicable
+      (argument mismatch; char[] cannot be converted to double[])
+    method ArrayUtils.clone(float[]) is not applicable
+      (argument mismatch; char[] cannot be converted to float[])
+    method ArrayUtils.clone(boolean[]) is not applicable
+      (argument mismatch; char[] cannot be converted to boolean[])
+    method ArrayUtils.clone(String[]) is not applicable
+      (argument mismatch; char[] cannot be converted to String[])
+ArrayUtils.java:3344: error: no suitable method found for clone(char[])
+            return ArrayUtils.clone(array1);
+                             ^
+    method ArrayUtils.clone(Object[]) is not applicable
+      (argument mismatch; char[] cannot be converted to Object[])
+    method ArrayUtils.clone(long[]) is not applicable
+      (argument mismatch; char[] cannot be converted to long[])
+    method ArrayUtils.clone(int[]) is not applicable
+      (argument mismatch; char[] cannot be converted to int[])
+    method ArrayUtils.clone(short[]) is not applicable
+      (argument mismatch; char[] cannot be converted to short[])
+    method ArrayUtils.clone(byte[]) is not applicable
+      (argument mismatch; char[] cannot be converted to byte[])
+    method ArrayUtils.clone(double[]) is not applicable
+      (argument mismatch; char[] cannot be converted to double[])
+    method ArrayUtils.clone(float[]) is not applicable
+      (argument mismatch; char[] cannot be converted to float[])
+    method ArrayUtils.clone(boolean[]) is not applicable
+      (argument mismatch; char[] cannot be converted to boolean[])
+    method ArrayUtils.clone(String[]) is not applicable
+      (argument mismatch; char[] cannot be converted to String[])
+ArrayUtils.java:3928: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3959: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3990: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4021: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4052: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4083: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4114: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+ArrayUtils.java:4405: error: no suitable method found for clone(char[])
+            return ArrayUtils.clone(array);
+                             ^
+    method ArrayUtils.clone(Object[]) is not applicable
+      (argument mismatch; char[] cannot be converted to Object[])
+    method ArrayUtils.clone(long[]) is not applicable
+      (argument mismatch; char[] cannot be converted to long[])
+    method ArrayUtils.clone(int[]) is not applicable
+      (argument mismatch; char[] cannot be converted to int[])
+    method ArrayUtils.clone(short[]) is not applicable
+      (argument mismatch; char[] cannot be converted to short[])
+    method ArrayUtils.clone(byte[]) is not applicable
+      (argument mismatch; char[] cannot be converted to byte[])
+    method ArrayUtils.clone(double[]) is not applicable
+      (argument mismatch; char[] cannot be converted to double[])
+    method ArrayUtils.clone(float[]) is not applicable
+      (argument mismatch; char[] cannot be converted to float[])
+    method ArrayUtils.clone(boolean[]) is not applicable
+      (argument mismatch; char[] cannot be converted to boolean[])
+    method ArrayUtils.clone(String[]) is not applicable
+      (argument mismatch; char[] cannot be converted to String[])
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors
+14 warnings
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+16 warnings
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean net.hasor.utils.CharUtils.isAscii(char)'
+	at net.hasor.utils.CharUtils_isAscii.main(CharUtils_isAscii.java:31)
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+CharUtils.java:312: error: cannot find symbol
+        return String.valueOf(ASCII_STRINGS[ch]);
+                              ^
+  symbol:   variable ASCII_STRINGS
+  location: class CharUtils
+1 error
+2 warnings
+ByteVector.java:351: error: cannot find symbol
+    System.arraycopy(buffer, 0, newBuffer, 0, length);
+                     ^
+  symbol:   variable buffer
+  location: class ByteVector
+ByteVector.java:352: error: cannot find symbol
+    buffer = newBuffer;
+    ^
+  symbol:   variable buffer
+  location: class ByteVector
+2 errors
+SymbolTable.java:1002: error: illegal start of type
+import java.util.HashMap;
+^
+SymbolTable.java:1002: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+SymbolTable.java:1003: error: illegal start of type
+import java.util.Map;
+^
+SymbolTable.java:1003: error: <identifier> expected
+import java.util.Map;
+                    ^
+4 errors
+Note: ClassReader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+ByteVector.java:324: error: illegal start of type
+import java.util.Arrays;
+^
+ByteVector.java:324: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+Frame.java:561: error: cannot find symbol
+        outputFrame.pop();
+        ^
+  symbol:   variable outputFrame
+  location: class Frame
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/ClassReader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/ClassReader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Exception in thread "main" java.lang.NullPointerException: Cannot load from int array because "frame.initializations" is null
+	at net.hasor.utils.asm.Frame_addInitializedType.main(Frame_addInitializedType.java:27)
+MethodWriter.java:1734: error: cannot find symbol
+        VerificationTypeInfo typeInfo = currentFrame.get(i);
+        ^
+  symbol:   class VerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1734: error: cannot find symbol
+        VerificationTypeInfo typeInfo = currentFrame.get(i);
+                                                    ^
+  symbol:   method get(int)
+  location: variable currentFrame of type int[]
+MethodWriter.java:1735: error: cannot find symbol
+        if (typeInfo instanceof IntegerVerificationTypeInfo) {
+                                ^
+  symbol:   class IntegerVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1736: error: cannot find symbol
+            stackMapTableEntries.add(new IntegerVerificationTypeInfo());
+                                         ^
+  symbol:   class IntegerVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1737: error: cannot find symbol
+        } else if (typeInfo instanceof FloatVerificationTypeInfo) {
+                                       ^
+  symbol:   class FloatVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1738: error: cannot find symbol
+            stackMapTableEntries.add(new FloatVerificationTypeInfo());
+                                         ^
+  symbol:   class FloatVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1739: error: cannot find symbol
+        } else if (typeInfo instanceof DoubleVerificationTypeInfo) {
+                                       ^
+  symbol:   class DoubleVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1740: error: cannot find symbol
+            stackMapTableEntries.add(new DoubleVerificationTypeInfo());
+                                         ^
+  symbol:   class DoubleVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1741: error: cannot find symbol
+        } else if (typeInfo instanceof LongVerificationTypeInfo) {
+                                       ^
+  symbol:   class LongVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1742: error: cannot find symbol
+            stackMapTableEntries.add(new LongVerificationTypeInfo());
+                                         ^
+  symbol:   class LongVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1743: error: cannot find symbol
+        } else if (typeInfo instanceof NullVerificationTypeInfo) {
+                                       ^
+  symbol:   class NullVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1744: error: cannot find symbol
+            stackMapTableEntries.add(new NullVerificationTypeInfo());
+                                         ^
+  symbol:   class NullVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1745: error: cannot find symbol
+        } else if (typeInfo instanceof UninitializedVerificationTypeInfo) {
+                                       ^
+  symbol:   class UninitializedVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1746: error: cannot find symbol
+            stackMapTableEntries.add(new UninitializedVerificationTypeInfo());
+                                         ^
+  symbol:   class UninitializedVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1747: error: cannot find symbol
+        } else if (typeInfo instanceof ObjectVerificationTypeInfo) {
+                                       ^
+  symbol:   class ObjectVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1748: error: cannot find symbol
+            stackMapTableEntries.add(new ObjectVerificationTypeInfo());
+                                         ^
+  symbol:   class ObjectVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1749: error: cannot find symbol
+        } else if (typeInfo instanceof UninitializedThisVerificationTypeInfo) {
+                                       ^
+  symbol:   class UninitializedThisVerificationTypeInfo
+  location: class MethodWriter
+MethodWriter.java:1750: error: cannot find symbol
+            stackMapTableEntries.add(new UninitializedThisVerificationTypeInfo());
+                                         ^
+  symbol:   class UninitializedThisVerificationTypeInfo
+  location: class MethodWriter
+18 errors
+ClassReader.java:174: error: cannot find symbol
+        if (checkClassVersion && readShort(classFileOffset + 6) > Opcodes.V15) {
+                                 ^
+  symbol:   method readShort(int)
+  location: class ClassReader
+ClassReader.java:175: error: cannot find symbol
+            throw new IllegalArgumentException("Unsupported class file major version " + readShort(classFileOffset + 6));
+                                                                                         ^
+  symbol:   method readShort(int)
+  location: class ClassReader
+ClassReader.java:1438: error: cannot find symbol
+                createLabel(bytecodeOffset + readShort(currentOffset + 1), labels);
+                                             ^
+  symbol:   method readShort(int)
+  location: class ClassReader
+ClassReader.java:1954: error: cannot find symbol
+                methodVisitor.visitJumpInsn(opcode, labels[currentBytecodeOffset + readShort(currentOffset + 1)]);
+                                                                                   ^
+  symbol:   method readShort(int)
+  location: class ClassReader
+ClassReader.java:2018: error: cannot find symbol
+                    methodVisitor.visitIincInsn(readUnsignedShort(currentOffset + 2), readShort(currentOffset + 4));
+                                                                                      ^
+  symbol:   method readShort(int)
+  location: class ClassReader
+ClassReader.java:2078: error: cannot find symbol
+                methodVisitor.visitIntInsn(opcode, readShort(currentOffset + 1));
+                                                   ^
+  symbol:   method readShort(int)
+  location: class ClassReader
+Note: ClassReader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 errors
+Note: ClassReader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: ClassReader.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 34 out of bounds for length 34
+	at net.hasor.utils.asm.ClassReader.readUtf(ClassReader.java:3161)
+	at net.hasor.utils.asm.ClassReader_readUtf.main(ClassReader_readUtf.java:15)
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                        ^
+  symbol:   variable isParsed
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                  ^
+  symbol:   variable offset
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                          ^
+  symbol:   variable contentStartPosition
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                ^
+  symbol:   variable deadBytes
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                           ^
+  symbol:   variable isRead
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                                   ^
+  symbol:   variable memMapSize
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                                               ^
+  symbol:   variable userType
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                                                         ^
+  symbol:   variable type
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                                                               ^
+  symbol:   variable content
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+                                                                                                                        ^
+  symbol:   variable fileChannel
+  location: class Type
+Type.java:832: error: cannot find symbol
+    return Objects.hash(isParsed, offset, contentStartPosition, deadBytes, isRead, memMapSize, userType, type, content, fileChannel);
+           ^
+  symbol:   variable Objects
+  location: class Type
+11 errors
+SymbolTable.java:649: error: illegal start of type
+import java.util.HashMap;
+^
+SymbolTable.java:649: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+SymbolTable.java:650: error: illegal start of type
+import java.util.Map;
+^
+SymbolTable.java:650: error: <identifier> expected
+import java.util.Map;
+                    ^
+4 errors
+Label.java:300: error: cannot find symbol
+        lineNumbers.add(lineNumber);
+        ^
+  symbol:   variable lineNumbers
+  location: class Label
+1 error
+FileUtils.java:769: error: illegal start of type
+import java.io.File;
+^
+FileUtils.java:769: error: <identifier> expected
+import java.io.File;
+                   ^
+FileUtils.java:770: error: illegal start of type
+import java.io.IOException;
+^
+FileUtils.java:770: error: <identifier> expected
+import java.io.IOException;
+                          ^
+4 errors
+FilenameUtils.java:637: error: illegal start of type
+import java.io.File;
+^
+FilenameUtils.java:637: error: <identifier> expected
+import java.io.File;
+                   ^
+2 errors
+ThresholdingOutputStream.java:78: error: illegal start of type
+import java.io.IOException;
+^
+ThresholdingOutputStream.java:78: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ThresholdingOutputStream.java:79: error: illegal start of type
+import java.io.OutputStream;
+^
+ThresholdingOutputStream.java:79: error: <identifier> expected
+import java.io.OutputStream;
+                           ^
+4 errors
+Base64OutputStream.java:109: error: illegal start of type
+import java.io.IOException;
+^
+Base64OutputStream.java:109: error: <identifier> expected
+import java.io.IOException;
+                          ^
+Base64OutputStream.java:110: error: illegal start of type
+import java.io.OutputStream;
+^
+Base64OutputStream.java:110: error: <identifier> expected
+import java.io.OutputStream;
+                           ^
+4 errors
+WriterOutputStream.java:65: error: illegal start of type
+import java.io.IOException;
+^
+WriterOutputStream.java:65: error: <identifier> expected
+import java.io.IOException;
+                          ^
+WriterOutputStream.java:66: error: illegal start of type
+import java.io.OutputStream;
+^
+WriterOutputStream.java:66: error: <identifier> expected
+import java.io.OutputStream;
+                           ^
+4 errors
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/builder/ToStringStyle.java:1520: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    protected boolean isShortClassName() {
+                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/builder/ToStringStyle.java:1541: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    protected void setShortClassName(boolean shortClassName) {
+                   ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+ToStringStyle.java:1510: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    protected boolean isShortClassName() {
+                      ^
+ToStringStyle.java:1531: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    protected void setShortClassName(boolean shortClassName) {
+                   ^
+Note: ToStringStyle.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+ReflectionToStringBuilder.java:312: error: illegal start of type
+import java.util.ArrayList;
+^
+ReflectionToStringBuilder.java:312: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+ReflectionToStringBuilder.java:313: error: illegal start of type
+import java.util.Collection;
+^
+ReflectionToStringBuilder.java:313: error: <identifier> expected
+import java.util.Collection;
+                           ^
+ReflectionToStringBuilder.java:314: error: illegal start of type
+import java.util.List;
+^
+ReflectionToStringBuilder.java:314: error: <identifier> expected
+import java.util.List;
+                     ^
+6 errors
+ToStringStyle.java:157: error: illegal start of type
+import java.util.HashSet;
+^
+ToStringStyle.java:157: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+ToStringStyle.java:158: error: illegal start of type
+import java.util.Set;
+^
+ToStringStyle.java:158: error: <identifier> expected
+import java.util.Set;
+                    ^
+4 errors
+ToStringStyle.java:1510: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    protected boolean isShortClassName() {
+                      ^
+ToStringStyle.java:1531: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    protected void setShortClassName(boolean shortClassName) {
+                   ^
+Note: ToStringStyle.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 warnings
+ReflectionToStringBuilder.java:328: error: illegal start of type
+import java.util.ArrayList;
+^
+ReflectionToStringBuilder.java:328: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+ReflectionToStringBuilder.java:329: error: illegal start of type
+import java.util.List;
+^
+ReflectionToStringBuilder.java:329: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+ReaderInputStream.java:113: error: illegal start of type
+import java.io.IOException;
+^
+ReaderInputStream.java:113: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ReaderInputStream.java:114: error: illegal start of type
+import java.io.InputStream;
+^
+ReaderInputStream.java:114: error: <identifier> expected
+import java.io.InputStream;
+                          ^
+4 errors
+TypeUtil.java:134: error: illegal start of type
+import java.util.Arrays;
+^
+TypeUtil.java:134: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+TypeUtil.java:135: error: illegal start of type
+import java.util.List;
+^
+TypeUtil.java:135: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+TypeUtil.java:177: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+                return new Character(value.charAt(0));
+                       ^
+1 warning
+ConverterBean.java:472: error: illegal start of type
+import java.util.Map;
+^
+ConverterBean.java:472: error: <identifier> expected
+import java.util.Map;
+                    ^
+2 errors
+Exception in thread "main" java.lang.IllegalArgumentException: Type is not Character
+	at net.hasor.utils.convert.convert.CharacterConverter.convertToType(CharacterConverter.java:98)
+	at net.hasor.utils.convert.convert.CharacterConverter_convertToType.main(CharacterConverter_convertToType.java:16)
+BeanMap.java:306: error: illegal start of type
+import java.util.Collection;
+^
+BeanMap.java:306: error: <identifier> expected
+import java.util.Collection;
+                           ^
+BeanMap.java:307: error: illegal start of type
+import java.util.Collections;
+^
+BeanMap.java:307: error: <identifier> expected
+import java.util.Collections;
+                            ^
+BeanMap.java:308: error: illegal start of type
+import java.util.Map;
+^
+BeanMap.java:308: error: <identifier> expected
+import java.util.Map;
+                    ^
+6 errors
+BeanMap.java:153: error: illegal start of type
+import java.util.Map;
+^
+BeanMap.java:153: error: <identifier> expected
+import java.util.Map;
+                    ^
+2 errors
+ServletRequestContext.java:60: error: cannot find symbol
+long function ( ) { return getContentSize ( ) ; }
+                           ^
+  symbol:   method getContentSize()
+  location: class ServletRequestContext
+ServletRequestContext.java:77: error: cannot find symbol
+        return format("ContentLength=%s, ContentType=%s", Long.valueOf(this.contentLength()), this.getContentType());
+                                                                           ^
+  symbol: method contentLength()
+2 errors
+MultipartStream.java:186: error: illegal start of type
+import java.io.IOException;
+^
+MultipartStream.java:186: error: <identifier> expected
+import java.io.IOException;
+                          ^
+MultipartStream.java:187: error: illegal start of type
+import java.nio.ByteBuffer;
+^
+MultipartStream.java:187: error: <identifier> expected
+import java.nio.ByteBuffer;
+                          ^
+4 errors
+StringUdfSource.java:211: error: illegal start of type
+import java.util.List;
+^
+StringUdfSource.java:211: error: <identifier> expected
+import java.util.List;
+                     ^
+2 errors
+PaginationHelper.java:97: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+                drc.setOffset(new Integer(0));
+                              ^
+PaginationHelper.java:165: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                    drc.setOffset(new Integer(offset));
+                                  ^
+PaginationHelper.java:166: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                    drc.setLimit(new Integer(limit));
+                                 ^
+PaginationHelper.java:211: error: cannot find symbol
+    return this.statusCode == 206;
+               ^
+  symbol: variable statusCode
+PaginationHelper.java:292: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            drc.setOffset(new Integer(0));
+                          ^
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:28: error: package io.swagger.annotations does not exist
+import io.swagger.annotations.ApiOperation;
+                             ^
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:29: error: package io.swagger.jaxrs does not exist
+import io.swagger.jaxrs.PATCH;
+                       ^
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:49: error: cannot find symbol
+    @ApiOperation(value = "persist entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:57: error: cannot find symbol
+    @ApiOperation(value = "full update entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:63: error: cannot find symbol
+    @PATCH
+     ^
+  symbol:   class PATCH
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:66: error: cannot find symbol
+    @ApiOperation(value = "partial update entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:75: error: cannot find symbol
+    @ApiOperation(value = "remove entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:84: error: cannot find symbol
+    @ApiOperation(value = "find by ID")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+9 errors
+4 warnings
+PaginationHelper.java:97: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+                drc.setOffset(new Integer(0));
+                              ^
+PaginationHelper.java:165: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                    drc.setOffset(new Integer(offset));
+                                  ^
+PaginationHelper.java:166: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                    drc.setLimit(new Integer(limit));
+                                 ^
+PaginationHelper.java:296: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            drc.setOffset(new Integer(0));
+                          ^
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:28: error: package io.swagger.annotations does not exist
+import io.swagger.annotations.ApiOperation;
+                             ^
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:29: error: package io.swagger.jaxrs does not exist
+import io.swagger.jaxrs.PATCH;
+                       ^
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:49: error: cannot find symbol
+    @ApiOperation(value = "persist entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:57: error: cannot find symbol
+    @ApiOperation(value = "full update entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:63: error: cannot find symbol
+    @PATCH
+     ^
+  symbol:   class PATCH
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:66: error: cannot find symbol
+    @ApiOperation(value = "partial update entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:75: error: cannot find symbol
+    @ApiOperation(value = "remove entity")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/AbstractREST.java:84: error: cannot find symbol
+    @ApiOperation(value = "find by ID")
+     ^
+  symbol:   class ApiOperation
+  location: class AbstractREST<T,I>
+  where T,I are type-variables:
+    T extends Object declared in class AbstractREST
+    I extends Object declared in class AbstractREST
+8 errors
+4 warnings
+MimeUtility.java:228: error: illegal start of type
+import java.nio.charset.Charset;
+^
+MimeUtility.java:228: error: <identifier> expected
+import java.nio.charset.Charset;
+                               ^
+MimeUtility.java:229: error: illegal start of type
+import java.nio.charset.StandardCharsets;
+^
+MimeUtility.java:229: error: <identifier> expected
+import java.nio.charset.StandardCharsets;
+                                        ^
+4 errors
+SupplierUtil.java:186: error: illegal start of type
+import java.util.function.Supplier;
+^
+SupplierUtil.java:186: error: <identifier> expected
+import java.util.function.Supplier;
+                                  ^
+2 errors
+DoublyLinkedList.java:1137: error: DoublyLinkedList.ListNodeIteratorImpl is not abstract and does not override abstract method previousNode() in ListNodeIterator
+    public class ListNodeIteratorImpl
+           ^
+  where E is a type-variable:
+    E extends Object declared in class DoublyLinkedList
+1 error
+DoublyLinkedList.java:259: error: cannot find symbol
+        tail = prev;
+        ^
+  symbol:   variable tail
+  location: class DoublyLinkedList<E>
+  where E is a type-variable:
+    E extends Object declared in class DoublyLinkedList
+1 error
+DoublyLinkedList.java:140: error: cannot find symbol
+        ListNode<E> next = current.next;
+                                  ^
+  symbol:   variable next
+  location: variable current of type ListNode<E>
+  where E is a type-variable:
+    E extends Object declared in class DoublyLinkedList
+1 error
+IsomorphicGraphMapping.java:338: error: illegal start of type
+import org.jgrapht.Graph;
+^
+IsomorphicGraphMapping.java:338: error: <identifier> expected
+import org.jgrapht.Graph;
+                        ^
+IsomorphicGraphMapping.java:339: error: illegal start of type
+import org.jgrapht.alg.isomorphism.IsomorphicGraphMapping;
+^
+IsomorphicGraphMapping.java:339: error: <identifier> expected
+import org.jgrapht.alg.isomorphism.IsomorphicGraphMapping;
+                                                         ^
+IsomorphicGraphMapping.java:341: error: illegal start of type
+import java.util.HashMap;
+^
+IsomorphicGraphMapping.java:341: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+IsomorphicGraphMapping.java:342: error: illegal start of type
+import java.util.Map;
+^
+IsomorphicGraphMapping.java:342: error: <identifier> expected
+import java.util.Map;
+                    ^
+8 errors
+CompleteBipartiteGraphGenerator.java:80: error: illegal start of type
+import org.jgrapht.Graph;
+^
+CompleteBipartiteGraphGenerator.java:80: error: <identifier> expected
+import org.jgrapht.Graph;
+                        ^
+CompleteBipartiteGraphGenerator.java:81: error: illegal start of type
+import org.jgrapht.graph.DefaultEdge;
+^
+CompleteBipartiteGraphGenerator.java:81: error: <identifier> expected
+import org.jgrapht.graph.DefaultEdge;
+                                    ^
+CompleteBipartiteGraphGenerator.java:83: error: illegal start of type
+import java.util.Map;
+^
+CompleteBipartiteGraphGenerator.java:83: error: <identifier> expected
+import java.util.Map;
+                    ^
+6 errors
+LexBreadthFirstIterator.java:278: error: cannot find symbol
+                    newBucket.insertBefore(bucket);
+                             ^
+  symbol:   method insertBefore(LexBreadthFirstIterator<V,E>.BucketList.Bucket)
+  location: variable newBucket of type LexBreadthFirstIterator<V,E>.BucketList.Bucket
+  where V,E are type-variables:
+    V extends Object declared in class LexBreadthFirstIterator
+    E extends Object declared in class LexBreadthFirstIterator
+1 error
+LexBreadthFirstIterator.java:87: error: hasNext() in LexBreadthFirstIterator cannot implement hasNext() in Iterator
+boolean hasNext() {
+        ^
+  attempting to assign weaker access privileges; was public
+LexBreadthFirstIterator.java:88: error: cannot find symbol
+    for (boolean visited : visitedVertices) {
+                           ^
+  symbol:   variable visitedVertices
+  location: class LexBreadthFirstIterator<V,E>
+  where V,E are type-variables:
+    V extends Object declared in class LexBreadthFirstIterator
+    E extends Object declared in class LexBreadthFirstIterator
+2 errors
+LexBreadthFirstIterator.java:287: error: cannot find symbol
+                    bucket.removeSelf();
+                          ^
+  symbol:   method removeSelf()
+  location: variable bucket of type LexBreadthFirstIterator<V,E>.BucketList.Bucket
+  where V,E are type-variables:
+    V extends Object declared in class LexBreadthFirstIterator
+    E extends Object declared in class LexBreadthFirstIterator
+1 error
+PathGrowingWeightedMatching.java:138: error: illegal start of type
+import java.util.HashSet;
+^
+PathGrowingWeightedMatching.java:138: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+PathGrowingWeightedMatching.java:139: error: illegal start of type
+import java.util.Set;
+^
+PathGrowingWeightedMatching.java:139: error: <identifier> expected
+import java.util.Set;
+                    ^
+4 errors
+BlossomVTreeEdge.java:102: error: cannot find symbol
+        this.prev.next = this.next;
+                 ^
+  symbol:   variable next
+  location: variable prev of type BlossomVTreeEdge[]
+BlossomVTreeEdge.java:105: error: cannot find symbol
+        this.next.prev = this.prev;
+                 ^
+  symbol:   variable prev
+  location: variable next of type BlossomVTreeEdge[]
+2 errors
+Boxes.java:57: error: illegal start of type
+import org.apache.commons.lang3.tuple.Pair;
+^
+Boxes.java:57: error: <identifier> expected
+import org.apache.commons.lang3.tuple.Pair;
+                                          ^
+Boxes.java:58: error: illegal start of type
+import org.jbox2d.collision.shapes.Box2D;
+^
+Boxes.java:58: error: <identifier> expected
+import org.jbox2d.collision.shapes.Box2D;
+                                        ^
+4 errors
+Points.java:108: error: illegal start of type
+import java.awt.geom.Point2D;
+^
+Points.java:108: error: <identifier> expected
+import java.awt.geom.Point2D;
+                            ^
+2 errors
+ToleranceDoubleComparator.java:63: error: illegal start of type
+import java.util.Comparator;
+^
+ToleranceDoubleComparator.java:63: error: <identifier> expected
+import java.util.Comparator;
+                           ^
+2 errors
+FixedSizeIntegerQueue.java:98: error: cannot find symbol
+            "elements=" + elements +
+                          ^
+  symbol:   variable elements
+  location: class FixedSizeIntegerQueue
+FixedSizeIntegerQueue.java:99: error: cannot find symbol
+            ", size=" + size +
+                        ^
+  symbol:   variable size
+  location: class FixedSizeIntegerQueue
+2 errors
+StoerWagnerMinimumCut.java:224: error: illegal start of type
+import java.util.Set;
+^
+StoerWagnerMinimumCut.java:224: error: <identifier> expected
+import java.util.Set;
+                    ^
+2 errors
+PadbergRaoOddMinimumCutset.java:258: error: illegal start of type
+import java.util.HashSet;
+^
+PadbergRaoOddMinimumCutset.java:258: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+PadbergRaoOddMinimumCutset.java:259: error: illegal start of type
+import java.util.Set;
+^
+PadbergRaoOddMinimumCutset.java:259: error: <identifier> expected
+import java.util.Set;
+                    ^
+4 errors
+BoyerMyrvoldPlanarityInspector.java:669: error: incompatible types: int cannot be converted to BoyerMyrvoldPlanarityInspector<V,E>.Node
+    OuterFaceCirculator circulator = new OuterFaceCirculator(start, dir);
+                                                                    ^
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+BoyerMyrvoldPlanarityInspector.java:670: error: cannot find symbol
+    while (circulator.isValid() && circulator.getNode() != stop) {
+                     ^
+  symbol:   method isValid()
+  location: variable circulator of type BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+BoyerMyrvoldPlanarityInspector.java:670: error: cannot find symbol
+    while (circulator.isValid() && circulator.getNode() != stop) {
+                                             ^
+  symbol:   method getNode()
+  location: variable circulator of type BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+BoyerMyrvoldPlanarityInspector.java:671: error: cannot find symbol
+        if (predicate.test(circulator.getNode())) {
+                                     ^
+  symbol:   method getNode()
+  location: variable circulator of type BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+BoyerMyrvoldPlanarityInspector.java:674: error: cannot find symbol
+        circulator.moveForward();
+                  ^
+  symbol:   method moveForward()
+  location: variable circulator of type BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors
+BoyerMyrvoldPlanarityInspector.java:1016: error: cannot find symbol
+            Edge edge = circulator.edgeToNext();
+                                  ^
+  symbol:   method edgeToNext()
+  location: variable circulator of type BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+BoyerMyrvoldPlanarityInspector.java:1123: error: cannot find symbol
+            Edge edge = circulator.edgeToNext();
+                                  ^
+  symbol:   method edgeToNext()
+  location: variable circulator of type BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+BoyerMyrvoldPlanarityInspector.java:1727: error: cannot find symbol
+Edge function ( ) { return edgeToNext ( ) ; }
+                           ^
+  symbol:   method edgeToNext()
+  location: class BoyerMyrvoldPlanarityInspector<V,E>.OuterFaceCirculator
+  where V,E are type-variables:
+    V extends Object declared in class BoyerMyrvoldPlanarityInspector
+    E extends Object declared in class BoyerMyrvoldPlanarityInspector
+3 errors
+HamiltonianCycleAlgorithmBase.java:82: error: illegal start of type
+import java.util.Set;
+^
+HamiltonianCycleAlgorithmBase.java:82: error: <identifier> expected
+import java.util.Set;
+                    ^
+HamiltonianCycleAlgorithmBase.java:83: error: illegal start of type
+import org.jgrapht.Graph;
+^
+HamiltonianCycleAlgorithmBase.java:83: error: <identifier> expected
+import org.jgrapht.Graph;
+                        ^
+HamiltonianCycleAlgorithmBase.java:84: error: illegal start of type
+import org.jgrapht.GraphPath;
+^
+HamiltonianCycleAlgorithmBase.java:84: error: <identifier> expected
+import org.jgrapht.GraphPath;
+                            ^
+HamiltonianCycleAlgorithmBase.java:85: error: illegal start of type
+import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+^
+HamiltonianCycleAlgorithmBase.java:85: error: <identifier> expected
+import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+                                                        ^
+HamiltonianCycleAlgorithmBase.java:86: error: illegal start of type
+import org.jgrapht.graph.DefaultWeightedEdge;
+^
+HamiltonianCycleAlgorithmBase.java:86: error: <identifier> expected
+import org.jgrapht.graph.DefaultWeightedEdge;
+                                            ^
+10 errors
+Exception in thread "main" java.lang.IndexOutOfBoundsException: Index 20 out of bounds for length 4
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.set(ArrayList.java:441)
+	at org.jgrapht.alg.cycle.WeakChordalityInspector.reload(WeakChordalityInspector.java:459)
+	at org.jgrapht.alg.cycle.WeakChordalityInspector_reload.main(WeakChordalityInspector_reload.java:38)
+WeakChordalityInspector.java:222: error: illegal start of type
+import java.util.ArrayList;
+^
+WeakChordalityInspector.java:222: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+WeakChordalityInspector.java:223: error: illegal start of type
+import java.util.List;
+^
+WeakChordalityInspector.java:223: error: <identifier> expected
+import java.util.List;
+                     ^
+WeakChordalityInspector.java:224: error: illegal start of type
+import java.util.Map;
+^
+WeakChordalityInspector.java:224: error: <identifier> expected
+import java.util.Map;
+                    ^
+WeakChordalityInspector.java:225: error: illegal start of type
+import java.util.Set;
+^
+WeakChordalityInspector.java:225: error: <identifier> expected
+import java.util.Set;
+                    ^
+WeakChordalityInspector.java:226: error: illegal start of type
+import java.util.HashMap;
+^
+WeakChordalityInspector.java:226: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+WeakChordalityInspector.java:227: error: illegal start of type
+import java.util.HashSet;
+^
+WeakChordalityInspector.java:227: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+WeakChordalityInspector.java:304: error: unclosed string literal
+                System.out.println("Separator:
+                                   ^
+WeakChordalityInspector.java:315: error: illegal start of expression
+    public List<Pair<List<Pair<Integer, Integer>>, E>> reformatSeparatorList(
+    ^
+WeakChordalityInspector.java:873: error: reached end of file while parsing
+}
+ ^
+15 errors
+Distributor.java:142: error: illegal start of type
+import java.util.ArrayList;
+^
+Distributor.java:142: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+Distributor.java:143: error: illegal start of type
+import java.util.List;
+^
+Distributor.java:143: error: <identifier> expected
+import java.util.List;
+                     ^
+Distributor.java:144: error: illegal start of type
+import org.apache.commons.lang3.tuple.Pair;
+^
+Distributor.java:144: error: <identifier> expected
+import org.apache.commons.lang3.tuple.Pair;
+                                          ^
+6 errors
+Distributor.java:102: error: illegal start of type
+import java.util.ArrayList;
+^
+Distributor.java:102: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+Distributor.java:103: error: illegal start of type
+import java.util.List;
+^
+Distributor.java:103: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+Distributor.java:122: error: illegal start of type
+import java.util.ArrayList;
+^
+Distributor.java:122: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+Distributor.java:123: error: illegal start of type
+import java.util.List;
+^
+Distributor.java:123: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+CliqueMinimalSeparatorDecomposition.java:290: error: illegal start of type
+import java.util.Set;
+^
+CliqueMinimalSeparatorDecomposition.java:290: error: <identifier> expected
+import java.util.Set;
+                    ^
+CliqueMinimalSeparatorDecomposition.java:291: error: illegal start of type
+import org.jgrapht.Graph;
+^
+CliqueMinimalSeparatorDecomposition.java:291: error: <identifier> expected
+import org.jgrapht.Graph;
+                        ^
+4 errors
+Exception in thread "main" java.lang.NoSuchMethodError: 'int org.jgrapht.opt.graph.sparse.specifics.CSRBooleanMatrix.nonZeros(int)'
+	at org.jgrapht.opt.graph.sparse.specifics.IncomingNoReindexSparseDirectedSpecifics.degreeOf(IncomingNoReindexSparseDirectedSpecifics.java:73)
+	at org.jgrapht.opt.graph.sparse.specifics.AbstractSparseSpecificsGraph.degreeOf(AbstractSparseSpecificsGraph.java:108)
+	at org.jgrapht.opt.graph.sparse.specifics.AbstractSparseSpecificsGraph.degreeOf(AbstractSparseSpecificsGraph.java:34)
+	at org.jgrapht.opt.graph.sparse.specifics.CSRBooleanMatrix_nonZeros.testDirectedWeighted(CSRBooleanMatrix_nonZeros.java:32)
+	at org.jgrapht.opt.graph.sparse.specifics.CSRBooleanMatrix_nonZeros.main(CSRBooleanMatrix_nonZeros.java:56)
+UriComponent.java:832: error: ')' expected
+        int codePoint = ((firstByte & 0x07) << 18) | ((secondByte & 0
+                                                                     ^
+UriComponent.java:833: error: illegal start of expression
+    public static int decodeHex(String s, int i) {
+    ^
+2 errors
+UriComponent.java:575: error: illegal start of type
+import java.net.URI;
+^
+UriComponent.java:575: error: <identifier> expected
+import java.net.URI;
+                   ^
+UriComponent.java:576: error: illegal start of type
+import java.net.URISyntaxException;
+^
+UriComponent.java:576: error: <identifier> expected
+import java.net.URISyntaxException;
+                                  ^
+UriComponent.java:577: error: illegal start of type
+import java.util.ArrayList;
+^
+UriComponent.java:577: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+UriComponent.java:578: error: illegal start of type
+import java.util.List;
+^
+UriComponent.java:578: error: <identifier> expected
+import java.util.List;
+                     ^
+8 errors
+UriPattern.java:258: error: illegal start of type
+import java.util.regex.Matcher;
+^
+UriPattern.java:258: error: <identifier> expected
+import java.util.regex.Matcher;
+                              ^
+UriPattern.java:259: error: illegal start of type
+import java.util.regex.Pattern;
+^
+UriPattern.java:259: error: <identifier> expected
+import java.util.regex.Pattern;
+                              ^
+4 errors
+UriComponent.java:272: error: illegal start of type
+import java.net.URLEncoder;
+^
+UriComponent.java:272: error: <identifier> expected
+import java.net.URLEncoder;
+                          ^
+UriComponent.java:273: error: illegal start of type
+import java.io.UnsupportedEncodingException;
+^
+UriComponent.java:273: error: <identifier> expected
+import java.io.UnsupportedEncodingException;
+                                           ^
+4 errors
+IntrospectionUtils.java:397: error: illegal start of type
+import java.io.File;
+^
+IntrospectionUtils.java:397: error: <identifier> expected
+import java.io.File;
+                   ^
+IntrospectionUtils.java:398: error: illegal start of type
+import java.io.IOException;
+^
+IntrospectionUtils.java:398: error: <identifier> expected
+import java.io.IOException;
+                          ^
+IntrospectionUtils.java:399: error: illegal start of type
+import java.net.URL;
+^
+IntrospectionUtils.java:399: error: <identifier> expected
+import java.net.URL;
+                   ^
+IntrospectionUtils.java:400: error: illegal start of type
+import java.net.URLClassLoader;
+^
+IntrospectionUtils.java:400: error: <identifier> expected
+import java.net.URLClassLoader;
+                              ^
+IntrospectionUtils.java:401: error: illegal start of type
+import java.util.Vector;
+^
+IntrospectionUtils.java:401: error: <identifier> expected
+import java.util.Vector;
+                       ^
+10 errors
+IntrospectionUtils.java:163: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                            params[0] = new Integer(value);
+                                        ^
+IntrospectionUtils.java:171: warning: [removal] Long(String) in Long has been deprecated and marked for removal
+                            params[0] = new Long(value);
+                                        ^
+IntrospectionUtils.java:179: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
+                        params[0] = new Boolean(value);
+                                    ^
+IntrospectionUtils.java:823: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                result = new Integer(object);
+                         ^
+IntrospectionUtils.java:829: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
+            result = new Boolean(object);
+                     ^
+Note: IntrospectionUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+5 warnings
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+StringEscapeUtils.java:284: error: illegal start of type
+import java.util.regex.Matcher;
+^
+StringEscapeUtils.java:284: error: <identifier> expected
+import java.util.regex.Matcher;
+                              ^
+StringEscapeUtils.java:285: error: illegal start of type
+import java.util.regex.Pattern;
+^
+StringEscapeUtils.java:285: error: <identifier> expected
+import java.util.regex.Pattern;
+                              ^
+4 errors
+TypeResolver.java:138: error: illegal start of type
+import java.lang.reflect.ParameterizedType;
+^
+TypeResolver.java:138: error: <identifier> expected
+import java.lang.reflect.ParameterizedType;
+                                          ^
+TypeResolver.java:139: error: illegal start of type
+import java.lang.reflect.Type;
+^
+TypeResolver.java:139: error: <identifier> expected
+import java.lang.reflect.Type;
+                             ^
+TypeResolver.java:140: error: illegal start of type
+import java.lang.reflect.TypeVariable;
+^
+TypeResolver.java:140: error: <identifier> expected
+import java.lang.reflect.TypeVariable;
+                                     ^
+6 errors
+TypeResolver.java:300: error: illegal start of type
+import java.lang.reflect.TypeVariable;
+^
+TypeResolver.java:300: error: <identifier> expected
+import java.lang.reflect.TypeVariable;
+                                     ^
+TypeResolver.java:301: error: illegal start of type
+import java.lang.reflect.Type;
+^
+TypeResolver.java:301: error: <identifier> expected
+import java.lang.reflect.Type;
+                             ^
+4 errors
+AtmosphereRequestImpl.java:1403: error: illegal start of type
+import javax.servlet.http.HttpServletRequest;
+^
+AtmosphereRequestImpl.java:1403: error: <identifier> expected
+import javax.servlet.http.HttpServletRequest;
+                                            ^
+AtmosphereRequestImpl.java:1404: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereRequest;
+^
+AtmosphereRequestImpl.java:1404: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereRequest;
+                                           ^
+4 errors
+AtmosphereFramework.java:746: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereFramework;
+^
+AtmosphereFramework.java:746: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereFramework;
+                                             ^
+AtmosphereFramework.java:747: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereHandler;
+^
+AtmosphereFramework.java:747: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereHandler;
+                                           ^
+4 errors
+DefaultBroadcaster.java:1236: error: method filter in interface BroadcastFilter cannot be applied to given types;
+    return BroadcastFilter.filter(msg);
+                          ^
+  required: String,Object,Object
+  found:    Object
+  reason: actual and formal argument lists differ in length
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.java:2066: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    public AsyncSupport getCometSupport() {
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:163: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                            params[0] = new Integer(value);
+                                        ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:171: warning: [removal] Long(String) in Long has been deprecated and marked for removal
+                            params[0] = new Long(value);
+                                        ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:179: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
+                        params[0] = new Boolean(value);
+                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:826: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                result = new Integer(object);
+                         ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:832: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
+            result = new Boolean(object);
+                     ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+6 warnings
+AtmosphereFramework.java:2066: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    public AsyncSupport getCometSupport() {
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:163: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                            params[0] = new Integer(value);
+                                        ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:171: warning: [removal] Long(String) in Long has been deprecated and marked for removal
+                            params[0] = new Long(value);
+                                        ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:179: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
+                        params[0] = new Boolean(value);
+                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:826: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
+                result = new Integer(object);
+                         ^
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:832: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
+            result = new Boolean(object);
+                     ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 warnings
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Exception in thread "main" java.util.NoSuchElementException
+	at java.base/java.util.LinkedList.removeFirst(LinkedList.java:274)
+	at org.atmosphere.cpr.AtmosphereFramework_checkDuplicate.main(AtmosphereFramework_checkDuplicate.java:67)
+AtmosphereRequestImpl.java:450: error: cannot find symbol
+        } else if (b.body.hasBytes()) {
+                         ^
+  symbol:   method hasBytes()
+  location: variable body of type Body
+AtmosphereRequestImpl.java:463: error: cannot find symbol
+        } else if (b.body.hasBytes()) {
+                         ^
+  symbol:   method hasBytes()
+  location: variable body of type Body
+AtmosphereRequestImpl.java:1292: error: cannot find symbol
+boolean function ( ) { return hasBytes(); }
+                              ^
+  symbol:   method hasBytes()
+  location: class Body
+Note: AtmosphereRequestImpl.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: AtmosphereRequestImpl.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 errors
+Meteor.java:65: error: illegal start of type
+import javax.servlet.http.HttpServletRequest;
+^
+Meteor.java:65: error: <identifier> expected
+import javax.servlet.http.HttpServletRequest;
+                                            ^
+2 errors
+/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.java:2066: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    public AsyncSupport getCometSupport() {
+                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Boolean.booleanValue()" because the return value of "java.util.concurrent.atomic.AtomicReference.get()" is null
+	at org.atmosphere.cpr.AtmosphereResourceImpl_addEventListener.main(AtmosphereResourceImpl_addEventListener.java:126)
+InputStreamIterator.java:61: error: illegal start of type
+import java.io.File;
+^
+InputStreamIterator.java:61: error: <identifier> expected
+import java.io.File;
+                   ^
+InputStreamIterator.java:62: error: illegal start of type
+import java.io.FileInputStream;
+^
+InputStreamIterator.java:62: error: <identifier> expected
+import java.io.FileInputStream;
+                              ^
+InputStreamIterator.java:63: error: illegal start of type
+import java.io.IOException;
+^
+InputStreamIterator.java:63: error: <identifier> expected
+import java.io.IOException;
+                          ^
+InputStreamIterator.java:64: error: illegal start of type
+import java.io.InputStream;
+^
+InputStreamIterator.java:64: error: <identifier> expected
+import java.io.InputStream;
+                          ^
+8 errors
+ClassFileIterator.java:194: error: illegal start of type
+import java.io.File;
+^
+ClassFileIterator.java:194: error: <identifier> expected
+import java.io.File;
+                   ^
+ClassFileIterator.java:195: error: illegal start of type
+import java.net.URL;
+^
+ClassFileIterator.java:195: error: <identifier> expected
+import java.net.URL;
+                   ^
+ClassFileIterator.java:196: error: illegal start of type
+import java.net.URLClassLoader;
+^
+ClassFileIterator.java:196: error: <identifier> expected
+import java.net.URLClassLoader;
+                              ^
+6 errors
+ClassFileBuffer.java:84: error: illegal start of type
+import java.io.IOException;
+^
+ClassFileBuffer.java:84: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ClassFileBuffer.java:85: error: illegal start of type
+import java.io.InputStream;
+^
+ClassFileBuffer.java:85: error: <identifier> expected
+import java.io.InputStream;
+                          ^
+4 errors
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.getName()" because the return value of "org.atmosphere.util.annotation.FileIterator.next()" is null
+	at org.atmosphere.util.annotation.InputStreamIterator_addReverse.main(InputStreamIterator_addReverse.java:15)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.getName()" because the return value of "java.util.Deque.peek()" is null
+	at org.atmosphere.util.annotation.FileIterator_addReverse.main(FileIterator_addReverse.java:16)
+WebSocket.java:159: error: cannot find symbol
+long function ( ) { return lastWriteTimeStampInMilliseconds ; }
+                           ^
+  symbol:   variable lastWriteTimeStampInMilliseconds
+  location: class WebSocket
+Note: /home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereResourceImpl.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+AtmosphereResourceLifecycleInterceptor.java:112: error: illegal start of type
+import org.atmosphere.cpr.Action;
+^
+AtmosphereResourceLifecycleInterceptor.java:112: error: <identifier> expected
+import org.atmosphere.cpr.Action;
+                                ^
+AtmosphereResourceLifecycleInterceptor.java:113: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereResource;
+^
+AtmosphereResourceLifecycleInterceptor.java:113: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereResource;
+                                            ^
+4 errors
+Strings.java:826: error: illegal start of type
+import java.util.Arrays;
+^
+Strings.java:826: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+Note: Objects.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Strings.java:290: error: illegal start of type
+import java.util.Locale;
+^
+Strings.java:290: error: <identifier> expected
+import java.util.Locale;
+                       ^
+2 errors
+Collections.java:203: error: illegal start of type
+import java.util.Collection;
+^
+Collections.java:203: error: <identifier> expected
+import java.util.Collection;
+                           ^
+2 errors
+Strings.java:238: error: illegal start of type
+import java.lang.Character;
+^
+Strings.java:238: error: <identifier> expected
+import java.lang.Character;
+                          ^
+2 errors
+Note: /home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Objects.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Strings.java:221: error: illegal start of type
+import java.lang.Character;
+^
+Strings.java:221: error: <identifier> expected
+import java.lang.Character;
+                          ^
+2 errors
+Strings.java:811: error: illegal start of type
+import java.util.ArrayList;
+^
+Strings.java:811: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+Strings.java:812: error: illegal start of type
+import java.util.Enumeration;
+^
+Strings.java:812: error: <identifier> expected
+import java.util.Enumeration;
+                            ^
+Strings.java:813: error: illegal start of type
+import java.util.List;
+^
+Strings.java:813: error: <identifier> expected
+import java.util.List;
+                     ^
+6 errors
+Strings.java:410: error: illegal start of type
+import java.util.HashSet;
+^
+Strings.java:410: error: <identifier> expected
+import java.util.HashSet;
+                        ^
+Strings.java:411: error: illegal start of type
+import java.util.Set;
+^
+Strings.java:411: error: <identifier> expected
+import java.util.Set;
+                    ^
+4 errors
+Collections.java:165: error: illegal start of type
+import java.util.Collection;
+^
+Collections.java:165: error: <identifier> expected
+import java.util.Collection;
+                           ^
+2 errors
+Strings.java:736: error: illegal start of type
+import java.util.Arrays;
+^
+Strings.java:736: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+Strings.java:719: error: illegal start of type
+import java.util.Arrays;
+^
+Strings.java:719: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+Strings.java:550: error: illegal start of type
+import java.nio.file.Paths;
+^
+Strings.java:550: error: <identifier> expected
+import java.nio.file.Paths;
+                          ^
+2 errors
+Strings.java:861: error: illegal start of type
+import java.util.Arrays;
+^
+Strings.java:861: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+Strings.java:572: error: illegal start of type
+import java.nio.file.Paths;
+^
+Strings.java:572: error: <identifier> expected
+import java.nio.file.Paths;
+                          ^
+2 errors
+Exception in thread "main" java.lang.NoSuchMethodError: 'boolean io.jsonwebtoken.lang.Strings.substringMatch(java.lang.CharSequence, int, java.lang.CharSequence)'
+	at io.jsonwebtoken.lang.Strings_substringMatch.main(Strings_substringMatch.java:7)
+CompositeRollingAppender.java:616: error: illegal start of type
+import java.io.File;
+^
+CompositeRollingAppender.java:616: error: <identifier> expected
+import java.io.File;
+                   ^
+2 errors
+PatternLayout.java:492: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+PatternLayout.java:492: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+PatternLayout.java:493: error: illegal start of type
+import org.apache.log4j.helpers.PatternConverter;
+^
+PatternLayout.java:493: error: <identifier> expected
+import org.apache.log4j.helpers.PatternConverter;
+                                                ^
+PatternLayout.java:494: error: illegal start of type
+import org.apache.log4j.helpers.PatternParser;
+^
+PatternLayout.java:494: error: <identifier> expected
+import org.apache.log4j.helpers.PatternParser;
+                                             ^
+PatternLayout.java:495: error: illegal start of type
+import org.apache.log4j.Layout;
+^
+PatternLayout.java:495: error: <identifier> expected
+import org.apache.log4j.Layout;
+                              ^
+8 errors
+TempFileAppender.java:166: error: class, interface, enum, or record expected
+  public boolean requiresLayout() {
+         ^
+TempFileAppender.java:168: error: class, interface, enum, or record expected
+  }
+  ^
+TempFileAppender.java:170: error: class, interface, enum, or record expected
+  public void close() {
+         ^
+3 errors
+NDC.java:308: error: illegal start of type
+import org.apache.log4j.NDC;
+^
+NDC.java:308: error: <identifier> expected
+import org.apache.log4j.NDC;
+                           ^
+2 errors
+Hierarchy.java:145: error: illegal start of type
+import org.apache.log4j.Logger;
+^
+Hierarchy.java:145: error: <identifier> expected
+import org.apache.log4j.Logger;
+                              ^
+Hierarchy.java:146: error: illegal start of type
+import org.apache.log4j.spi.LoggerFactory;
+^
+Hierarchy.java:146: error: <identifier> expected
+import org.apache.log4j.spi.LoggerFactory;
+                                         ^
+4 errors
+EnhancedPatternLayout.java:537: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+EnhancedPatternLayout.java:537: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+EnhancedPatternLayout.java:538: error: illegal start of type
+import org.apache.log4j.Layout;
+^
+EnhancedPatternLayout.java:538: error: <identifier> expected
+import org.apache.log4j.Layout;
+                              ^
+4 errors
+Note: EnhancedThrowableRenderer.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+230
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/ClassReader.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/Frame.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/ClassReader.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/ClassReader.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/io/FilenameUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/builder/ReflectionToStringBuilder.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/builder/ToStringStyle.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/builder/ToStringStyle.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/json/TypeUtil.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/convert/WeakFastHashMap.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/convert/convert/BooleanConverter.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/convert/convert/CharacterConverter.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-web/src/main/java/net/hasor/web/upload/FileUpload.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-web/src/main/java/net/hasor/web/upload/MultipartStream.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-web/src/main/java/net/hasor/web/upload/ParameterParser.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-web/src/main/java/net/hasor/web/upload/MultipartStream.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-dataql/dataql-fx/src/main/java/net/hasor/dataql/fx/basic/StringUdfSource.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-dataql/dataql-fx/src/main/java/net/hasor/dataql/fx/basic/StringUdfSource.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-dataql/dataql-fx/src/main/java/net/hasor/dataql/fx/basic/StringUdfSource.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-db/src/main/java/net/hasor/db/jdbc/core/ParsedSql.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-rsf/rsf-framework/src/main/java/net/hasor/rsf/protocol/rsf/v1/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-dataql/dataql-fx/src/main/java/net/hasor/dataql/fx/web/WebUdfSource.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/framework/demoiselle-crud/src/main/java/org/demoiselle/jee/crud/pagination/PaginationHelper.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/util/AVLTree.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/util/ArrayUtil.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/util/MathUtil.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/util/ArrayUtil.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/graph/specifics/FastLookupDirectedSpecifics.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/alg/TransitiveClosure.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/alg/cycle/WeakChordalityInspector.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/alg/cycle/CycleDetector.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-opt/src/main/java/org/jgrapht/opt/graph/sparse/specifics/CSRBooleanMatrix.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/DOTEventDrivenImporter.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/uri/UriTemplate.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/QueryStringDecoder.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereResourceImpl.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/annotation/InputStreamIterator.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/annotation/FileIterator.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Objects.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
+LogBrokerMonitor.java:246: error: illegal start of type
+import javax.swing.SwingUtilities;
+^
+LogBrokerMonitor.java:246: error: <identifier> expected
+import javax.swing.SwingUtilities;
+                                 ^
+LogBrokerMonitor.java:247: error: illegal start of type
+import java.util.logging.LogRecord;
+^
+LogBrokerMonitor.java:247: error: <identifier> expected
+import java.util.logging.LogRecord;
+                                  ^
+4 errors
+LF5SwingUtils.java:59: error: illegal start of type
+import javax.swing.*;
+^
+LF5SwingUtils.java:59: error: <identifier> expected
+import javax.swing.*;
+                   ^
+LF5SwingUtils.java:60: error: illegal start of type
+import java.awt.*;
+^
+LF5SwingUtils.java:60: error: <identifier> expected
+import java.awt.*;
+                ^
+4 errors
+MRUFileManager.java:176: error: illegal start of type
+import java.io.File;
+^
+MRUFileManager.java:176: error: <identifier> expected
+import java.io.File;
+                   ^
+MRUFileManager.java:177: error: illegal start of type
+import java.io.IOException;
+^
+MRUFileManager.java:177: error: <identifier> expected
+import java.io.IOException;
+                          ^
+4 errors
+TelnetAppender.java:176: error: cannot find symbol
+    for (Client client : clients) {
+                         ^
+  symbol:   variable clients
+  location: class SocketHandler
+TelnetAppender.java:176: error: cannot find symbol
+    for (Client client : clients) {
+         ^
+  symbol:   class Client
+  location: class SocketHandler
+Note: TelnetAppender.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: TelnetAppender.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+TelnetAppender.java:114: error: illegal start of type
+import org.apache.log4j.AppenderSkeleton;
+^
+TelnetAppender.java:114: error: <identifier> expected
+import org.apache.log4j.AppenderSkeleton;
+                                        ^
+TelnetAppender.java:115: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+TelnetAppender.java:115: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+TelnetAppender.java:240: error: class, interface, enum, or record expected
+}
+^
+5 errors
+BoundedFIFO.java:70: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+BoundedFIFO.java:70: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+BoundedFIFO.java:71: error: illegal start of type
+import java.util.LinkedList;
+^
+BoundedFIFO.java:71: error: <identifier> expected
+import java.util.LinkedList;
+                           ^
+BoundedFIFO.java:72: error: illegal start of type
+import java.util.Queue;
+^
+BoundedFIFO.java:72: error: <identifier> expected
+import java.util.Queue;
+                      ^
+6 errors
+OptionConverter.java:290: error: illegal start of type
+import java.util.Properties;
+^
+OptionConverter.java:290: error: <identifier> expected
+import java.util.Properties;
+                           ^
+2 errors
+AppenderAttachableImpl.java:33: error: AppenderAttachableImpl is not abstract and does not override abstract method isAttached(Appender) in AppenderAttachable
+public class AppenderAttachableImpl implements AppenderAttachable {
+       ^
+AppenderAttachableImpl.java:111: error: cannot find symbol
+    return attachedAppenders.contains(appender);
+           ^
+  symbol:   variable attachedAppenders
+  location: class AppenderAttachableImpl
+Note: AppenderAttachableImpl.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+Note: OptionConverter.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: OptionConverter.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+CyclicBuffer.java:61: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+CyclicBuffer.java:61: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+CyclicBuffer.java:62: error: illegal start of type
+import java.util.ArrayList;
+^
+CyclicBuffer.java:62: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+CyclicBuffer.java:63: error: illegal start of type
+import java.util.List;
+^
+CyclicBuffer.java:63: error: <identifier> expected
+import java.util.List;
+                     ^
+6 errors
+AppenderAttachableImpl.java:33: error: AppenderAttachableImpl is not abstract and does not override abstract method removeAppender(String) in AppenderAttachable
+public class AppenderAttachableImpl implements AppenderAttachable {
+       ^
+AppenderAttachableImpl.java:162: error: cannot find symbol
+    appenders.removeIf(appender -> appender.getName().equals(name));
+    ^
+  symbol:   variable appenders
+  location: class AppenderAttachableImpl
+Note: AppenderAttachableImpl.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+AppenderAttachableImpl.java:55: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+AppenderAttachableImpl.java:55: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+AppenderAttachableImpl.java:56: error: illegal start of type
+import org.apache.log4j.Appender;
+^
+AppenderAttachableImpl.java:56: error: <identifier> expected
+import org.apache.log4j.Appender;
+                                ^
+4 errors
+LogRecord.java:112: error: cannot find symbol
+    return isSevereLevel() || hasThrown();
+                              ^
+  symbol:   method hasThrown()
+  location: class LogRecord
+1 error
+Note: CategoryNodeEditor.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: CategoryNodeEditor.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+MyTableModel.java:47: error: illegal start of type
+import java.util.Comparator;
+^
+MyTableModel.java:47: error: <identifier> expected
+import java.util.Comparator;
+                           ^
+2 errors
+StringMatchFilter.java:100: error: illegal start of type
+import org.apache.log4j.spi.Filter;
+^
+StringMatchFilter.java:100: error: <identifier> expected
+import org.apache.log4j.spi.Filter;
+                                  ^
+StringMatchFilter.java:101: error: illegal start of type
+import org.apache.log4j.spi.LoggingEvent;
+^
+StringMatchFilter.java:101: error: <identifier> expected
+import org.apache.log4j.spi.LoggingEvent;
+                                        ^
+4 errors
+NameAbbreviator.java:223: error: abbreviate(int,StringBuffer) in DropElementAbbreviator cannot override abbreviate(int,StringBuffer) in NameAbbreviator
+void abbreviate(final int nameStart, final StringBuffer buf) {
+     ^
+  attempting to assign weaker access privileges; was public
+Note: NameAbbreviator.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+Exception in thread "main" java.lang.NoSuchMethodError: 'java.lang.String org.apache.skywalking.oap.server.core.query.PointOfTime.id(java.lang.String)'
+	at org.apache.skywalking.oap.server.core.query.PointOfTime_id.main(PointOfTime_id.java:7)
+MergableBufferedData.java:40: error: accept(METRICS) in MergableBufferedData cannot implement accept(T) in BufferedData
+void accept(final METRICS data) {
+     ^
+  attempting to assign weaker access privileges; was public
+  where METRICS,T are type-variables:
+    METRICS extends Metrics declared in class MergableBufferedData
+    T extends Object declared in interface BufferedData
+1 error
+EBPFProfilingAnalyzer.java:118: error: illegal start of type
+import java.util.ArrayList;
+^
+EBPFProfilingAnalyzer.java:118: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+EBPFProfilingAnalyzer.java:119: error: illegal start of type
+import java.util.List;
+^
+EBPFProfilingAnalyzer.java:119: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+DataTable.java:60: error: illegal start of type
+import java.util.HashMap;
+^
+DataTable.java:60: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+DataTable.java:61: error: illegal start of type
+import java.util.Map;
+^
+DataTable.java:61: error: <identifier> expected
+import java.util.Map;
+                    ^
+4 errors
+Metrics.java:38: warning: Generating equals/hashCode implementation but without a call to superclass, even though this class does not extend java.lang.Object. If this is intentional, add '@EqualsAndHashCode(callSuper=false)' to your type.
+@EqualsAndHashCode(of = {
+^
+Metrics.java:100: error: cannot find symbol
+    return (timestamp - getLastUpdateTime()) > expiredThreshold;
+                        ^
+  symbol:   method getLastUpdateTime()
+  location: class Metrics
+1 error
+1 warning
+FeishuHookCallback.java:146: error: cannot find symbol
+public List<Object> buildArray(JsonArray jsonArray) {
+                               ^
+  symbol:   class JsonArray
+  location: class FeishuHookCallback
+1 error
+StorageModels.java:278: error: cannot find symbol
+                      .getIndices()
+                      ^
+  symbol:   method getIndices()
+  location: class SQLDatabaseExtension
+Note: StorageModels.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+SQLDatabaseExtension.java:57: error: reached end of file while parsing
+}
+ ^
+1 error
+BucketedValues.java:70: error: cannot find symbol
+    return dataset.isCompatible(this);
+                  ^
+  symbol:   method isCompatible(BucketedValues)
+  location: variable dataset of type DataTable
+1 error
+IndexStructures.java:67: error: illegal start of type
+import java.util.HashMap;
+^
+IndexStructures.java:67: error: <identifier> expected
+import java.util.HashMap;
+                        ^
+IndexStructures.java:68: error: illegal start of type
+import java.util.Map;
+^
+IndexStructures.java:68: error: <identifier> expected
+import java.util.Map;
+                    ^
+4 errors
+IndexStructures.java:125: error: class, interface, enum, or record expected
+    public boolean containsMapping(String tableName, Mappings mappings) {
+           ^
+IndexStructures.java:129: error: class, interface, enum, or record expected
+        }
+        ^
+IndexStructures.java:134: error: class, interface, enum, or record expected
+    }
+    ^
+IndexStructures.java:139: error: class, interface, enum, or record expected
+    public boolean compareIndexSetting(String tableName, Map<String, Object> settings) {
+           ^
+IndexStructures.java:143: error: class, interface, enum, or record expected
+        }
+        ^
+IndexStructures.java:148: error: class, interface, enum, or record expected
+    }
+    ^
+IndexStructures.java:232: error: class, interface, enum, or record expected
+}
+^
+7 errors
+MultipleChannelsConsumer.java:94: error: cannot find symbol
+    channels.addTarget(consumer);
+            ^
+  symbol:   method addTarget(IConsumer)
+  location: variable channels of type Channels
+Note: MultipleChannelsConsumer.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+ProfiledBasicInfo.java:128: error: illegal start of type
+import java.util.ArrayList;
+^
+ProfiledBasicInfo.java:128: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+ProfiledBasicInfo.java:129: error: illegal start of type
+import java.util.List;
+^
+ProfiledBasicInfo.java:129: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+ProfileSnapshotDumper.java:96: error: illegal start of type
+import java.io.File;
+^
+ProfileSnapshotDumper.java:96: error: <identifier> expected
+import java.io.File;
+                   ^
+ProfileSnapshotDumper.java:97: error: illegal start of type
+import java.io.IOException;
+^
+ProfileSnapshotDumper.java:97: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ProfileSnapshotDumper.java:98: error: illegal start of type
+import java.util.List;
+^
+ProfileSnapshotDumper.java:98: error: <identifier> expected
+import java.util.List;
+                     ^
+6 errors
+EBPFProcessServiceHandler.java:243: error: illegal start of type
+import com.google.gson.JsonObject;
+^
+EBPFProcessServiceHandler.java:243: error: <identifier> expected
+import com.google.gson.JsonObject;
+                                 ^
+EBPFProcessServiceHandler.java:244: error: illegal start of type
+import java.util.List;
+^
+EBPFProcessServiceHandler.java:244: error: <identifier> expected
+import java.util.List;
+                     ^
+4 errors
+Frame.java:619: error: cannot find symbol
+    if (outputFrameStack.isEmpty()) {
+        ^
+  symbol:   variable outputFrameStack
+  location: class Frame
+Frame.java:622: error: cannot find symbol
+    return outputFrameStack.pop();
+           ^
+  symbol:   variable outputFrameStack
+  location: class Frame
+2 errors
+MethodWriter.java:635: error: cannot find symbol
+    currentFrame.offset = offset;
+                ^
+  symbol:   variable offset
+  location: variable currentFrame of type int[]
+MethodWriter.java:636: error: cannot find symbol
+    currentFrame.numLocal = numLocal;
+                ^
+  symbol:   variable numLocal
+  location: variable currentFrame of type int[]
+MethodWriter.java:637: error: cannot find symbol
+    currentFrame.numStack = numStack;
+                ^
+  symbol:   variable numStack
+  location: variable currentFrame of type int[]
+MethodWriter.java:638: error: cannot find symbol
+    currentFrame.local = new Object[numLocal];
+                ^
+  symbol:   variable local
+  location: variable currentFrame of type int[]
+MethodWriter.java:639: error: cannot find symbol
+    currentFrame.stack = new Object[numStack];
+                ^
+  symbol:   variable stack
+  location: variable currentFrame of type int[]
+5 errors
+ByteVector.java:327: error: cannot find symbol
+    System.arraycopy(buffer, 0, newBuffer, 0, length);
+                     ^
+  symbol:   variable buffer
+  location: class ByteVector
+ByteVector.java:328: error: cannot find symbol
+    buffer = newBuffer;
+    ^
+  symbol:   variable buffer
+  location: class ByteVector
+2 errors
+ByteVector.java:299: error: illegal start of type
+import java.util.Arrays;
+^
+ByteVector.java:299: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+ByteVector.java:137: error: illegal start of type
+import java.nio.ByteBuffer;
+^
+ByteVector.java:137: error: <identifier> expected
+import java.nio.ByteBuffer;
+                          ^
+2 errors
+Frame.java:664: error: cannot find symbol
+        outputFrame.pop();
+        ^
+  symbol:   variable outputFrame
+  location: class Frame
+1 error
+ByteVector.java:79: error: illegal start of type
+import java.util.Arrays;
+^
+ByteVector.java:79: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+2 errors
+JSONArray.java:892: error: illegal start of type
+import com.alibaba.fastjson.JSON;
+^
+JSONArray.java:892: error: <identifier> expected
+import com.alibaba.fastjson.JSON;
+                                ^
+JSONArray.java:893: error: illegal start of type
+import com.alibaba.fastjson.serializer.SerializerFeature;
+^
+JSONArray.java:893: error: <identifier> expected
+import com.alibaba.fastjson.serializer.SerializerFeature;
+                                                        ^
+4 errors
+PrimeFinder.java:147: error: illegal start of type
+import java.util.Arrays;
+^
+PrimeFinder.java:147: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+PrimeFinder.java:213: error: ')' expected
+        if (desiredCapacity <= 73}
+                                 ^
+PrimeFinder.java:213: error: reached end of file while parsing
+        if (desiredCapacity <= 73}
+                                  ^
+4 errors
+error: file not found: ProtobufIOUtil.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+ProtobufIOUtil.java:236: error: illegal start of type
+import com.google.protobuf.CodedOutputStream;
+^
+ProtobufIOUtil.java:236: error: <identifier> expected
+import com.google.protobuf.CodedOutputStream;
+                                            ^
+ProtobufIOUtil.java:237: error: illegal start of type
+import com.google.protobuf.Schema;
+^
+ProtobufIOUtil.java:237: error: <identifier> expected
+import com.google.protobuf.Schema;
+                                 ^
+ProtobufIOUtil.java:238: error: illegal start of type
+import com.google.protobuf.util.LinkedBuffer;
+^
+ProtobufIOUtil.java:238: error: <identifier> expected
+import com.google.protobuf.util.LinkedBuffer;
+                                            ^
+ProtobufIOUtil.java:240: error: illegal start of type
+import java.io.IOException;
+^
+ProtobufIOUtil.java:240: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ProtobufIOUtil.java:241: error: illegal start of type
+import java.io.OutputStream;
+^
+ProtobufIOUtil.java:241: error: <identifier> expected
+import java.io.OutputStream;
+                           ^
+10 errors
+ByteString.java:332: error: incompatible types: byte[] cannot be converted to ByteString
+        return equals(data, 0, data.length);
+                      ^
+ByteString.java:340: error: cannot find symbol
+        if (this.content.get(i + this.contentStartPosition) != data[offset + i]) {
+                                     ^
+  symbol: variable contentStartPosition
+ByteString.java:340: error: cannot find symbol
+        if (this.content.get(i + this.contentStartPosition) != data[offset + i]) {
+                ^
+  symbol: variable content
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors
+StringSerializer.java:727: error: illegal start of type
+import java.nio.charset.StandardCharsets;
+^
+StringSerializer.java:727: error: <identifier> expected
+import java.nio.charset.StandardCharsets;
+                                        ^
+2 errors
+error: file not found: CodedInput.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+CodedInput.java:611: error: illegal start of type
+import java.io.IOException;
+^
+CodedInput.java:611: error: <identifier> expected
+import java.io.IOException;
+                          ^
+CodedInput.java:612: error: illegal start of type
+import java.io.InputStream;
+^
+CodedInput.java:612: error: <identifier> expected
+import java.io.InputStream;
+                          ^
+4 errors
+LinkedBuffer.java:118: error: illegal start of type
+import java.io.DataOutput;
+^
+LinkedBuffer.java:118: error: <identifier> expected
+import java.io.DataOutput;
+                         ^
+LinkedBuffer.java:119: error: illegal start of type
+import java.io.IOException;
+^
+LinkedBuffer.java:119: error: <identifier> expected
+import java.io.IOException;
+                          ^
+4 errors
+error: file not found: CodedInput.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+CodedInput.java:272: error: illegal start of type
+import java.io.IOException;
+^
+CodedInput.java:272: error: <identifier> expected
+import java.io.IOException;
+                          ^
+2 errors
+WriteSession.java:137: error: illegal start of type
+import java.nio.ByteBuffer;
+^
+WriteSession.java:137: error: <identifier> expected
+import java.nio.ByteBuffer;
+                          ^
+WriteSession.java:138: error: illegal start of type
+import java.util.ArrayList;
+^
+WriteSession.java:138: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+WriteSession.java:139: error: illegal start of type
+import java.util.List;
+^
+WriteSession.java:139: error: <identifier> expected
+import java.util.List;
+                     ^
+6 errors
+ByteString.java:244: error: illegal start of type
+import java.io.ByteArrayOutputStream;
+^
+ByteString.java:244: error: <identifier> expected
+import java.io.ByteArrayOutputStream;
+                                    ^
+ByteString.java:245: error: illegal start of type
+import java.io.IOException;
+^
+ByteString.java:245: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ByteString.java:246: error: illegal start of type
+import java.io.InputStream;
+^
+ByteString.java:246: error: <identifier> expected
+import java.io.InputStream;
+                          ^
+6 errors
+error: file not found: CodedInput.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+error: file not found: ByteBufferInput.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+ByteBufferInput.java:113: error: illegal start of type
+import java.io.IOException;
+^
+ByteBufferInput.java:113: error: <identifier> expected
+import java.io.IOException;
+                          ^
+2 errors
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/logging-log4j1/src/main/java/org/apache/log4j/EnhancedThrowableRenderer.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/logging-log4j1/src/main/java/org/apache/log4j/helpers/OptionConverter.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/logging-log4j1/src/main/java/org/apache/log4j/lf5/viewer/categoryexplorer/CategoryNodeEditor.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-core/src/main/java/org/apache/skywalking/oap/server/core/query/PointOfTime.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-storage-plugin/storage-elasticsearch-plugin/src/main/java/org/apache/skywalking/oap/server/storage/plugin/elasticsearch/base/TimeSeriesUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/src/main/java/com/alibaba/fastjson2/internal/asm/Frame.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
+[33.0]
+0.14347826086956522
+ 14.35%
+finish_overall
+self_contained	55
+
+  25.45%	
+
+
+slib_runnable	25
+
+  20.00%	
+
+
+class_runnable	100
+
+  10.00%	
+
+
+project_runnable	44
+
+  9.09%	
+
+
+plib_runnable	5
+
+  0.00%	
+
+
+file_runnable	1
+
+  0.00%	
+
+

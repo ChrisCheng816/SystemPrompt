@@ -1,0 +1,29 @@
+{
+    "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "language": "java",
+    "style": "retrieval",
+    "example_num": 3,
+    "counter": 0,
+    "elapsed_time": "0:00:11",
+    "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method without errors from the natural language description.  \nFollow these rules strictly:\n1. Output only code, no explanations or comments.\n2. The code must include all necessary imports, libraries and dependencies.",
+    "BLEU_Smooth": {
+        "bleu": 0.3997904597902888,
+        "precisions": [
+            0.663416054144531,
+            0.514543705129154,
+            0.4212032226488969,
+            0.35805685388092867
+        ],
+        "brevity_penalty": 0.8393042950312917,
+        "length_ratio": 0.8509320616832848,
+        "translation_length": 13740,
+        "reference_length": 16147
+    },
+    "CodeBleu": {
+        "codebleu": 41.6950699898541,
+        "ngram_match_score": 0.3858489406296572,
+        "weighted_ngram_match_score": 0.4086218511160236,
+        "syntax_match_score": 0.42862750228967683,
+        "dataflow_match_score": 0.4447045055588063
+    }
+}

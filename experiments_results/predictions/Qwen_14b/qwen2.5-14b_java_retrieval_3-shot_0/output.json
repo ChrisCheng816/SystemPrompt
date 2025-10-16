@@ -1,0 +1,29 @@
+{
+    "model_name": "Qwen/Qwen2.5-Coder-14B-Instruct",
+    "language": "java",
+    "style": "retrieval",
+    "example_num": 3,
+    "counter": 0,
+    "elapsed_time": "0:01:22",
+    "system_prompt": "You are a highly skilled code generator.",
+    "BLEU_Smooth": {
+        "bleu": 0.4551406044474835,
+        "precisions": [
+            0.6145541051604245,
+            0.48700816629547145,
+            0.40768168695870466,
+            0.35169383596535914
+        ],
+        "brevity_penalty": 1.0,
+        "length_ratio": 1.0152350281786091,
+        "translation_length": 16393,
+        "reference_length": 16147
+    },
+    "CodeBleu": {
+        "codebleu": 46.63765721970067,
+        "ngram_match_score": 0.4358647437896061,
+        "weighted_ngram_match_score": 0.46661066745369834,
+        "syntax_match_score": 0.4829255527934057,
+        "dataflow_match_score": 0.48010532475131656
+    }
+}

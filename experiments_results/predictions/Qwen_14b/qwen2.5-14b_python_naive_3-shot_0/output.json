@@ -1,0 +1,29 @@
+{
+    "model_name": "Qwen/Qwen2.5-Coder-14B-Instruct",
+    "language": "python",
+    "style": "naive",
+    "example_num": 3,
+    "counter": 3,
+    "elapsed_time": "0:01:25",
+    "system_prompt": "You are a highly skilled code generator.",
+    "BLEU_Smooth": {
+        "bleu": 0.2313112521874508,
+        "precisions": [
+            0.7409384844967667,
+            0.597574421168688,
+            0.5430033325478844,
+            0.510531492724621
+        ],
+        "brevity_penalty": 0.3907931688443743,
+        "length_ratio": 0.5155763772526758,
+        "translation_length": 30154,
+        "reference_length": 58486
+    },
+    "CodeBleu": {
+        "codebleu": 26.916235335508375,
+        "ngram_match_score": 0.23114865350583355,
+        "weighted_ngram_match_score": 0.30433442888733825,
+        "syntax_match_score": 0.32170347003154576,
+        "dataflow_match_score": 0.2194628609956175
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "model_name": "openai/gpt-oss-20b",
+    "language": "python",
+    "style": "zero",
+    "example_num": 0,
+    "counter": 0,
+    "elapsed_time": "0:00:52",
+    "system_prompt": "You are a highly skilled code generator.",
+    "BLEU_Smooth": {
+        "bleu": 0.15301108086908388,
+        "precisions": [
+            0.3113280744859692,
+            0.15895607067596046,
+            0.11640684688785213,
+            0.0951519300991132
+        ],
+        "brevity_penalty": 1.0,
+        "length_ratio": 1.0577403139212802,
+        "translation_length": 61863,
+        "reference_length": 58486
+    },
+    "CodeBleu": {
+        "codebleu": 21.143353967643254,
+        "ngram_match_score": 0.15337244527105004,
+        "weighted_ngram_match_score": 0.16290967490768438,
+        "syntax_match_score": 0.18233438485804415,
+        "dataflow_match_score": 0.3471176536689516
+    }
+}

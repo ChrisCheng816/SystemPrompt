@@ -1,0 +1,29 @@
+{
+    "model_name": "openai/gpt-oss-20b",
+    "language": "python",
+    "style": "zero",
+    "example_num": 0,
+    "counter": 0,
+    "elapsed_time": "0:00:51",
+    "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method without errors from the natural language description.\nFollow these rules strictly:\n1. Output only code, no explanations or comments.\n2. The code must include all necessary imports, libraries and dependencies.\n3. Carefully consider the steps required to fulfill the function’s purpose stated in the natural language prompt.\n4. Ensure the generated method or class can be run directly in isolation.",
+    "BLEU_Smooth": {
+        "bleu": 0.19051698815703097,
+        "precisions": [
+            0.35722996515679445,
+            0.19896826090758066,
+            0.15309812181850097,
+            0.13059642322262355
+        ],
+        "brevity_penalty": 0.9812405778197593,
+        "length_ratio": 0.9814143555722737,
+        "translation_length": 57399,
+        "reference_length": 58486
+    },
+    "CodeBleu": {
+        "codebleu": 25.710295378529015,
+        "ngram_match_score": 0.18727247888331966,
+        "weighted_ngram_match_score": 0.19060531318857757,
+        "syntax_match_score": 0.2983596214511041,
+        "dataflow_match_score": 0.3521744016181593
+    }
+}
