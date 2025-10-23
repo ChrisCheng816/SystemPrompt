@@ -2839,15 +2839,6 @@ Boxes.java:58: error: <identifier> expected
 import java.util.List;
                      ^
 4 errors
-Exception in thread "main" java.lang.NoClassDefFoundError: org/jgrapht/util/SupplierUtil$1
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:186)
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:172)
-	at org.jgrapht.alg.drawing.model.Points_equals.main(Points_equals.java:14)
-Caused by: java.lang.ClassNotFoundException: org.jgrapht.util.SupplierUtil$1
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
-	... 3 more
 FixedSizeIntegerQueue.java:98: error: cannot find symbol
             "queueName='" + queueName + '\'' +
                             ^
@@ -4309,9 +4300,9 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/prot
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/ByteString.class
-[66.0]
-0.28695652173913044
- 28.70%
+[67.0]
+0.29130434782608694
+ 29.13%
 finish_overall
 self_contained	55
 
@@ -4330,7 +4321,7 @@ class_runnable	100
 
 project_runnable	44
 
-  13.64%	
+  15.91%	
 
 
 plib_runnable	5

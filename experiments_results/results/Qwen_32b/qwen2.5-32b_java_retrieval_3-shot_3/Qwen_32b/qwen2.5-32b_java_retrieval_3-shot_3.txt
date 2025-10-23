@@ -2584,8 +2584,16 @@ JSONArray.java:893: error: <identifier> expected
 import com.alibaba.fastjson.JSON;
                                 ^
 4 errors
-Exception in thread "main" java.lang.NoSuchMethodError: 'int com.alibaba.fastjson2.internal.trove.impl.PrimeFinder.nextPrime(int)'
-	at com.alibaba.fastjson2.internal.trove.impl.PrimeFinder_nextPrime.main(PrimeFinder_nextPrime.java:7)
+PrimeFinder.java:147: error: illegal start of type
+import java.util.Arrays;
+^
+PrimeFinder.java:147: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+PrimeFinder.java:156: error: reached end of file while parsing
+        461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547,}
+                                                                         ^
+3 errors
 error: file not found: ProtobufIOUtil.java
 Usage: javac <options> <source files>
 use --help for a list of possible options
@@ -2634,6 +2642,25 @@ StringSerializer.java:317: error: <identifier> expected
 import java.nio.charset.StandardCharsets;
                                         ^
 2 errors
+StringSerializer.java:727: error: illegal start of type
+import com.dyuproject.protostuff.LinkedBuffer;
+^
+StringSerializer.java:727: error: <identifier> expected
+import com.dyuproject.protostuff.LinkedBuffer;
+                                             ^
+StringSerializer.java:728: error: illegal start of type
+import com.dyuproject.protostuff.WriteSession;
+^
+StringSerializer.java:728: error: <identifier> expected
+import com.dyuproject.protostuff.WriteSession;
+                                             ^
+StringSerializer.java:779: error: illegal start of expression
+    public static LinkedBuffer writeAscii(final CharSequence str, final WriteSession session,
+    ^
+StringSerializer.java:1370: error: reached end of file while parsing
+}
+ ^
+6 errors
 error: file not found: CodedInput.java
 Usage: javac <options> <source files>
 use --help for a list of possible options
@@ -2775,13 +2802,11 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/logging-log4j1/
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-core/src/main/java/org/apache/skywalking/oap/server/core/query/PointOfTime.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-core/src/main/java/org/apache/skywalking/oap/server/core/analysis/metrics/Metrics.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/src/main/java/com/alibaba/fastjson2/internal/asm/ByteVector.class
-javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/src/main/java/com/alibaba/fastjson2/internal/trove/impl/PrimeFinder.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
-javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
-[31.0]
-0.13478260869565217
- 13.48%
+[30.0]
+0.13043478260869565
+ 13.04%
 finish_overall
 self_contained	55
 
@@ -2800,7 +2825,7 @@ class_runnable	100
 
 project_runnable	44
 
-  2.27%	
+  0.00%	
 
 
 plib_runnable	5

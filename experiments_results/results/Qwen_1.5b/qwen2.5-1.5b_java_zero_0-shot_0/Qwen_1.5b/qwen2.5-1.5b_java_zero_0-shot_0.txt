@@ -1255,9 +1255,9 @@ import java.io.IOException;
                           ^
 4 errors
 Exception in thread "main" java.lang.StackOverflowError
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:313)
+	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:74)
 	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:87)
-	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:89)
-	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:89)
 	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:89)
 	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:89)
 	at net.hasor.utils.io.output.ThresholdingOutputStream.write(ThresholdingOutputStream.java:89)

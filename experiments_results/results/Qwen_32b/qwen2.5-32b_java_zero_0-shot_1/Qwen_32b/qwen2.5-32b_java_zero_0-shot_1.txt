@@ -1664,8 +1664,6 @@ Exception in thread "main" java.lang.NullPointerException: Cannot invoke "String
 	at net.hasor.web.upload.util.MimeUtility.javaCharset(MimeUtility.java:229)
 	at net.hasor.web.upload.util.MimeUtility_javaCharset.main(MimeUtility_javaCharset.java:10)
 Exception in thread "main" java.lang.StackOverflowError
-	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:505)
-	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:565)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:540)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
@@ -2688,7 +2686,9 @@ Exception in thread "main" java.lang.StackOverflowError
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
-Exception in thread "main" java.io.NotSerializableException: org.jgrapht.util.SupplierUtil$$Lambda$4/0x00007ac1a0001cb8
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
+Exception in thread "main" java.io.NotSerializableException: org.jgrapht.util.SupplierUtil$$Lambda$4/0x00007c23ac001cb8
 	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1187)
 	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:350)
 	at org.jgrapht.util.SupplierUtil_createStringSupplier.serializeAndDeserialize(SupplierUtil_createStringSupplier.java:30)

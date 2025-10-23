@@ -2548,30 +2548,11 @@ AtmosphereRequestImpl.java:1294: error: cannot find symbol
                   ^
   symbol:   method getBody()
   location: class Body
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.java:2066: warning: [dep-ann] deprecated item is not annotated with @Deprecated
-    public AsyncSupport getCometSupport() {
-                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:163: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
-                            params[0] = new Integer(value);
-                                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:171: warning: [removal] Long(String) in Long has been deprecated and marked for removal
-                            params[0] = new Long(value);
-                                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:179: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
-                        params[0] = new Boolean(value);
-                                    ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:826: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
-                result = new Integer(object);
-                         ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:832: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
-            result = new Boolean(object);
-                     ^
-Note: Some input files use or override a deprecated API.
+Note: AtmosphereRequestImpl.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-Note: Some input files use unchecked or unsafe operations.
+Note: AtmosphereRequestImpl.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 1 error
-6 warnings
 Meteor.java:65: error: illegal start of type
 import javax.servlet.http.HttpServletRequest;
 ^

@@ -9834,9 +9834,9 @@ import io.swagger.jaxrs.PATCH;
 8 errors
 4 warnings
 Exception in thread "main" java.lang.StackOverflowError
-	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:505)
-	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:565)
+	at org.jgrapht.util.AVLTree$TreeNode.substituteChild(AVLTree.java:1122)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:540)
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)

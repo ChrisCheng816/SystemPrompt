@@ -1716,22 +1716,82 @@ Note: Recompile with -Xlint:deprecation for details.
 6 errors
 Note: ClassReader.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-Frame.java:952: error: incompatible types: String cannot be converted to int
-            pop(argSymbol.value);
-                         ^
-Frame.java:959: error: incompatible types: String cannot be converted to int
-            pop(argSymbol.value);
-                         ^
-Frame.java:966: error: incompatible types: String cannot be converted to int
-            pop(argSymbol.value);
-                         ^
-Frame.java:976: error: incompatible types: String cannot be converted to int
-            pop(argSymbol.value);
-                         ^
-Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/ClassReader.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-4 errors
+Frame.java:608: error: illegal start of expression
+    public void addInitializedType(final int abstractType) {
+    ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+           ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                  ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                   ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                         ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                             ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                                         ^
+Frame.java:608: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                                           ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+        ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+           ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+            ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+                            ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+                               ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+                                   ^
+Frame.java:610: error: case, default, or '}' expected
+        if (initializations == null) {
+                                     ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+            ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                            ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                              ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                                  ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                                     ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                                      ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                                       ^
+Frame.java:611: error: case, default, or '}' expected
+            initializations = new int[2];
+                                        ^
+Frame.java:632: error: illegal start of expression
+    public int getInitializedType(final SymbolTable symbolTable, final int abstractType) {
+    ^
+25 errors
 Frame.java:564: error: cannot find symbol
     if (initializedTypes == null) {
         ^
@@ -5939,17 +5999,82 @@ Frame.java:638: error: cannot find symbol
   symbol:   variable pos
   location: class Frame
 3 errors
-Frame.java:978: error: incompatible types: String cannot be converted to int
-                pop(argSymbol.value);
-                             ^
-Frame.java:985: error: incompatible types: String cannot be converted to int
-                pop(argSymbol.value);
-                             ^
-Frame.java:992: error: incompatible types: String cannot be converted to int
-                pop(argSymbol.value);
-                             ^
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-3 errors
+Frame.java:712: error: illegal start of expression
+    public void addInitializedType(final int abstractType) {
+    ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+           ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                  ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                   ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                         ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                             ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                                         ^
+Frame.java:712: error: case, default, or '}' expected
+    public void addInitializedType(final int abstractType) {
+                                                           ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+        ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+           ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+            ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+                            ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+                               ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+                                   ^
+Frame.java:714: error: case, default, or '}' expected
+        if (initializations == null) {
+                                     ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+            ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                            ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                              ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                                  ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                                     ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                                      ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                                       ^
+Frame.java:715: error: case, default, or '}' expected
+            initializations = new int[2];
+                                        ^
+Frame.java:737: error: illegal start of expression
+    public int getInitializedType(final SymbolTable symbolTable, final int abstractType) {
+    ^
+25 errors
 JSONArray.java:893: error: cannot find symbol
     StringWriter stringWriter = new StringWriter();
     ^

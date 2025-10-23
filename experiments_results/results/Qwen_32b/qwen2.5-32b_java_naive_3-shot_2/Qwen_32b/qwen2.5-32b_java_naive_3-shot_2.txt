@@ -3474,6 +3474,22 @@ StringSerializer.java:317: error: <identifier> expected
 import java.nio.charset.StandardCharsets;
                                         ^
 2 errors
+StringSerializer.java:727: error: illegal start of type
+import com.dyuproject.protostuff.LinkedBuffer;
+^
+StringSerializer.java:727: error: <identifier> expected
+import com.dyuproject.protostuff.LinkedBuffer;
+                                             ^
+StringSerializer.java:728: error: illegal start of type
+import com.dyuproject.protostuff.WriteSession;
+^
+StringSerializer.java:728: error: <identifier> expected
+import com.dyuproject.protostuff.WriteSession;
+                                             ^
+StringSerializer.java:770: error: illegal start of expression
+    public static LinkedBuffer writeAscii(final CharSequence str, final WriteSession session,
+    ^
+5 errors
 error: file not found: CodedInput.java
 Usage: javac <options> <source files>
 use --help for a list of possible options
@@ -3609,11 +3625,10 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/logging-log4j1/
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-core/src/main/java/org/apache/skywalking/oap/server/core/query/PointOfTime.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
-javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
-[31.0]
-0.13478260869565217
- 13.48%
+[30.0]
+0.13043478260869565
+ 13.04%
 finish_overall
 self_contained	55
 
@@ -3632,7 +3647,7 @@ class_runnable	100
 
 project_runnable	44
 
-  9.09%	
+  6.82%	
 
 
 plib_runnable	5

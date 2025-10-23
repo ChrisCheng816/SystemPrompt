@@ -2932,15 +2932,6 @@ Boxes.java:61: error: cannot find symbol
   symbol:   method getY()
   location: variable arg0 of type Box2D
 4 errors
-Exception in thread "main" java.lang.NoClassDefFoundError: org/jgrapht/util/SupplierUtil$1
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:186)
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:172)
-	at org.jgrapht.alg.drawing.model.Points_equals.main(Points_equals.java:14)
-Caused by: java.lang.ClassNotFoundException: org.jgrapht.util.SupplierUtil$1
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
-	... 3 more
 FixedSizeIntegerQueue.java:98: error: cannot find symbol
             "queueName='" + queueName + '\'' +
                             ^
@@ -3802,52 +3793,13 @@ Exception in thread "main" java.lang.IndexOutOfBoundsException: Index 0 out of b
 	at java.base/java.util.Objects.checkIndex(Objects.java:361)
 	at java.base/java.util.ArrayList.get(ArrayList.java:427)
 	at org.apache.skywalking.oap.server.library.datacarrier.consumer.MultipleChannelsConsumer_addNewTarget.main(MultipleChannelsConsumer_addNewTarget.java:51)
-ProfiledBasicInfo.java:76: error: cannot find symbol
-        List<BasicTrace> taskTraces = taskQueryService.getTaskTraces(config.getTaskId());
-                                                                           ^
-  symbol:   method getTaskId()
-  location: variable config of type ExporterConfig
-ProfiledBasicInfo.java:77: error: cannot find symbol
-        BasicTrace profiledTrace = taskTraces.stream().filter(t -> t.getTraceIds().contains(config.getTraceId())).findFirst().orElse(null);
-                                                                                                  ^
-  symbol:   method getTraceId()
-  location: variable config of type ExporterConfig
-ProfiledBasicInfo.java:79: error: cannot find symbol
-            throw new IllegalArgumentException("Cannot fount profiled segment in current task: " + config.getTaskId()
-                                                                                                         ^
-  symbol:   method getTaskId()
-  location: variable config of type ExporterConfig
-ProfiledBasicInfo.java:80: error: cannot find symbol
-                    + ", segment id: " + config.getTraceId() + ", current task total profiled trace count is " + taskTraces.size());
-                                               ^
-  symbol:   method getTraceId()
-  location: variable config of type ExporterConfig
-ProfiledBasicInfo.java:93: error: cannot find symbol
-        Trace trace = traceQueryService.queryTrace(config.getTraceId());
-                                                         ^
-  symbol:   method getTraceId()
-  location: variable config of type ExporterConfig
-ProfiledBasicInfo.java:114: error: cannot find symbol
-        File file = new File(config.getAnalyzeResultDist() + File.separator + "basic.yml");
-                                   ^
-  symbol:   method getAnalyzeResultDist()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.java:47: error: cannot find symbol
-        config.setTaskId(args[0]);
-              ^
-  symbol:   method setTaskId(String)
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.java:48: error: cannot find symbol
-        config.setTraceId(args[1]);
-              ^
-  symbol:   method setTraceId(String)
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.java:49: error: cannot find symbol
-        config.setAnalyzeResultDist(args[2]);
-              ^
-  symbol:   method setAnalyzeResultDist(String)
-  location: variable config of type ExporterConfig
-9 errors
+Exception in thread "main" java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.apache.skywalking.oap.server.tool.profile.exporter.ProfiledBasicInfo_buildSequenceRanges.main(ProfiledBasicInfo_buildSequenceRanges.java:13)
 ProfileSnapshotDumper.java:96: error: illegal start of type
 import java.io.BufferedReader;
 ^
@@ -4067,6 +4019,7 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-storage-plugin/storage-elasticsearch-plugin/src/main/java/org/apache/skywalking/oap/server/storage/plugin/elasticsearch/base/TimeSeriesUtils.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-library/library-datacarrier-queue/src/main/java/org/apache/skywalking/oap/server/library/datacarrier/consumer/MultipleChannelsConsumer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-receiver-plugin/skywalking-ebpf-receiver-plugin/src/main/java/org/apache/skywalking/oap/server/receiver/ebpf/provider/handler/EBPFProcessServiceHandler.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/src/main/java/com/alibaba/fastjson2/internal/asm/ByteVector.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/src/main/java/com/alibaba/fastjson2/internal/asm/ByteVector.class
@@ -4077,9 +4030,9 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/prot
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/ByteString.class
-[86.0]
-0.3739130434782609
- 37.39%
+[87.0]
+0.3782608695652174
+ 37.83%
 finish_overall
 self_contained	55
 
@@ -4098,7 +4051,7 @@ class_runnable	100
 
 project_runnable	44
 
-  20.45%	
+  22.73%	
 
 
 plib_runnable	5

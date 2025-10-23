@@ -626,27 +626,31 @@ ClassReader.java:2268: error: <identifier> expected
 import org.objectweb.asm.Label;
                               ^
 2 errors
-ClassReader.java:1125: error: method readUtf in class ClassReader cannot be applied to given types;
-        MethodVisitor methodVisitor = classVisitor.visitMethod(context.currentMethodAccessFlags, context.currentMethodName, context.currentMethodDescriptor, signatureIndex == 0 ? null : readUtf(signatureIndex, charBuffer), exceptions);
-                                                                                                                                                                                          ^
-  required: int,int,char[]
-  found:    int,char[]
-  reason: actual and formal argument lists differ in length
-ClassReader.java:3153: error: method readUtf in class ClassReader cannot be applied to given types;
-        return readUtf(constantPoolEntryIndex, charBuffer);
-               ^
-  required: int,int,char[]
-  found:    int,char[]
-  reason: actual and formal argument lists differ in length
-/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/SymbolTable.java:162: error: method readUtf in class ClassReader cannot be applied to given types;
-                addConstantUtf8(itemIndex, classReader.readUtf(itemIndex, charBuffer));
-                                                      ^
-  required: int,int,char[]
-  found:    int,char[]
-  reason: actual and formal argument lists differ in length
-Note: ClassReader.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-3 errors
+ClassReader.java:3156: error: illegal start of type
+import java.io.ByteArrayInputStream;
+^
+ClassReader.java:3156: error: <identifier> expected
+import java.io.ByteArrayInputStream;
+                                   ^
+ClassReader.java:3157: error: illegal start of type
+import java.io.DataInputStream;
+^
+ClassReader.java:3157: error: <identifier> expected
+import java.io.DataInputStream;
+                              ^
+ClassReader.java:3158: error: illegal start of type
+import java.io.IOException;
+^
+ClassReader.java:3158: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ClassReader.java:3228: error: illegal start of expression
+    public String readUtf(final int utfOffset, final int utfLength, final char[] charBuffer) {
+    ^
+ClassReader.java:3385: error: reached end of file while parsing
+}
+ ^
+8 errors
 Type.java:830: error: illegal start of type
 import java.util.Objects;
 ^
@@ -2612,8 +2616,16 @@ JSONArray.java:893: error: <identifier> expected
 import com.alibaba.fastjson.JSON;
                                 ^
 4 errors
-Exception in thread "main" java.lang.NoSuchMethodError: 'int com.alibaba.fastjson2.internal.trove.impl.PrimeFinder.nextPrime(int)'
-	at com.alibaba.fastjson2.internal.trove.impl.PrimeFinder_nextPrime.main(PrimeFinder_nextPrime.java:7)
+PrimeFinder.java:147: error: illegal start of type
+import java.util.Arrays;
+^
+PrimeFinder.java:147: error: <identifier> expected
+import java.util.Arrays;
+                       ^
+PrimeFinder.java:156: error: reached end of file while parsing
+        461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547,}
+                                                                         ^
+3 errors
 TextFormat.java:300: error: illegal start of type
 import java.lang.Character;
 ^
@@ -2804,7 +2816,6 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-com
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/builder/ToStringStyle.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/QueryStringDecoder.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
-javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/src/main/java/com/alibaba/fastjson2/internal/trove/impl/PrimeFinder.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
 [12.0]
 0.05217391304347826

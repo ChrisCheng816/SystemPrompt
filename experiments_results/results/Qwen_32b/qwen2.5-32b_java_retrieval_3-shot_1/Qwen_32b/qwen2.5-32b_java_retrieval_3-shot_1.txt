@@ -3812,8 +3812,6 @@ public static String javaCharset(String charset) { return Charset.forName(charse
   location: class MimeUtility
 1 error
 Exception in thread "main" java.lang.StackOverflowError
-	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:500)
-	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:560)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:535)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
@@ -4836,7 +4834,9 @@ Exception in thread "main" java.lang.StackOverflowError
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
-Exception in thread "main" java.io.NotSerializableException: org.jgrapht.util.SupplierUtil$$Lambda$4/0x000076b330001cb8
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:538)
+Exception in thread "main" java.io.NotSerializableException: org.jgrapht.util.SupplierUtil$$Lambda$4/0x00007a766c001cb8
 	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1187)
 	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:350)
 	at org.jgrapht.util.SupplierUtil_createStringSupplier.serializeAndDeserialize(SupplierUtil_createStringSupplier.java:30)

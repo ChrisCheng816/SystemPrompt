@@ -1763,9 +1763,9 @@ import io.swagger.jaxrs.PATCH;
 8 errors
 4 warnings
 Exception in thread "main" java.lang.StackOverflowError
+	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:505)
+	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:565)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:540)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
@@ -3372,28 +3372,12 @@ Note: Recompile with -Xlint:unchecked for details.
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-TypeResolver.java:111: error: method resolveArguments in class TypeResolver cannot be applied to given types;
-        Class<?>[] arguments = resolveArguments(genericType, targetType);
-                               ^
-  required: Class<I>,Class<T>
-  found:    Type,Class<CAP#1>
-  reason: cannot infer type-variable(s) T,I
-    (argument mismatch; Type cannot be converted to Class<I>)
-  where I,T are type-variables:
-    I extends T declared in method <T,I>resolveArguments(Class<I>,Class<T>)
-    T extends Object declared in method <T,I>resolveArguments(Class<I>,Class<T>)
-  where CAP#1 is a fresh type-variable:
-    CAP#1 extends Object from capture of ?
-TypeResolver.java:135: error: method resolveArguments in class TypeResolver cannot be applied to given types;
-        return resolveArguments(resolveGenericType(initialType, targetType), initialType);
-               ^
-  required: Class<I>,Class<T>
-  found:    Type,Class<I>
-  reason: cannot infer type-variable(s) T,I
-    (argument mismatch; Type cannot be converted to Class<I>)
-  where I,T are type-variables:
-    I extends T declared in method <T,I>resolveArguments(Class<I>,Class<T>)
-    T extends Object declared in method <T,I>resolveArguments(Class<I>,Class<T>)
+TypeResolver.java:192: error: ';' expected
+            TypeVariable<?>[] typeVariables
+                                           ^
+TypeResolver.java:197: error: illegal start of expression
+    public static Type resolveGenericType(Type initialType, Class<?> targetType) {
+    ^
 2 errors
 AtmosphereRequestImpl.java:1404: error: AtmosphereRequest is abstract; cannot be instantiated
     return new AtmosphereRequest(request);
@@ -5502,11 +5486,7 @@ ProtobufIOUtil.java:240: error: cannot find symbol
                             ^
   symbol:   method encodeRawVarint32(int)
   location: class ProtobufOutput
-ProtobufIOUtil.java:259: error: incompatible types: DataOutput cannot be converted to OutputStream
-        final int msgSize = LinkedBuffer.writeTo(out, buffer);
-                                                 ^
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-3 errors
+2 errors
 ByteString.java:339: error: cannot find symbol
     if (len != this.content.length) {
                    ^
@@ -5515,6 +5495,13 @@ ByteString.java:343: error: cannot find symbol
         if (this.content[i] != data[offset + i]) {
                 ^
   symbol: variable content
+2 errors
+StringSerializer.java:764: error: ')' expected
+            lb.buffer[lb.offset++] = (byte) (0x80 | (c & 0x3
+                                                            ^
+StringSerializer.java:770: error: illegal start of expression
+    public static LinkedBuffer writeAscii(final CharSequence str, final WriteSession session,
+    ^
 2 errors
 error: file not found: CodedInput.java
 Usage: javac <options> <source files>
@@ -5595,12 +5582,11 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/fastjson2/core/
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-parser/src/main/java/io/protostuff/parser/TextFormat.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
-javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/LinkedBuffer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
-[86.0]
-0.3739130434782609
- 37.39%
+[85.0]
+0.3695652173913043
+ 36.96%
 finish_overall
 self_contained	55
 
@@ -5619,7 +5605,7 @@ class_runnable	100
 
 project_runnable	44
 
-  18.18%	
+  15.91%	
 
 
 plib_runnable	5

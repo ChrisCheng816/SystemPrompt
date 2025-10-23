@@ -1536,9 +1536,9 @@ import java.nio.charset.StandardCharsets;
                                         ^
 4 errors
 Exception in thread "main" java.lang.StackOverflowError
+	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:505)
+	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:565)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:540)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)

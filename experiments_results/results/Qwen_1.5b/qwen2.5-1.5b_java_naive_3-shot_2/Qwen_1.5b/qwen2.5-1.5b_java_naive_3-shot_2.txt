@@ -1669,9 +1669,9 @@ Exception in thread "main" java.lang.NullPointerException: Cannot invoke "String
 	at net.hasor.web.upload.util.MimeUtility.javaCharset(MimeUtility.java:229)
 	at net.hasor.web.upload.util.MimeUtility_javaCharset.main(MimeUtility_javaCharset.java:10)
 Exception in thread "main" java.lang.StackOverflowError
-	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:505)
-	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:565)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:540)
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
+	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)

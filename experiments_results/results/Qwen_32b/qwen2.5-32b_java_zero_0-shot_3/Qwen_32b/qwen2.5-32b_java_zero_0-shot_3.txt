@@ -745,27 +745,34 @@ ClassReader.java:2268: error: <identifier> expected
 import org.objectweb.asm.Label;
                               ^
 2 errors
-ClassReader.java:1125: error: method readUtf in class ClassReader cannot be applied to given types;
-        MethodVisitor methodVisitor = classVisitor.visitMethod(context.currentMethodAccessFlags, context.currentMethodName, context.currentMethodDescriptor, signatureIndex == 0 ? null : readUtf(signatureIndex, charBuffer), exceptions);
-                                                                                                                                                                                          ^
-  required: int,int,char[]
-  found:    int,char[]
-  reason: actual and formal argument lists differ in length
-ClassReader.java:3153: error: method readUtf in class ClassReader cannot be applied to given types;
-        return readUtf(constantPoolEntryIndex, charBuffer);
-               ^
-  required: int,int,char[]
-  found:    int,char[]
-  reason: actual and formal argument lists differ in length
-/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/asm/SymbolTable.java:162: error: method readUtf in class ClassReader cannot be applied to given types;
-                addConstantUtf8(itemIndex, classReader.readUtf(itemIndex, charBuffer));
-                                                      ^
-  required: int,int,char[]
-  found:    int,char[]
-  reason: actual and formal argument lists differ in length
-Note: ClassReader.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-3 errors
+ClassReader.java:3156: error: illegal start of type
+import java.io.ByteArrayInputStream;
+^
+ClassReader.java:3156: error: <identifier> expected
+import java.io.ByteArrayInputStream;
+                                   ^
+ClassReader.java:3157: error: illegal start of type
+import java.io.DataInputStream;
+^
+ClassReader.java:3157: error: <identifier> expected
+import java.io.DataInputStream;
+                              ^
+ClassReader.java:3158: error: illegal start of type
+import java.io.IOException;
+^
+ClassReader.java:3158: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ClassReader.java:3220: error: ')' expected
+            return new String(charBuffer
+                                        ^
+ClassReader.java:3230: error: illegal start of expression
+    public String readUtf(final int utfOffset, final int utfLength, final char[] charBuffer) {
+    ^
+ClassReader.java:3387: error: reached end of file while parsing
+}
+ ^
+9 errors
 Type.java:830: error: illegal start of type
 import java.util.Objects;
 ^
@@ -1757,10 +1764,43 @@ BoyerMyrvoldPlanarityInspector.java:1728: error: <identifier> expected
 import java.util.Map;
                     ^
 4 errors
-Exception in thread "main" java.lang.NoSuchMethodError: 'org.jgrapht.GraphPath org.jgrapht.alg.tour.GreedyHeuristicTSP.edgeSetToTour(java.util.Set, org.jgrapht.Graph)'
-	at org.jgrapht.alg.tour.GreedyHeuristicTSP.getTour(GreedyHeuristicTSP.java:110)
-	at org.jgrapht.alg.tour.HamiltonianCycleAlgorithmBase_edgeSetToTour.isT(HamiltonianCycleAlgorithmBase_edgeSetToTour.java:43)
-	at org.jgrapht.alg.tour.HamiltonianCycleAlgorithmBase_edgeSetToTour.main(HamiltonianCycleAlgorithmBase_edgeSetToTour.java:89)
+HamiltonianCycleAlgorithmBase.java:82: error: illegal start of type
+import org.jgrapht.Graph;
+^
+HamiltonianCycleAlgorithmBase.java:82: error: <identifier> expected
+import org.jgrapht.Graph;
+                        ^
+HamiltonianCycleAlgorithmBase.java:83: error: illegal start of type
+import org.jgrapht.GraphPath;
+^
+HamiltonianCycleAlgorithmBase.java:83: error: <identifier> expected
+import org.jgrapht.GraphPath;
+                            ^
+HamiltonianCycleAlgorithmBase.java:84: error: illegal start of type
+import org.jgrapht.graph.GraphWalk;
+^
+HamiltonianCycleAlgorithmBase.java:84: error: <identifier> expected
+import org.jgrapht.graph.GraphWalk;
+                                  ^
+HamiltonianCycleAlgorithmBase.java:85: error: illegal start of type
+import org.jgrapht.traverse.DepthFirstIterator;
+^
+HamiltonianCycleAlgorithmBase.java:85: error: <identifier> expected
+import org.jgrapht.traverse.DepthFirstIterator;
+                                              ^
+HamiltonianCycleAlgorithmBase.java:87: error: illegal start of type
+import java.util.*;
+^
+HamiltonianCycleAlgorithmBase.java:87: error: <identifier> expected
+import java.util.*;
+                 ^
+HamiltonianCycleAlgorithmBase.java:142: error: ';' expected
+        public void vertexFinished(org.jgrapht.event.VertexTraversalEvent<V> e)
+                                                                               ^
+HamiltonianCycleAlgorithmBase.java:188: error: reached end of file while parsing
+}
+ ^
+12 errors
 WeakChordalityInspector.java:453: error: illegal start of type
 import java.util.List;
 ^
@@ -2105,38 +2145,22 @@ Meteor.java:65: error: <identifier> expected
 import javax.servlet.http.HttpServletRequest;
                                             ^
 2 errors
-AtmosphereResourceImpl.java:49: error: AtmosphereResourceImpl is not abstract and does not override abstract method addEventListener(AtmosphereResourceEventListener) in AtmosphereResource
-public class AtmosphereResourceImpl implements AtmosphereResource {
-       ^
-AtmosphereResourceImpl.java:929: error: cannot find symbol
-            addEventListener(l);
-            ^
-  symbol:   method addEventListener(AtmosphereResourceEventListener)
-  location: class AtmosphereResourceImpl
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.java:2066: warning: [dep-ann] deprecated item is not annotated with @Deprecated
-    public AsyncSupport getCometSupport() {
-                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:163: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
-                            params[0] = new Integer(value);
-                                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:171: warning: [removal] Long(String) in Long has been deprecated and marked for removal
-                            params[0] = new Long(value);
-                                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:179: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
-                        params[0] = new Boolean(value);
-                                    ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:826: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
-                result = new Integer(object);
-                         ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:832: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
-            result = new Boolean(object);
-                     ^
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-2 errors
-6 warnings
+AtmosphereResourceImpl.java:599: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereResource;
+^
+AtmosphereResourceImpl.java:599: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereResource;
+                                            ^
+AtmosphereResourceImpl.java:600: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereResourceEventListener;
+^
+AtmosphereResourceImpl.java:600: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereResourceEventListener;
+                                                         ^
+AtmosphereResourceImpl.java:1104: error: reached end of file while parsing
+}
+ ^
+5 errors
 InputStreamIterator.java:61: error: illegal start of type
 import java.io.File;
 ^
@@ -2925,112 +2949,49 @@ ProfiledBasicInfo.java:129: error: <identifier> expected
 import java.util.List;
                      ^
 4 errors
-ProfileSnapshotDumper.java:53: error: cannot find symbol
-        String segmentId = basicInfo.getSegmentId();
-                                    ^
-  symbol:   method getSegmentId()
-  location: variable basicInfo of type ProfiledBasicInfo
-ProfileSnapshotDumper.java:54: error: cannot find symbol
-        File snapshotFile = new File(basicInfo.getConfig().getAnalyzeResultDist() + File.separator + "snapshot.data");
-                                              ^
-  symbol:   method getConfig()
-  location: variable basicInfo of type ProfiledBasicInfo
-ProfileSnapshotDumper.java:86: error: cannot find symbol
-                return threadSnapshotQueryDAO.queryRecords(segmentId, sequenceRange.getMin(), sequenceRange.getMax());
-                                                                                   ^
-  symbol:   method getMin()
-  location: variable sequenceRange of type SequenceRange
-ProfileSnapshotDumper.java:86: error: cannot find symbol
-                return threadSnapshotQueryDAO.queryRecords(segmentId, sequenceRange.getMin(), sequenceRange.getMax());
-                                                                                                           ^
-  symbol:   method getMax()
-  location: variable sequenceRange of type SequenceRange
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:69: error: cannot find symbol
-        data.setConfig(config);
-            ^
-  symbol:   method setConfig(ExporterConfig)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:76: error: cannot find symbol
-        List<BasicTrace> taskTraces = taskQueryService.getTaskTraces(config.getTaskId());
-                                                                           ^
-  symbol:   method getTaskId()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:77: error: cannot find symbol
-        BasicTrace profiledTrace = taskTraces.stream().filter(t -> t.getTraceIds().contains(config.getTraceId())).findFirst().orElse(null);
-                                                                                                  ^
-  symbol:   method getTraceId()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:79: error: cannot find symbol
-            throw new IllegalArgumentException("Cannot fount profiled segment in current task: " + config.getTaskId()
-                                                                                                         ^
-  symbol:   method getTaskId()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:80: error: cannot find symbol
-                    + ", segment id: " + config.getTraceId() + ", current task total profiled trace count is " + taskTraces.size());
-                                               ^
-  symbol:   method getTraceId()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:87: error: cannot find symbol
-        data.setSegmentId(segmentId);
-            ^
-  symbol:   method setSegmentId(String)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:88: error: cannot find symbol
-        data.setSegmentStartTime(startTime);
-            ^
-  symbol:   method setSegmentStartTime(long)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:89: error: cannot find symbol
-        data.setSegmentEndTime(endTime);
-            ^
-  symbol:   method setSegmentEndTime(long)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:90: error: cannot find symbol
-        data.setDuration(profiledTrace.getDuration());
-            ^
-  symbol:   method setDuration(int)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:93: error: cannot find symbol
-        Trace trace = traceQueryService.queryTrace(config.getTraceId());
-                                                         ^
-  symbol:   method getTraceId()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:98: error: cannot find symbol
-        data.setProfiledSegmentSpans(profiledSegmentSpans);
-            ^
-  symbol:   method setProfiledSegmentSpans(List<Span>)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:103: error: cannot find symbol
-        data.setMinSequence(minSequence);
-            ^
-  symbol:   method setMinSequence(int)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:104: error: cannot find symbol
-        data.setMaxSequence(maxSequence);
-            ^
-  symbol:   method setMaxSequence(int)
-  location: variable data of type ProfiledBasicInfo
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ProfiledBasicInfo.java:114: error: cannot find symbol
-        File file = new File(config.getAnalyzeResultDist() + File.separator + "basic.yml");
-                                   ^
-  symbol:   method getAnalyzeResultDist()
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.java:47: error: cannot find symbol
-        config.setTaskId(args[0]);
+ProfileSnapshotDumper.java:96: error: illegal start of type
+import java.io.BufferedReader;
+^
+ProfileSnapshotDumper.java:96: error: <identifier> expected
+import java.io.BufferedReader;
+                             ^
+ProfileSnapshotDumper.java:97: error: illegal start of type
+import java.io.File;
+^
+ProfileSnapshotDumper.java:97: error: <identifier> expected
+import java.io.File;
+                   ^
+ProfileSnapshotDumper.java:98: error: illegal start of type
+import java.io.FileReader;
+^
+ProfileSnapshotDumper.java:98: error: <identifier> expected
+import java.io.FileReader;
+                         ^
+ProfileSnapshotDumper.java:99: error: illegal start of type
+import java.io.IOException;
+^
+ProfileSnapshotDumper.java:99: error: <identifier> expected
+import java.io.IOException;
+                          ^
+ProfileSnapshotDumper.java:100: error: illegal start of type
+import java.util.ArrayList;
+^
+ProfileSnapshotDumper.java:100: error: <identifier> expected
+import java.util.ArrayList;
+                          ^
+ProfileSnapshotDumper.java:101: error: illegal start of type
+import java.util.List;
+^
+ProfileSnapshotDumper.java:101: error: <identifier> expected
+import java.util.List;
+                     ^
+ProfileSnapshotDumper.java:168: error: 'try' without 'catch', 'finally' or resource declarations
+        try {}
+        ^
+ProfileSnapshotDumper.java:168: error: reached end of file while parsing
+        try {}
               ^
-  symbol:   method setTaskId(String)
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.java:48: error: cannot find symbol
-        config.setTraceId(args[1]);
-              ^
-  symbol:   method setTraceId(String)
-  location: variable config of type ExporterConfig
-/home/travis/builds/java/CoderEval-Java-projects/skywalking/oap-server/server-tools/profile-exporter/tool-profile-snapshot-bootstrap/src/main/java/org/apache/skywalking/oap/server/tool/profile/exporter/ExporterConfig.java:49: error: cannot find symbol
-        config.setAnalyzeResultDist(args[2]);
-              ^
-  symbol:   method setAnalyzeResultDist(String)
-  location: variable config of type ExporterConfig
-21 errors
+14 errors
 EBPFProcessServiceHandler.java:243: error: illegal start of type
 import com.google.gson.JsonObject;
 ^
@@ -3098,17 +3059,19 @@ ByteVector.java:137: error: <identifier> expected
 import java.util.Arrays;
                        ^
 2 errors
-Frame.java:978: error: incompatible types: String cannot be converted to int
-                pop(argSymbol.value);
-                             ^
-Frame.java:985: error: incompatible types: String cannot be converted to int
-                pop(argSymbol.value);
-                             ^
-Frame.java:992: error: incompatible types: String cannot be converted to int
-                pop(argSymbol.value);
-                             ^
-Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
-3 errors
+Frame.java:647: error: illegal start of type
+import java.util.Stack;
+^
+Frame.java:647: error: <identifier> expected
+import java.util.Stack;
+                      ^
+Frame.java:738: error: illegal start of expression
+    public void addInitializedType(final int abstractType) {
+    ^
+Frame.java:1432: error: reached end of file while parsing
+}
+ ^
+4 errors
 ByteVector.java:79: error: illegal start of type
 import java.util.Arrays;
 ^
@@ -3341,7 +3304,6 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-com
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-dataql/dataql-fx/src/main/java/net/hasor/dataql/fx/basic/StringUdfSource.class
-javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jgrapht/jgrapht-core/src/main/java/org/jgrapht/alg/tour/HamiltonianCycleAlgorithmBase.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/jjwt/api/src/main/java/io/jsonwebtoken/lang/Strings.class

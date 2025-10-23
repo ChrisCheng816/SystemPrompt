@@ -2965,15 +2965,6 @@ Boxes.java:60: error: cannot find symbol
   symbol:   method getY()
   location: variable box of type Box2D
 4 errors
-Exception in thread "main" java.lang.NoClassDefFoundError: org/jgrapht/util/SupplierUtil$1
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:186)
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:172)
-	at org.jgrapht.alg.drawing.model.Points_equals.main(Points_equals.java:14)
-Caused by: java.lang.ClassNotFoundException: org.jgrapht.util.SupplierUtil$1
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
-	... 3 more
 FixedSizeIntegerQueue.java:98: error: cannot find symbol
            "elements=" + elements +
                          ^
@@ -4112,9 +4103,9 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/prot
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/ByteString.class
-[68.0]
-0.2956521739130435
- 29.57%
+[69.0]
+0.3
+ 30.00%
 finish_overall
 self_contained	55
 
@@ -4133,7 +4124,7 @@ class_runnable	100
 
 project_runnable	44
 
-  22.73%	
+  25.00%	
 
 
 plib_runnable	5

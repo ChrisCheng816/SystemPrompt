@@ -2616,9 +2616,9 @@ MimeUtility.java:276: error: unclosed string literal
 MimeUtility.java:277: error: reached end of file while parsing
 2 errors
 Exception in thread "main" java.lang.StackOverflowError
+	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:508)
+	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:568)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:543)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:546)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:546)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:546)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:546)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:546)

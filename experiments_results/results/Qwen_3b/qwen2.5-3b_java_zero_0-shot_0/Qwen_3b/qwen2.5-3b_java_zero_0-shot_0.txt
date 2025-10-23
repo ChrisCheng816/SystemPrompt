@@ -2706,9 +2706,9 @@ MimeUtility.java:274: error: unclosed string literal
 MimeUtility.java:275: error: reached end of file while parsing
 2 errors
 Exception in thread "main" java.lang.StackOverflowError
+	at org.jgrapht.util.AVLTree.rotateLeft(AVLTree.java:510)
+	at org.jgrapht.util.AVLTree.balanceNode(AVLTree.java:570)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:545)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:548)
-	at org.jgrapht.util.AVLTree.balance(AVLTree.java:548)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:548)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:548)
 	at org.jgrapht.util.AVLTree.balance(AVLTree.java:548)
@@ -3880,15 +3880,6 @@ Boxes.java:57: error: <identifier> expected
 import org.javatuples.Pair;
                           ^
 2 errors
-Exception in thread "main" java.lang.NoClassDefFoundError: org/jgrapht/util/SupplierUtil$1
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:186)
-	at org.jgrapht.util.SupplierUtil.createStringSupplier(SupplierUtil.java:172)
-	at org.jgrapht.alg.drawing.model.Points_equals.main(Points_equals.java:14)
-Caused by: java.lang.ClassNotFoundException: org.jgrapht.util.SupplierUtil$1
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
-	... 3 more
 FixedSizeIntegerQueue.java:100: error: cannot find symbol
         result.append(get(i));
                       ^
@@ -5355,9 +5346,9 @@ javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/prot
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/StringSerializer.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/UnsignedNumberUtil.class
 javac success!!!/home/travis/builds/java/CoderEval-Java-projects/protostuff/protostuff-api/src/main/java/io/protostuff/ByteString.class
-[78.0]
-0.3391304347826087
- 33.91%
+[79.0]
+0.34347826086956523
+ 34.35%
 finish_overall
 self_contained	55
 
@@ -5376,7 +5367,7 @@ class_runnable	100
 
 project_runnable	44
 
-  18.18%	
+  20.45%	
 
 
 plib_runnable	5

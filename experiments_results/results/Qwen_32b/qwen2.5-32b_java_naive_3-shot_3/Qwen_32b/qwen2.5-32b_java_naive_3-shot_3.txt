@@ -1974,38 +1974,25 @@ Meteor.java:65: error: <identifier> expected
 import javax.servlet.http.HttpServletRequest;
                                             ^
 2 errors
-AtmosphereResourceImpl.java:49: error: AtmosphereResourceImpl is not abstract and does not override abstract method addEventListener(AtmosphereResourceEventListener) in AtmosphereResource
-public class AtmosphereResourceImpl implements AtmosphereResource {
-       ^
-AtmosphereResourceImpl.java:929: error: cannot find symbol
-            addEventListener(l);
-            ^
-  symbol:   method addEventListener(AtmosphereResourceEventListener)
-  location: class AtmosphereResourceImpl
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.java:2066: warning: [dep-ann] deprecated item is not annotated with @Deprecated
-    public AsyncSupport getCometSupport() {
-                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:163: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
-                            params[0] = new Integer(value);
-                                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:171: warning: [removal] Long(String) in Long has been deprecated and marked for removal
-                            params[0] = new Long(value);
-                                        ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:179: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
-                        params[0] = new Boolean(value);
-                                    ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:826: warning: [removal] Integer(String) in Integer has been deprecated and marked for removal
-                result = new Integer(object);
-                         ^
-/home/travis/builds/java/CoderEval-Java-projects/atmosphere/modules/cpr/src/main/java/org/atmosphere/util/IntrospectionUtils.java:832: warning: [removal] Boolean(String) in Boolean has been deprecated and marked for removal
-            result = new Boolean(object);
-                     ^
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-2 errors
-6 warnings
+AtmosphereResourceImpl.java:599: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereResource;
+^
+AtmosphereResourceImpl.java:599: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereResource;
+                                            ^
+AtmosphereResourceImpl.java:600: error: illegal start of type
+import org.atmosphere.cpr.AtmosphereResourceEventListener;
+^
+AtmosphereResourceImpl.java:600: error: <identifier> expected
+import org.atmosphere.cpr.AtmosphereResourceEventListener;
+                                                         ^
+AtmosphereResourceImpl.java:706: error: repeated modifier
+    public AtmosphereResource removeEventListener(AtmosphereResourceEventListener e) {
+    ^
+AtmosphereResourceImpl.java:1118: error: reached end of file while parsing
+}
+ ^
+6 errors
 InputStreamIterator.java:61: error: illegal start of type
 import java.io.File;
 ^
