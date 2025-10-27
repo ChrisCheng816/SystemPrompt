@@ -16,7 +16,7 @@ bleu_metric = evaluate.load("bleu")
 metric = evaluate.load("dvitel/codebleu")
 
 def find_prediction_output_pairs(root_dir):
-    pairs = []  # 保存 (predictions_path, output_path)
+    pairs = [] 
 
     for dirpath, _, filenames in os.walk(root_dir):
         if "predictions_cleaned.jsonl" in filenames and "output.json" in filenames:

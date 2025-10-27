@@ -64,7 +64,7 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
 all_prompt_lengths = sorted(all_prompt_lengths)
 print(all_prompt_lengths)
 # Export CSV
-csv_path = "output_detail.csv"
+csv_path = "overall_results.csv"
 with open(csv_path, "w", newline="", encoding="utf-8") as csvfile:
     writer = csv.writer(csvfile)
 

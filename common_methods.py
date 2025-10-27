@@ -368,12 +368,10 @@ def smart_join(arr):
     result = ''
     for i, word in enumerate(arr):
         if word in {'.', ',', '?', '!', ';', ':'}:
-            result = result.rstrip() + word  # 去掉末尾空格再加标点
+            result = result.rstrip() + word  
         elif word == '(':
-            # 左括号前要保留空格，但后面不加空格
             result += word
         elif word == ')':
-            # 右括号前去掉空格，不加空格
             result = result.rstrip() + word
         else:
             result += word + ' '

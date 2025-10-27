@@ -6,7 +6,7 @@ import thought_chain as t
 from datasets import DatasetDict
 from datetime import timedelta
 from model_map import model_map
-from generate_prompts import generate_translation_prompt, generate_summarization_prompt, generate_generation_prompt
+from generate_prompts import generate_generation_prompt
 
 GREEN = "\033[92m"
 RESET = "\033[0m"
