@@ -100,7 +100,7 @@ def extract_value(text):
         print("No match found")
 
 if __name__ == "__main__":
-    root_dir = "../generation_results_codereval/tmp"  # 修改这里
+    root_dir = "../generation_results_codereval/tmp"
     pairs = find_prediction_output_pairs(root_dir)
     # cleaned_pairs = process_predictions(pairs)
     print(f"共找到 {len(pairs)} 对文件")

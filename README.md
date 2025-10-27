@@ -18,6 +18,10 @@ Within the `results/` directory:
 - **`overall_results.csv`** — stores the aggregated scores of all models across all system prompts.  
 - **`csv_results_(java/python)/`** — stores instance-level pass/fail outcomes for each evaluation configuration, where `1` represents *True* (passed) and `0` represents *False* (failed).
 
+## Usage
+
+The usage instructions for this framework are currently hidden and will be displayed after the paper is accepted.
+
 ## System Prompts
 
 ### Prompt 1: 
