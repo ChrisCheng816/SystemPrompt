@@ -1,0 +1,9 @@
+{
+  "model_name": "openai/gpt-oss-20b",
+  "language": "python",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "elapsed_time": "0:01:55",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method from the natural language description."
+}

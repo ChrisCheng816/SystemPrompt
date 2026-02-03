@@ -1,0 +1,9 @@
+{
+  "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "language": "python",
+  "style": "retrieval",
+  "example_num": 3,
+  "counter": 0,
+  "elapsed_time": "0:00:58",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method from the natural language description."
+}

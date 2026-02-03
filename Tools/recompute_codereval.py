@@ -74,7 +74,7 @@ def get_lang_from_output(cleaned_path_jsonl, output_path):
 
 def compute(pairs):
     for idx, (cleaned_path_jsonl, out_path) in enumerate(pairs, start=1):
-        print(f"第 {idx} 个文件对") if idx % 10 == 0 else None
+        print(f"Processing pair {idx}/{len(pairs)}: {cleaned_path_jsonl} and {out_path}")
         predictions, references, lang, txt_path, pre_path = get_lang_from_output(cleaned_path_jsonl, out_path)
         try:
             cmd = f"python3 calc_code_bleu.py --refs {txt_path} --hyp {pre_path} --lang {lang} --params 0.25,0.25,0.25,0.25"

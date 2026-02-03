@@ -1,0 +1,9 @@
+{
+  "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "language": "java",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "elapsed_time": "0:00:25",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method from the natural language description.  \nRules:\n1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments.\n2. The method implementation must handle potential invalid inputs and runtime issues with exception-handling behavior as appropriate."
+}

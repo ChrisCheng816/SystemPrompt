@@ -5,31 +5,30 @@ import re
 # ---------------------
 
 # ---------- generation -----------
-gen_prompt_1 = """You are a highly skilled code generator."""
 
-gen_prompt_2 = """You are a highly skilled code  generator.
-Your task is to generate executable method without errors from the natural language description.
-Output only code, no explanations or comments."""
+gen_prompt_1 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description."""
 
-gen_prompt_3 = """You are a highly skilled code generator. Your task is to generate executable method without errors from the natural language description.  
-Follow these rules strictly:
-1. Output only code, no explanations or comments.
-2. The code must include all necessary imports, libraries and dependencies."""
+gen_prompt_2 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
+Rules:
+1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments."""
 
-gen_prompt_4 = """You are a highly skilled code generator. Your task is to generate executable method without errors from the natural language description.
-Follow these rules strictly:
-1. Output only code, no explanations or comments.
-2. The code must include all necessary imports, libraries and dependencies.
-3. Carefully consider the steps required to fulfill the function’s purpose stated in the natural language prompt.
-4. Ensure the generated method or class can be run directly in isolation."""
+gen_prompt_3 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
+Rules:
+1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments.
+2. The method implementation must handle potential invalid inputs and runtime issues with exception-handling behavior as appropriate."""
 
-gen_prompt_5 = """You are a highly skilled code generator. Your task is to generate executable method without errors from the natural language description.
-Follow these rules strictly:
-1. Output only target code method, no explanations or comments.
-2. The code must include all necessary imports, libraries and dependencies.
-3. Carefully consider the steps required to fulfill the function’s purpose stated in the natural language prompt.
-4. The generated code must be directly executable as a standalone script without requiring any external definitions or setup.
-5. The implementation must be correct and reliable enough to pass the potential unit tests."""
+gen_prompt_4 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
+Rules:
+1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments.
+2. The method implementation must handle potential invalid inputs and runtime issues with exception-handling behavior as appropriate.
+3. Before writing any code, carefully think step by step the method's purpose stated in the docstring or leading comments, and keep this reasoning private."""
+
+gen_prompt_5 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
+Rules:
+1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments.
+2. The method implementation must handle potential invalid inputs and runtime issues with exception-handling behavior as appropriate.
+3. Before writing any code, carefully think step by step the method's purpose stated in the docstring or leading comments, and keep this reasoning private.
+4. The method implementation must handle sufficient edge cases to pass all potential unit tests."""
 
 items = list(globals().items())
 pairs = []
