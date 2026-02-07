@@ -16,8 +16,25 @@ All experiment outputs are stored in the `experiments_results` directory. There 
 
 Within the `evaluation/` directory (The file naming convention follows the same pattern as described above):
 
-- **`results.csv`** — stores the aggregated scores of all models across all system prompts.  
-- **`csv_results_(java/python)/`** — stores instance-level pass/fail outcomes for each evaluation configuration, where `1` represents *True* (passed) and `0` represents *False* (failed).
+    evaluation/
+    ├── stest_(p/j).py              # Script for statistical significance analysis
+    ├── pvalue_(p/j).py             # Script for performing p-value calculations
+    ├── Results/                    # Results directory
+    │   ├── model_names/            # Text results for each model across all configurations
+    │   └── output_detail.csv       # Overview of experimental results
+    │   
+    ├── mcnemar_results_holm        # Mcnemar test results
+    └── csv_results_(java/python)   # stores instance-level pass/fail outcomes for each evaluation configuration, where `1` represents *True* (passed) and `0` represents *False* (failed).           
+
+Within the `predictions/` directory (The file naming convention follows the same pattern as described above):
+
+    predictions/
+    └── model_name/                    
+        └── model_lang_prompting_number_prompt/            
+            ├── output.json         # Overview of experimental configuration information
+            ├── predictions_cleaned.jsonl             # Cleaned predictions
+            ├── predictions_cleaned.jsonl_out.jsonl   # Cleaned predictions with results
+            └── predictions.jsonl   # Original predictions
 
 ## System Prompts
 
