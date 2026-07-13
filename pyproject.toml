@@ -1,0 +1,33 @@
+[project]
+name = "system-prompt"
+version = "0.1.0"
+description = "Prompting and evaluation scripts for code generation, translation, and summarization experiments."
+readme = "experiments.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "bert-score",
+    "codebleu",
+    "datasets",
+    "evaluate",
+    "gdown",
+    "nltk",
+    "numpy",
+    "openai",
+    "pandas",
+    "pygments",
+    "reportlab",
+    "sacrebleu",
+    "scann",
+    "scikit-posthocs",
+    "scipy",
+    "sentence-transformers",
+    "statsmodels",
+    "torch==2.8.0",
+    "tqdm",
+    "transformers>=4.55.2,<5",
+    "tree-sitter",
+    "vllm==0.10.2",
+]
+
+[tool.uv]
+package = false

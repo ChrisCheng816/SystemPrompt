@@ -3,3 +3,5 @@ __pycache__/
 *.pyo
 Intermediate_output/
 *.tar
+paper/
+.venv/
