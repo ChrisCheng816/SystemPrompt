@@ -2,7 +2,6 @@ import random
 import time
 from common_methods import *
 from datasets import load_dataset
-import thought_chain as t
 from datasets import DatasetDict
 from datetime import timedelta
 from model_map import model_map
