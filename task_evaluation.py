@@ -145,3 +145,5 @@ def evaluate_generation(
     gc.collect()
     torch.cuda.empty_cache()
     torch.cuda.ipc_collect()
+    if reservation is not None:
+        reservation.reserve()

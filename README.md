@@ -18,7 +18,13 @@ For temperature 1 and pass@5:
 python main.py --model-name Qwen/Qwen2.5-Coder-7B-Instruct --gpu-devices 0,1 --retriever-device cuda:1 --temperature 1 --pass-at 5
 ```
 
-The process immediately reserves all currently free memory on each selected GPU except for 512 MiB, then releases that temporary reservation directly before vLLM is created. Change the safety margin with `--gpu-reserve-free-mb`, use a fixed reservation with `--gpu-reserve-mb`, or use `--gpu-reserve-mb 0` to disable it. `--tensor-parallel-size` defaults to the number of selected GPUs. The retriever defaults to the fourth selected GPU. Use `python main.py --help` for the full parameter list.
+The process immediately reserves all currently free memory on each selected vLLM GPU except for 512 MiB, releases that reservation directly before vLLM is created, and restores it after each model task is cleaned up. Change the safety margin with `--gpu-reserve-free-mb`, use a fixed reservation with `--gpu-reserve-mb`, or use `--gpu-reserve-mb 0` to disable it. `--tensor-parallel-size` defaults to the number of selected vLLM GPUs. Use `--retriever-gpu-device 3` to place retrieval on physical GPU 3 outside `--gpu-devices`; the retriever GPU is not reserved. Use `python main.py --help` for the full parameter list.
+
+For example, vLLM on physical GPUs 0 and 2 with retrieval on physical GPU 3:
+
+```bash
+python main.py --gpu-devices 0,2 --tensor-parallel-size 2 --retriever-gpu-device 3 --temperature 1 --pass-at 5 --also-save-pass-at-1
+```
 
 Results default to `experiments_results/pass@{n}_t{temperature}/predictions/`. Each experiment root retains the existing `predictions/` and `evaluation/` layout. Raw and cleaned predictions belong in `predictions/`; container evaluation outputs such as `predictions_cleaned.jsonl_out.jsonl`, `Results/`, CSV files, and statistical scripts belong in `evaluation/`.
 
