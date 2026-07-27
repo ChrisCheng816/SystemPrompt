@@ -173,6 +173,7 @@ def main():
         args.gpu_reserve_mb,
         len(args.vllm_devices),
         args.gpu_reserve_free_mb,
+        external_guard_dir=os.environ.get("SYSTEMPROMPT_GPU_GUARD_DIR"),
     )
     reservation.reserve()
 

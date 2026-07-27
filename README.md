@@ -23,8 +23,10 @@ The process immediately reserves all currently free memory on each selected vLLM
 For example, vLLM on physical GPUs 0 and 2 with retrieval on physical GPU 3:
 
 ```bash
-python main.py --gpu-devices 0,2 --tensor-parallel-size 2 --retriever-gpu-device 3 --temperature 1 --pass-at 5 --also-save-pass-at-1
+bash run_systemprompt_guard.sh --gpu-devices 0,2 --tensor-parallel-size 2 --retriever-gpu-device 3 --temperature 1 --pass-at 5 --also-save-pass-at-1
 ```
+
+`run_systemprompt_guard.sh` starts one guard process per vLLM GPU in parallel and waits until every guard has claimed memory before starting `main.py`. Use it when startup GPU contention matters; `python main.py ...` remains available without the external guard.
 
 Results default to `experiments_results/pass@{n}_t{temperature}/predictions/`. Each experiment root retains the existing `predictions/` and `evaluation/` layout. Raw and cleaned predictions belong in `predictions/`; container evaluation outputs such as `predictions_cleaned.jsonl_out.jsonl`, `Results/`, CSV files, and statistical scripts belong in `evaluation/`.
 

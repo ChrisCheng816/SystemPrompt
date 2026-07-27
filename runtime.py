@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import os
+import time
 from dataclasses import dataclass, field
+from pathlib import Path
 
 
 def parse_gpu_devices(gpu_devices: str) -> list[str]:
@@ -32,10 +34,17 @@ class GPUReservation:
     device_count: int
     free_memory_mb: int = 512
     device_offset: int = 0
+    external_guard_dir: str | None = None
     _buffers: list[object] = field(default_factory=list, init=False, repr=False)
+    _external_guard_active: bool = field(default=False, init=False, repr=False)
+
+    def __post_init__(self) -> None:
+        self._external_guard_active = bool(self.external_guard_dir)
 
     def reserve(self) -> None:
         if self.memory_mb == 0:
+            return
+        if self._external_guard_active:
             return
         if self._buffers:
             return
@@ -89,6 +98,10 @@ class GPUReservation:
             )
 
     def release(self) -> None:
+        if self._external_guard_active:
+            self._release_external_guard()
+            self._external_guard_active = False
+            return
         if not self._buffers:
             return
 
@@ -105,3 +118,13 @@ class GPUReservation:
         return ",".join(
             str(index) for index in range(self.device_offset, self.device_offset + self.device_count)
         )
+
+    def _release_external_guard(self) -> None:
+        guard_dir = Path(self.external_guard_dir)
+        (guard_dir / "release").touch()
+        deadline = time.monotonic() + 60
+        while len(list(guard_dir.glob("done.*"))) < self.device_count:
+            if time.monotonic() >= deadline:
+                raise RuntimeError("Timed out waiting for the startup GPU guard to release memory.")
+            time.sleep(0.05)
+        print("External GPU guard released; vLLM is taking over the selected GPUs.")
