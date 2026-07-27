@@ -382,8 +382,10 @@ def build_prompt(top_k_examples):
         prompt += f"### Example {counter}:\nInput:\n{ex['source_code'].strip()}\nOutput:\n{ex['target_code'].strip()}\n\n"
     return prompt
     
-def get_retrieval_prompt(query_code_arr, example_db, k=3, device="cuda:0"):
+def get_retrieval_prompt(query_code_arr, example_db, k=3, device="cuda:0", reservation=None):
     # jinaai/jina-code-embeddings-1.5b
+    if reservation is not None:
+        reservation.release()
     retriever = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device=device,
         # model_kwargs={"dtype": torch.bfloat16},
         # tokenizer_kwargs={"padding_side": "left"}
@@ -411,6 +413,14 @@ def get_retrieval_prompt(query_code_arr, example_db, k=3, device="cuda:0"):
         prompts.append(final_prompt)
         top_k_sims_list.append(top_k_sims)
 
+    del retriever, support_embeddings, query_embeddings, similarity_matrix
+    gc.collect()
+    device_index = int(device.split(":", 1)[1])
+    with torch.cuda.device(device_index):
+        torch.cuda.empty_cache()
+    torch.cuda.synchronize(device_index)
+    if reservation is not None:
+        reservation.reserve()
     return prompts, top_k_sims_list
 
 def print_info(model_name, style, example_num, system_prompt, language=None, direction=None):

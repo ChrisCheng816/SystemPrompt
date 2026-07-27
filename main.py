@@ -174,8 +174,20 @@ def main():
         len(args.vllm_devices),
         args.gpu_reserve_free_mb,
         external_guard_dir=os.environ.get("SYSTEMPROMPT_GPU_GUARD_DIR"),
+        external_guard_ids=tuple(args.vllm_devices),
     )
     reservation.reserve()
+    retriever_reservation = None
+    if args.retriever_gpu_device is not None:
+        retriever_reservation = GPUReservation(
+            args.gpu_reserve_mb,
+            1,
+            args.gpu_reserve_free_mb,
+            device_offset=len(args.vllm_devices),
+            external_guard_dir=os.environ.get("SYSTEMPROMPT_GPU_GUARD_DIR"),
+            external_guard_ids=(args.retriever_gpu_device,),
+        )
+        retriever_reservation.reserve()
 
     from task_evaluation import evaluate_generation
     from Prompts.gen_prompts import gen_prompts
@@ -215,9 +227,12 @@ def main():
                             retriever_device=args.resolved_retriever_device,
                             output_root=output_root,
                             reservation=reservation,
+                            retriever_reservation=retriever_reservation,
                         )
     finally:
         reservation.release()
+        if retriever_reservation is not None:
+            retriever_reservation.release()
 
 
 if __name__ == "__main__":

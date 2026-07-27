@@ -33,6 +33,7 @@ def evaluate_generation(
     retriever_device="cuda:0",
     output_root="experiments_results/pass@1_t0",
     reservation=None,
+    retriever_reservation=None,
 ):
     source, prompt_input, output, lang, saving_name = generation_data_selector(datatype)
     output_model_name = model_map.get(model_name, model_name)
@@ -78,6 +79,7 @@ def evaluate_generation(
             example_db,
             example_num,
             device=retriever_device,
+            reservation=retriever_reservation,
         )
         pre_prompt = "The following are a few retrieval-based examples for code generation.\n"
         base_prompt = [pre_prompt + prompt for prompt in base_prompt]
@@ -147,3 +149,5 @@ def evaluate_generation(
     torch.cuda.ipc_collect()
     if reservation is not None:
         reservation.reserve()
+    if retriever_reservation is not None:
+        retriever_reservation.reserve()

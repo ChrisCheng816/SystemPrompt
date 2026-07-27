@@ -35,8 +35,10 @@ class GPUReservation:
     free_memory_mb: int = 512
     device_offset: int = 0
     external_guard_dir: str | None = None
+    external_guard_ids: tuple[str, ...] = ()
     _buffers: list[object] = field(default_factory=list, init=False, repr=False)
     _external_guard_active: bool = field(default=False, init=False, repr=False)
+    _external_guard_shrunk: bool = field(default=False, init=False, repr=False)
 
     def __post_init__(self) -> None:
         self._external_guard_active = bool(self.external_guard_dir)
@@ -45,6 +47,9 @@ class GPUReservation:
         if self.memory_mb == 0:
             return
         if self._external_guard_active:
+            if self._external_guard_shrunk:
+                self._signal_external_guard("expand")
+                self._external_guard_shrunk = False
             return
         if self._buffers:
             return
@@ -99,8 +104,9 @@ class GPUReservation:
 
     def release(self) -> None:
         if self._external_guard_active:
-            self._release_external_guard()
-            self._external_guard_active = False
+            if not self._external_guard_shrunk:
+                self._signal_external_guard("shrink")
+                self._external_guard_shrunk = True
             return
         if not self._buffers:
             return
@@ -119,12 +125,16 @@ class GPUReservation:
             str(index) for index in range(self.device_offset, self.device_offset + self.device_count)
         )
 
-    def _release_external_guard(self) -> None:
+    def _signal_external_guard(self, action: str) -> None:
         guard_dir = Path(self.external_guard_dir)
-        (guard_dir / "release").touch()
+        if not self.external_guard_ids:
+            raise RuntimeError("External GPU guard IDs are missing.")
+        for gpu_id in self.external_guard_ids:
+            (guard_dir / f"{action}ed.{gpu_id}").unlink(missing_ok=True)
+            (guard_dir / f"{action}.{gpu_id}").touch()
         deadline = time.monotonic() + 60
-        while len(list(guard_dir.glob("done.*"))) < self.device_count:
+        while any(not (guard_dir / f"{action}ed.{gpu_id}").exists() for gpu_id in self.external_guard_ids):
             if time.monotonic() >= deadline:
-                raise RuntimeError("Timed out waiting for the startup GPU guard to release memory.")
+                raise RuntimeError(f"Timed out waiting for the GPU guard to {action} memory.")
             time.sleep(0.05)
-        print("External GPU guard released; vLLM is taking over the selected GPUs.")
+        print(f"External GPU guard {action}ed memory on GPU(s) {','.join(self.external_guard_ids)}.")

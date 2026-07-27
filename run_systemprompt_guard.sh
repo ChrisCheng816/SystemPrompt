@@ -6,6 +6,7 @@ python_bin="${PYTHON_BIN:-python}"
 gpu_devices="0,1,2,3"
 leave_mb=512
 reserve_mb=""
+retriever_gpu=""
 
 arguments=("$@")
 for ((index = 0; index < ${#arguments[@]}; index++)); do
@@ -31,6 +32,13 @@ for ((index = 0; index < ${#arguments[@]}; index++)); do
     --gpu-reserve-mb=*)
       reserve_mb="${arguments[index]#*=}"
       ;;
+    --retriever-gpu-device)
+      index=$((index + 1))
+      retriever_gpu="${arguments[index]}"
+      ;;
+    --retriever-gpu-device=*)
+      retriever_gpu="${arguments[index]#*=}"
+      ;;
   esac
 done
 
@@ -42,7 +50,7 @@ guard_dir="$(mktemp -d "${TMPDIR:-/tmp}/systemprompt-gpu-guard.XXXXXX")"
 pids=()
 
 cleanup() {
-  touch "$guard_dir/release" 2>/dev/null || true
+  touch "$guard_dir/stop" 2>/dev/null || true
   for pid in "${pids[@]:-}"; do
     kill "$pid" 2>/dev/null || true
   done
@@ -54,7 +62,11 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 IFS=',' read -r -a gpu_ids <<< "$gpu_devices"
-for gpu_id in "${gpu_ids[@]}"; do
+guard_gpu_ids=("${gpu_ids[@]}")
+if [[ -n "$retriever_gpu" ]]; then
+  guard_gpu_ids+=("$retriever_gpu")
+fi
+for gpu_id in "${guard_gpu_ids[@]}"; do
   gpu_id="${gpu_id//[[:space:]]/}"
   guard_args=(--gpu-id "$gpu_id" --guard-dir "$guard_dir" --leave-mb "$leave_mb")
   if [[ -n "$reserve_mb" ]]; then
@@ -67,7 +79,7 @@ done
 deadline=$((SECONDS + 60))
 while true; do
   ready_count="$(find "$guard_dir" -maxdepth 1 -name 'ready.*' | wc -l)"
-  if [[ "$ready_count" -eq "${#gpu_ids[@]}" ]]; then
+  if [[ "$ready_count" -eq "${#guard_gpu_ids[@]}" ]]; then
     break
   fi
   if (( SECONDS >= deadline )); then
