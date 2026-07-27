@@ -14,6 +14,7 @@ model_map = {
     # CodeLlama
     "codellama/CodeLlama-7b-Instruct-hf": "CodeLlama/CodeLlama-7b",
     "codellama/CodeLlama-13b-Instruct-hf": "CodeLlama/CodeLlama-13b",
+    "codellama/CodeLlama-34b-Instruct-hf": "CodeLlama/CodeLlama-34b",
 
     "openai/gpt-oss-20b": "openai/gpt-20b"
 }

@@ -21,22 +21,65 @@ em_metric = evaluate.load("exact_match")
 # ---------------------
 # Public methods
 # ---------------------
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,2"
 logging.getLogger("vllm").setLevel(logging.ERROR)
 logging.getLogger("vllm").propagate = False
 logging.basicConfig(level=logging.ERROR)
 
+MAX_MODEL_LEN = 10240
+MAX_OUTPUT_TOKENS = 1024
+
+def ensure_pad_token(tokenizer):
+    if tokenizer.pad_token is None:
+        if tokenizer.eos_token is not None:
+            tokenizer.pad_token = tokenizer.eos_token
+        elif tokenizer.unk_token is not None:
+            tokenizer.pad_token = tokenizer.unk_token
+        else:
+            tokenizer.add_special_tokens({"pad_token": "[PAD]"})
+    return tokenizer
+
+def clamp_max_input_length(max_length):
+    try:
+        max_length = int(max_length)
+    except (TypeError, ValueError):
+        max_length = MAX_MODEL_LEN - MAX_OUTPUT_TOKENS
+    return max(1, min(max_length, MAX_MODEL_LEN - MAX_OUTPUT_TOKENS))
+
+def truncate_prompts(prompts, tokenizer, max_length):
+    max_length = clamp_max_input_length(max_length)
+    old_truncation_side = getattr(tokenizer, "truncation_side", "right")
+    tokenizer.truncation_side = "left"
+    try:
+        tokenized = tokenizer(
+            prompts,
+            add_special_tokens=False,
+            truncation=True,
+            max_length=max_length,
+            padding=False,
+        )
+    finally:
+        tokenizer.truncation_side = old_truncation_side
+    return tokenizer.batch_decode(tokenized["input_ids"], skip_special_tokens=False)
+
 def load_model(model_name):
 
-    tokenizer = AutoTokenizer.from_pretrained(model_name, padding_side="left")
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name,
+        padding_side="left",
+        trust_remote_code=True,
+    )
+    ensure_pad_token(tokenizer)
     # model = torch.compile(model)
     llm = LLM(
         model=model_name,
         tensor_parallel_size=2,   # GPU
         dtype="auto",
-        gpu_memory_utilization=0.95        # FP16 / BF16
+        trust_remote_code=True,
+        max_model_len=MAX_MODEL_LEN,
+        gpu_memory_utilization=0.94        # FP16 / BF16
     )
-    batch_size = 32
+    batch_size = 4
     return tokenizer, llm, batch_size
 
 def load_prompt(length, task_description, src_key, tgt_key, test_data, base_prompt, tokenizer, system_prompt, model, max_length=4096):
@@ -68,10 +111,11 @@ def load_prompt(length, task_description, src_key, tgt_key, test_data, base_prom
 
         prompts.append(messages)
 
-    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True, return_tensors="pt", padding=True, padding_side="left", truncation=True, max_length=max_length)
+    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
+    full_prompt = truncate_prompts(full_prompt, tokenizer, max_length)
     return full_prompt, references
 
-def load_prompt_gen(length, task_description, src_key, test_data, base_prompt, tokenizer, system_prompt, model, max_length=4096):
+def load_prompt_gen(length, task_description, src_key, test_data, base_prompt, tokenizer, system_prompt, max_length=4096):
     src_data = list(test_data[src_key])
     prompts = []
     counter = 0
@@ -92,7 +136,8 @@ def load_prompt_gen(length, task_description, src_key, test_data, base_prompt, t
 
         prompts.append(messages)
 
-    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True, return_tensors="pt", padding=True, padding_side="left", truncation=True, max_length=max_length)
+    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
+    full_prompt = truncate_prompts(full_prompt, tokenizer, max_length)
     return full_prompt
 
 def evaluate_metric_sum(predictions, references, path):
@@ -272,7 +317,7 @@ def compute_metric_tran(prompts, batch_size, tokenizer, model, references, max_l
 
     return predictions
 
-def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length):
+def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, model_name=None):
     predictions = []
     counter = 1
     for i in range(0, len(prompts), batch_size):
@@ -295,14 +340,7 @@ def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length):
 
 def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens):
     predictions = []
-    # Tokenize with padding and truncation
-    if tokenizer.pad_token_id is None:
-        pad_token_id = tokenizer.eos_token_id
-    else:
-        pad_token_id = tokenizer.pad_token_id
-    
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token 
+    ensure_pad_token(tokenizer)
 
     sampling_params = SamplingParams(
         max_tokens=output_max_tokens,

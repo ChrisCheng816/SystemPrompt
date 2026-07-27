@@ -1,0 +1,9 @@
+{
+  "model_name": "codellama/CodeLlama-7b-Instruct-hf",
+  "language": "python",
+  "style": "naive",
+  "example_num": 3,
+  "counter": 3,
+  "elapsed_time": "0:04:06",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.\nRules:\n1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments.\n2. The method implementation must handle potential invalid inputs and runtime issues with exception-handling behavior as appropriate."
+}

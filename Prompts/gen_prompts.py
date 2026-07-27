@@ -3,9 +3,7 @@ import re
 # ---------------------
 # The system prompt is: Role Definition + Task Specification + Style and Format Constraints
 # ---------------------
-
 # ---------- generation -----------
-
 gen_prompt_1 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description."""
 
 gen_prompt_2 = """You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.

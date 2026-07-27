@@ -1,4 +1,3 @@
-import thought_chain as t
 from common_methods import *
 
 def generate_summarization_prompt(example, prompt_type, counter, steps):

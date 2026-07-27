@@ -10,15 +10,14 @@ from Tools.codereval import codereval_java, codereval_python
 
 if __name__ == "__main__":
     models = [
-        "Qwen/Qwen2.5-Coder-1.5B-Instruct",
-        "Qwen/Qwen2.5-Coder-7B-Instruct",
-        "openai/gpt-oss-20b",
-        "Qwen/Qwen2.5-Coder-32B-Instruct",
+        "codellama/CodeLlama-7b-Instruct-hf",
+        "codellama/CodeLlama-13b-Instruct-hf",
+        "codellama/CodeLlama-34b-Instruct-hf",
     ]
 
     methods = ["zero", "naive", "retrieval"]
     example_nums = [0, 3]
-    max_lengths = {0: 1024, 1: 2048, 3: 8196}
+    max_lengths = {0: 1024, 1: 2048, 3: 8192}
     orders = [0, 1]
     indexs = [0,1,2,3,4]
 
