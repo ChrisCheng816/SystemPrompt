@@ -13,11 +13,38 @@ RESET = "\033[0m"
 # ---------------------
 # Code generation
 # ---------------------
-def evaluate_generation(model_name, style, example_num = None, test_num = None, max_length=256, shuffled = False, system_prompt = None, dataset_generation = None, datatype = None):
+def evaluate_generation(
+    model_name,
+    style,
+    example_num=None,
+    test_num=None,
+    max_length=256,
+    shuffled=False,
+    system_prompt=None,
+    dataset_generation=None,
+    datatype=None,
+    tensor_parallel_size=1,
+    gpu_memory_utilization=0.94,
+    batch_size=4,
+    temperature=0.0,
+    pass_at=1,
+    also_save_pass_at_1=False,
+    pass_at_1_output_root=None,
+    retriever_device="cuda:0",
+    output_root="experiments_results/pass@1_t0",
+    reservation=None,
+):
     source, prompt_input, output, lang, saving_name = generation_data_selector(datatype)
+    output_model_name = model_map.get(model_name, model_name)
     base_prompt = ""
     print_info(model_name, style, example_num, system_prompt, language = lang, direction = None)
-    tokenizer, model, batch_size = load_model(model_name)
+    tokenizer, model, batch_size = load_model(
+        model_name,
+        tensor_parallel_size=tensor_parallel_size,
+        gpu_memory_utilization=gpu_memory_utilization,
+        batch_size=batch_size,
+        reservation=reservation,
+    )
     train_data = dataset_generation["train"].select(range(example_num)) if example_num else dataset_generation["train"]
     test_data = dataset_generation["test"].select(range(test_num)) if test_num else dataset_generation["test"]
     length = len(test_data)
@@ -46,7 +73,12 @@ def evaluate_generation(model_name, style, example_num = None, test_num = None, 
         #     query_code_arr.extend(batch)
             
         print("Starting to integrate example database...")
-        base_prompt, top_k_sims_list = get_retrieval_prompt(test_data[source], example_db, example_num)
+        base_prompt, top_k_sims_list = get_retrieval_prompt(
+            test_data[source],
+            example_db,
+            example_num,
+            device=retriever_device,
+        )
         pre_prompt = "The following are a few retrieval-based examples for code generation.\n"
         base_prompt = [pre_prompt + prompt for prompt in base_prompt]
         print("Retrieval data integration completed")
@@ -63,15 +95,52 @@ def evaluate_generation(model_name, style, example_num = None, test_num = None, 
     prompts = load_prompt_gen(len(test_data[src_key]), task_description, src_key, test_data, base_prompt, tokenizer, system_prompt, max_length)
     prompts = random.sample(prompts, len(prompts)) if shuffled == True else prompts
     start_time = time.time()
-    predictions = compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, model_name)
+    predictions = compute_metric_gen(
+        prompts,
+        batch_size,
+        tokenizer,
+        model,
+        max_length,
+        temperature=temperature,
+        num_candidates=pass_at,
+    )
     elapsed_time = str(timedelta(seconds=int(time.time() - start_time)))
 
-    if datatype == 0 or datatype == 1:
-        filepath, result = evaluate_metric_gen1(predictions=predictions, path=f"generation_results_mceval/{model_map[model_name]}_{lang}_{style}_{example_num}-shot", saving_name = saving_name, lang=lang)
-    else:
-        filepath = evaluate_metric_gen2(predictions=predictions, path=f"generation_results_codereval/predictions/{model_map[model_name]}_{lang}_{style}_{example_num}-shot", test_data = test_data, lang=lang)
+    outputs_to_save = [(pass_at, output_root, predictions)]
+    if also_save_pass_at_1:
+        if pass_at_1_output_root is None:
+            raise ValueError("pass_at_1_output_root is required when also_save_pass_at_1 is enabled.")
+        first_candidates = [item[0] if isinstance(item, list) else item for item in predictions]
+        outputs_to_save.append((1, pass_at_1_output_root, first_candidates))
 
-    save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt)
+    for saved_pass_at, saved_output_root, saved_predictions in outputs_to_save:
+        if datatype == 0 or datatype == 1:
+            filepath, result = evaluate_metric_gen1(
+                predictions=saved_predictions,
+                path=f"{saved_output_root}/predictions/{output_model_name}_{lang}_{style}_{example_num}-shot",
+                saving_name=saving_name,
+                lang=lang,
+            )
+        else:
+            filepath = evaluate_metric_gen2(
+                predictions=saved_predictions,
+                path=f"{saved_output_root}/predictions/{output_model_name}_{lang}_{style}_{example_num}-shot",
+                test_data=test_data,
+                lang=lang,
+            )
+
+        save_result_gen(
+            filepath,
+            model_name,
+            lang,
+            style,
+            example_num,
+            counter,
+            elapsed_time,
+            system_prompt,
+            temperature,
+            saved_pass_at,
+        )
     del train_data, test_data, base_prompt, prompts, predictions, model, tokenizer
     gc.collect()
     torch.cuda.empty_cache()

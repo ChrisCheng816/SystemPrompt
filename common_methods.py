@@ -21,7 +21,6 @@ em_metric = evaluate.load("exact_match")
 # ---------------------
 # Public methods
 # ---------------------
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,2"
 logging.getLogger("vllm").setLevel(logging.ERROR)
 logging.getLogger("vllm").propagate = False
 logging.basicConfig(level=logging.ERROR)
@@ -62,7 +61,7 @@ def truncate_prompts(prompts, tokenizer, max_length):
         tokenizer.truncation_side = old_truncation_side
     return tokenizer.batch_decode(tokenized["input_ids"], skip_special_tokens=False)
 
-def load_model(model_name):
+def load_model(model_name, tensor_parallel_size, gpu_memory_utilization, batch_size, reservation=None):
 
     tokenizer = AutoTokenizer.from_pretrained(
         model_name,
@@ -70,16 +69,17 @@ def load_model(model_name):
         trust_remote_code=True,
     )
     ensure_pad_token(tokenizer)
-    # model = torch.compile(model)
+    if reservation is not None:
+        reservation.release()
+
     llm = LLM(
         model=model_name,
-        tensor_parallel_size=2,   # GPU
+        tensor_parallel_size=tensor_parallel_size,
         dtype="auto",
         trust_remote_code=True,
         max_model_len=MAX_MODEL_LEN,
-        gpu_memory_utilization=0.94        # FP16 / BF16
+        gpu_memory_utilization=gpu_memory_utilization,
     )
-    batch_size = 4
     return tokenizer, llm, batch_size
 
 def load_prompt(length, task_description, src_key, tgt_key, test_data, base_prompt, tokenizer, system_prompt, model, max_length=4096):
@@ -238,10 +238,12 @@ def evaluate_metric_gen1(predictions, path, saving_name = None, lang=None):
         print(f"Error occurred while running evaluation: {e}")
     print("bingo!!!!!!!!!!!")
 
-    for filename in os.listdir("generation_results_mceval/tmp"):
-        file_path = os.path.join("generation_results_mceval/tmp", filename)
-        if os.path.isfile(file_path) or os.path.islink(file_path):
-            os.remove(file_path)
+    tmp_dir = os.path.join(os.path.dirname(filepath), "tmp")
+    if os.path.isdir(tmp_dir):
+        for filename in os.listdir(tmp_dir):
+            file_path = os.path.join(tmp_dir, filename)
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.remove(file_path)
     return filepath, result.stdout
 
 def evaluate_metric_gen2(predictions, path, test_data = None, lang=None):
@@ -256,7 +258,8 @@ def evaluate_metric_gen2(predictions, path, test_data = None, lang=None):
 
     with open(f"{filepath}/predictions.jsonl", "w", encoding="utf-8") as f:
         for i, item in enumerate(predictions):
-            record = {"_id": ids[i], "generate_results": [item]}
+            candidates = item if isinstance(item, list) else [item]
+            record = {"_id": ids[i], "generate_results": candidates}
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
     return filepath
@@ -317,12 +320,20 @@ def compute_metric_tran(prompts, batch_size, tokenizer, model, references, max_l
 
     return predictions
 
-def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, model_name=None):
+def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, temperature, num_candidates):
     predictions = []
     counter = 1
     for i in range(0, len(prompts), batch_size):
         batch_prompts = prompts[i:i+batch_size]
-        batch_predictions = run_batch(batch_prompts, tokenizer, model, max_length, 512)
+        batch_predictions = run_batch(
+            batch_prompts,
+            tokenizer,
+            model,
+            max_length,
+            512,
+            temperature=temperature,
+            num_candidates=num_candidates,
+        )
         predictions.extend(batch_predictions)
 
         if (i // 200) == counter:
@@ -338,20 +349,27 @@ def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, model_
 
     return predictions
 
-def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens):
-    predictions = []
+def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens, temperature=0.0, num_candidates=1):
     ensure_pad_token(tokenizer)
 
     sampling_params = SamplingParams(
         max_tokens=output_max_tokens,
-        temperature=0.0,
+        temperature=temperature,
+        n=num_candidates,
         stop_token_ids=[tokenizer.eos_token_id] if tokenizer.eos_token_id is not None else None
     )
 
     outputs = model.generate(batch_prompts, sampling_params)
     # Decode input and output to strings
 
-    predictions = [output.outputs[0].text.strip() for output in outputs]
+    if num_candidates == 1:
+        # Keep the historical return shape for translation and summarization callers.
+        predictions = [output.outputs[0].text.strip() for output in outputs]
+    else:
+        predictions = [
+            [candidate.text.strip() for candidate in output.outputs]
+            for output in outputs
+        ]
 
     return predictions
 
@@ -364,9 +382,9 @@ def build_prompt(top_k_examples):
         prompt += f"### Example {counter}:\nInput:\n{ex['source_code'].strip()}\nOutput:\n{ex['target_code'].strip()}\n\n"
     return prompt
     
-def get_retrieval_prompt(query_code_arr, example_db, k=3):
+def get_retrieval_prompt(query_code_arr, example_db, k=3, device="cuda:0"):
     # jinaai/jina-code-embeddings-1.5b
-    retriever = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cuda:2",
+    retriever = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device=device,
         # model_kwargs={"dtype": torch.bfloat16},
         # tokenizer_kwargs={"padding_side": "left"}
     )
@@ -456,7 +474,7 @@ def save_result_trans(filepath, model_name, direction, style, example_num, count
             "CodeBleu": CodeBleu
         }, f, ensure_ascii=False, indent=2)
 
-def save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt):
+def save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt, temperature, pass_at):
     with open(f"{filepath}/output.json", "a", encoding="utf-8") as f:
         json.dump({
             "model_name": model_name,
@@ -465,7 +483,9 @@ def save_result_gen(filepath, model_name, lang, style, example_num, counter, ela
             "example_num": example_num,
             "counter": counter[0],
             "elapsed_time": elapsed_time,
-            "system_prompt": system_prompt
+            "system_prompt": system_prompt,
+            "temperature": temperature,
+            "pass_at": pass_at,
         }, f, ensure_ascii=False, indent=2)
 
 def save_result_sum(filepath, model_name, language, style, example_num, counter, elapsed_time, system_prompt, result, bleu_result):

@@ -2,6 +2,37 @@
 
 This repository contains the five system prompts used in our experiments on instruction-tuned code models. The prompts are designed to investigate how different system-level instructions affect model performance on code-related tasks.
 
+## Running experiments
+
+`main.py` is the project entry point. The fixed experiment matrix is retained: `zero` uses 0-shot and a 1024-token input limit; `naive` and `retrieval` use 3-shot and an 8192-token input limit. By default it runs all three methods, both languages, and all five system prompts.
+
+Run a single Qwen model on GPUs 0 and 1:
+
+```bash
+python main.py --model-name Qwen/Qwen2.5-Coder-7B-Instruct --gpu-devices 0,1 --retriever-device cuda:1 --temperature 0 --pass-at 1
+```
+
+For temperature 1 and pass@5:
+
+```bash
+python main.py --model-name Qwen/Qwen2.5-Coder-7B-Instruct --gpu-devices 0,1 --retriever-device cuda:1 --temperature 1 --pass-at 5
+```
+
+The process immediately reserves all currently free memory on each selected GPU except for 512 MiB, then releases that temporary reservation directly before vLLM is created. Change the safety margin with `--gpu-reserve-free-mb`, use a fixed reservation with `--gpu-reserve-mb`, or use `--gpu-reserve-mb 0` to disable it. `--tensor-parallel-size` defaults to the number of selected GPUs. The retriever defaults to the fourth selected GPU. Use `python main.py --help` for the full parameter list.
+
+Results default to `experiments_results/pass@{n}_t{temperature}/predictions/`. Each experiment root retains the existing `predictions/` and `evaluation/` layout. Raw and cleaned predictions belong in `predictions/`; container evaluation outputs such as `predictions_cleaned.jsonl_out.jsonl`, `Results/`, CSV files, and statistical scripts belong in `evaluation/`.
+
+With `--temperature 1 --pass-at 5 --also-save-pass-at-1`, one 5-candidate generation is written both to `pass@5_t1` and to `pass@1_t1`; the latter receives only each prompt's first candidate and does not trigger a second vLLM generation.
+
+The tools use the same experiment root. For example:
+
+```bash
+python Tools/codereval_clean.py --experiment-root experiments_results/pass@5_t1
+python Tools/recompute_codereval.py --experiment-root experiments_results/pass@5_t1
+```
+
+Both scripts operate below that run's `predictions/` directory. The cleaning script writes `predictions_cleaned.jsonl` beside each raw `predictions.jsonl`; the metric script writes its temporary references under that same experiment directory.
+
 ## Overview
 
 In our experiments, we evaluated the effect of system prompts on both general-purpose and code-specialized models. Each prompt represents a distinct strategy or instruction style applied at the system level to guide the model's behavior. The five system prompts used are summarized below.

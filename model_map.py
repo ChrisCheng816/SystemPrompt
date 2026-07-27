@@ -12,9 +12,9 @@ model_map = {
     "deepseek-ai/deepseek-coder-7b-instruct-v1.5": "DeepSeek/deepseek-7b-v1.5",
 
     # CodeLlama
-    "codellama/CodeLlama-7b-Instruct-hf": "CodeLlama/CodeLlama-7b",
-    "codellama/CodeLlama-13b-Instruct-hf": "CodeLlama/CodeLlama-13b",
-    "codellama/CodeLlama-34b-Instruct-hf": "CodeLlama/CodeLlama-34b",
+    "codellama/CodeLlama-7b-Instruct-hf": "CodeLlama_7b/codellama-7b",
+    "codellama/CodeLlama-13b-Instruct-hf": "CodeLlama_13b/codellama-13b",
+    "codellama/CodeLlama-34b-Instruct-hf": "CodeLlama_34b/codellama-34b",
 
     "openai/gpt-oss-20b": "openai/gpt-20b"
 }

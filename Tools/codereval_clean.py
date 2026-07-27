@@ -1,85 +1,75 @@
+"""Clean CodeEval predictions in one experiments_results/pass@*_t* run."""
+
+from __future__ import annotations
+
+import argparse
 import json
-import os
 import re
+from pathlib import Path
 
-root_dir = "../generation_results_codereval/tmp"
 
-def remove_assistant(code):
-    if "assistantfinal" in code:
-        return code.split("assistantfinal")[-1].strip()
-    return code.strip()
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results" / "pass@1_t0"
+
 
 def process_code(text: str) -> str:
-    """
-    Process code strings according to the new rules:
-    - Remove leading ``` while preserving subsequent content
-    - Remove any ``` appearing in the middle and truncate all content following it
-    """
-    result = text
-    # Remove leading ```
-    if result.startswith("```"):
-        result = result[3:]
+    if "assistantfinal" in text:
+        text = text.split("assistantfinal")[-1].strip()
 
-    # Find middle ```
-    idx = result.find("```")
-    if idx != -1:
-        # Truncate ```
-        result = result[:idx]
-    
-    return result.strip()
+    matches = re.findall(r"```(?:java|python)\n(.*?)```", text, re.DOTALL)
+    if matches:
+        return "".join(matches).strip()
 
-def extract_java_python_blocks(text: str) -> str:
-    """
-    Extract all ```java or ```python code block content from any position within the text and concatenate them in sequence.
-    """
-    # Match ```java or ```python at the beginning, until the next ``` ends
-    pattern1 = r"```(java|python)\n(.*?)```"
-    matches1 = re.findall(pattern1, text, re.DOTALL)
-    pattern2 = r"```(java|python)\n(.*?)"
-    matches2 = re.findall(pattern2, text, re.DOTALL)
-    if matches1:
-        return "".join(code for _, code in matches1)
-    elif matches2:
-        return "".join(code for _, code in matches2)
-    else:
-        return text
+    if text.startswith("```"):
+        text = text[3:]
+    fence_index = text.find("```")
+    if fence_index != -1:
+        text = text[:fence_index]
+    return text.strip()
 
 
-for dirpath, dirnames, filenames in os.walk(root_dir):
-    if "predictions.jsonl" in filenames:
-        jsonl_path = os.path.join(dirpath, "predictions.jsonl")
-        lines = []
-        output_path = os.path.join(dirpath, "predictions_cleaned.jsonl")
-        with open(jsonl_path, "r", encoding="utf-8") as f:
-            for line in f:
-                data = json.loads(line)
-                # Determine whether `generate_results` exists and is not empty.
-                if "generate_results" in data and len(data["generate_results"]) > 0:
-                    code = data["generate_results"][0]
-                    # Remove leading ```java\n or ```python\n
-                    if "openai" in dirpath:
-                        print(f"{dirpath} has been cleaned. :-）")
-                        code = remove_assistant(code)
+def predictions_root(experiment_root: Path) -> Path:
+    return experiment_root if experiment_root.name == "predictions" else experiment_root / "predictions"
 
-                    code = extract_java_python_blocks(code)
-                    code = process_code(code)
-                    data["generate_results"][0] = code
-                lines.append(data)
 
-        # Write back to the JSONL file
-        with open(output_path, "w", encoding="utf-8") as f:
-            for data in lines:
-                f.write(json.dumps(data, ensure_ascii=False) + "\n")
+def clean_predictions(root: Path) -> tuple[int, int]:
+    files_processed = 0
+    candidates_processed = 0
+    for input_path in root.rglob("predictions.jsonl"):
+        records = []
+        with input_path.open("r", encoding="utf-8") as input_file:
+            for line in input_file:
+                record = json.loads(line)
+                candidates = record.get("generate_results", [])
+                record["generate_results"] = [process_code(code) for code in candidates]
+                candidates_processed += len(candidates)
+                records.append(record)
 
-for dirpath, dirnames, filenames in os.walk(root_dir):
-    if "predictions_cleaned.jsonl" in filenames:
-        jsonl_path = os.path.join(dirpath, "predictions_cleaned.jsonl")
-        with open(jsonl_path, "r", encoding="utf-8") as f:
-            for line in f:
-                data = json.loads(line)
-                # Determine whether `generate_results` exists and is not empty.
-                if "generate_results" in data and len(data["generate_results"]) > 0:
-                    code = data["generate_results"][0]
-                    if "```" in code:
-                        raise ValueError("The input text contains ``` which is not allowed.")
-            print("no false")
+        output_path = input_path.with_name("predictions_cleaned.jsonl")
+        with output_path.open("w", encoding="utf-8") as output_file:
+            for record in records:
+                output_file.write(json.dumps(record, ensure_ascii=False) + "\n")
+        files_processed += 1
+        print(f"Cleaned {input_path}")
+    return files_processed, candidates_processed
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--experiment-root",
+        type=Path,
+        default=DEFAULT_EXPERIMENT_ROOT,
+        help="Experiment directory or its predictions directory (default: experiments_results/pass@1_t0).",
+    )
+    args = parser.parse_args()
+    root = predictions_root(args.experiment_root).resolve()
+    if not root.is_dir():
+        parser.error(f"Predictions directory does not exist: {root}")
+
+    file_count, candidate_count = clean_predictions(root)
+    print(f"Cleaned {candidate_count} candidate(s) in {file_count} prediction file(s).")
+
+
+if __name__ == "__main__":
+    main()
