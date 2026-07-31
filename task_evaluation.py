@@ -64,7 +64,7 @@ def evaluate_generation(
         example_db = [
             {
                 "source_code": dataset_generation["train"][i][source],  # Join tokens into a single string
-                "target_code": dataset_generation["train"][i][output]  # Join tokens into a single string
+                "target_code": dataset_generation["train"][i]["output"]  # Join tokens into a single string
             }
             for i in range(min(100000, len(dataset_generation["train"])))
         ]
