@@ -246,6 +246,22 @@ def evaluate_metric_gen1(predictions, path, saving_name = None, lang=None):
                 os.remove(file_path)
     return filepath, result.stdout
 
+def evaluate_metric_mceval(predictions, path, test_data):
+    """Save McEval records with their official fields and raw generations."""
+    counter = 0
+    while os.path.exists(f"{path}_{counter}"):
+        counter += 1
+    filepath = f"{path}_{counter}"
+    os.makedirs(filepath, exist_ok=True)
+
+    with open(f"{filepath}/predictions.jsonl", "w", encoding="utf-8") as f:
+        for example, prediction in zip(test_data, predictions, strict=True):
+            record = dict(example)
+            record["raw_generation"] = prediction if isinstance(prediction, list) else [prediction]
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+    return filepath
+
 def evaluate_metric_gen2(predictions, path, test_data = None, lang=None):
     counter = 0
     while os.path.exists(f"{path}_{counter}"):
@@ -515,14 +531,14 @@ def save_result_sum(filepath, model_name, language, style, example_num, counter,
 def generation_data_selector(datatype):
     if datatype == 0:
         source = "instruction"
-        prompt = "prompt"
-        output = "output"
+        prompt = "instruction"
+        output = "canonical_solution"
         lang = "java"
         saving_name = "mceval_java"
     elif datatype == 1:
         source = "instruction"
-        prompt = "prompt"
-        output = "output"
+        prompt = "instruction"
+        output = "canonical_solution"
         lang = "python"
         saving_name = "mceval_python"
     elif datatype == 2:

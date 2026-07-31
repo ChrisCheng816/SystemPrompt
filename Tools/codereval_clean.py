@@ -1,4 +1,4 @@
-"""Clean CodeEval predictions in one experiments_results/pass@*_t* run."""
+"""Clean CodeEval predictions in one experiments_results_codereval/pass@*_t* run."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results" / "pass@1_t0"
+DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results_codereval" / "pass@1_t0"
 
 
 def process_code(text: str) -> str:
@@ -60,7 +60,7 @@ def main() -> None:
         "--experiment-root",
         type=Path,
         default=DEFAULT_EXPERIMENT_ROOT,
-        help="Experiment directory or its predictions directory (default: experiments_results/pass@1_t0).",
+        help="Experiment directory or its predictions directory (default: experiments_results_codereval/pass@1_t0).",
     )
     args = parser.parse_args()
     root = predictions_root(args.experiment_root).resolve()

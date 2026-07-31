@@ -10,11 +10,16 @@ from runtime import GPUReservation, configure_cuda_visibility, parse_gpu_devices
 
 
 DEFAULT_MODELS = [
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "Qwen/Qwen2.5-Coder-32B-Instruct",
     "codellama/CodeLlama-7b-Instruct-hf",
     "codellama/CodeLlama-13b-Instruct-hf",
     "codellama/CodeLlama-34b-Instruct-hf",
+    "openai/gpt-oss-20b",
 ]
-FIXED_METHODS = ("zero", "naive", "retrieval")
+DEFAULT_METHODS = ("zero", "retrieval")
+AVAILABLE_METHODS = ("zero", "naive", "retrieval")
 FIXED_PROMPT_INDICES = range(5)
 MAX_LENGTHS = {0: 1024, 3: 8192}
 
@@ -36,6 +41,13 @@ def parse_args():
         choices=("java", "python"),
         default=("java", "python"),
         help="Datasets to run (default: both).",
+    )
+    parser.add_argument(
+        "--dataset",
+        action="append",
+        choices=("codereval", "mceval"),
+        dest="datasets",
+        help="Benchmark to run. Repeat to choose a subset; default: both CodeEval and McEval.",
     )
     parser.add_argument(
         "--gpu-devices",
@@ -87,17 +99,17 @@ def parse_args():
     parser.add_argument(
         "--output-root",
         default=None,
-        help="Experiment root. Default: experiments_results/pass@{pass_at}_t{temperature}.",
+        help="Optional base root. With both benchmarks, _codereval and _mceval are appended.",
     )
     parser.add_argument(
         "--pass-at-1-output-root",
         default=None,
-        help="Optional root for the extra pass@1 output produced by --also-save-pass-at-1.",
+        help="Optional base root for extra pass@1 output; benchmark suffixes are added when both run.",
     )
     parser.add_argument(
         "--method",
         action="append",
-        choices=FIXED_METHODS,
+        choices=AVAILABLE_METHODS,
         dest="methods",
         help="Run only selected fixed methods. Repeat to choose multiple methods.",
     )
@@ -147,7 +159,6 @@ def parse_args():
         parser.error("--gpu-memory-utilization must be in (0, 1].")
     if args.test_num is not None and args.test_num < 1:
         parser.error("--test-num must be positive.")
-
     return args
 
 
@@ -158,14 +169,6 @@ def main():
     if tensor_parallel_size < 1 or tensor_parallel_size > len(args.vllm_devices):
         raise ValueError("--tensor-parallel-size must be between 1 and the number of selected GPUs.")
 
-    output_root = args.output_root or os.path.join(
-        "experiments_results", f"pass@{args.pass_at}_t{args.temperature}"
-    )
-    pass_at_1_output_root = None
-    if args.also_save_pass_at_1:
-        pass_at_1_output_root = args.pass_at_1_output_root or os.path.join(
-            "experiments_results", "pass@1_t1"
-        )
     models = args.model_names or DEFAULT_MODELS
 
     # This must precede imports of task_evaluation/common_methods, which import torch and vLLM.
@@ -191,14 +194,51 @@ def main():
 
     from task_evaluation import evaluate_generation
     from Prompts.gen_prompts import gen_prompts
-    from Tools.codereval import codereval_java, codereval_python
-
-    methods = args.methods or FIXED_METHODS
+    methods = args.methods or DEFAULT_METHODS
     prompt_indices = args.prompt_indices or FIXED_PROMPT_INDICES
-    datasets = {
-        "java": (codereval_java, 2),
-        "python": (codereval_python, 3),
+    selected_datasets = args.datasets or ("codereval", "mceval")
+    default_roots = {
+        "codereval": "experiments_results_codereval",
+        "mceval": "experiments_results_mceval",
     }
+    if args.output_root is None:
+        output_roots = {
+            name: os.path.join(default_roots[name], f"pass@{args.pass_at}_t{args.temperature}")
+            for name in selected_datasets
+        }
+    elif len(selected_datasets) == 1:
+        output_roots = {selected_datasets[0]: args.output_root}
+    else:
+        output_roots = {name: f"{args.output_root}_{name}" for name in selected_datasets}
+
+    pass_at_1_output_roots = {}
+    if args.also_save_pass_at_1:
+        if args.pass_at_1_output_root is None:
+            pass_at_1_output_roots = {
+                name: os.path.join(default_roots[name], "pass@1_t1")
+                for name in selected_datasets
+            }
+        elif len(selected_datasets) == 1:
+            pass_at_1_output_roots = {selected_datasets[0]: args.pass_at_1_output_root}
+        else:
+            pass_at_1_output_roots = {
+                name: f"{args.pass_at_1_output_root}_{name}" for name in selected_datasets
+            }
+    dataset_loaders = {}
+    if "codereval" in selected_datasets:
+        from Tools.codereval import codereval_java, codereval_python
+
+        dataset_loaders["codereval"] = {
+            "java": (codereval_java, 2),
+            "python": (codereval_python, 3),
+        }
+    if "mceval" in selected_datasets:
+        from Tools.mceval import load_mceval
+
+        dataset_loaders["mceval"] = {
+            language: (load_mceval(language), 0 if language == "java" else 1)
+            for language in args.language
+        }
 
     try:
         for model_name in models:
@@ -206,29 +246,30 @@ def main():
                 example_num = 0 if method == "zero" else 3
                 max_length = MAX_LENGTHS[example_num]
                 for prompt_index in prompt_indices:
-                    for language in args.language:
-                        dataset, datatype = datasets[language]
-                        evaluate_generation(
-                            model_name,
-                            method,
-                            example_num=example_num,
-                            test_num=args.test_num,
-                            max_length=max_length,
-                            system_prompt=gen_prompts[prompt_index],
-                            dataset_generation=dataset,
-                            datatype=datatype,
-                            tensor_parallel_size=tensor_parallel_size,
-                            gpu_memory_utilization=args.gpu_memory_utilization,
-                            batch_size=args.batch_size,
-                            temperature=float(args.temperature),
-                            pass_at=args.pass_at,
-                            also_save_pass_at_1=args.also_save_pass_at_1,
-                            pass_at_1_output_root=pass_at_1_output_root,
-                            retriever_device=args.resolved_retriever_device,
-                            output_root=output_root,
-                            reservation=reservation,
-                            retriever_reservation=retriever_reservation,
-                        )
+                    for dataset_name in selected_datasets:
+                        for language in args.language:
+                            dataset, datatype = dataset_loaders[dataset_name][language]
+                            evaluate_generation(
+                                model_name,
+                                method,
+                                example_num=example_num,
+                                test_num=args.test_num,
+                                max_length=max_length,
+                                system_prompt=gen_prompts[prompt_index],
+                                dataset_generation=dataset,
+                                datatype=datatype,
+                                tensor_parallel_size=tensor_parallel_size,
+                                gpu_memory_utilization=args.gpu_memory_utilization,
+                                batch_size=args.batch_size,
+                                temperature=float(args.temperature),
+                                pass_at=args.pass_at,
+                                also_save_pass_at_1=args.also_save_pass_at_1,
+                                pass_at_1_output_root=pass_at_1_output_roots.get(dataset_name),
+                                retriever_device=args.resolved_retriever_device,
+                                output_root=output_roots[dataset_name],
+                                reservation=reservation,
+                                retriever_reservation=retriever_reservation,
+                            )
     finally:
         reservation.release()
         if retriever_reservation is not None:

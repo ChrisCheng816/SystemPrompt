@@ -1,4 +1,4 @@
-"""Recompute CodeEval metrics for one experiments_results/pass@*_t* run."""
+"""Recompute CodeEval metrics for one experiments_results_codereval/pass@*_t* run."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from datasets import load_dataset
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results" / "pass@1_t0"
+DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results_codereval" / "pass@1_t0"
 BLEU_METRIC = evaluate.load("bleu")
 
 
@@ -102,20 +102,29 @@ def recompute_pair(cleaned_path: Path, output_path: Path, experiment_root: Path)
     append_to_output(output_path, BLEU_METRIC.compute(predictions=predictions, references=references, smooth=True), codebleu)
 
 
+def is_codereval_output(output_path: Path) -> bool:
+    with output_path.open("r", encoding="utf-8") as output_file:
+        metadata = json.load(output_file)
+    # Older experiment outputs predate the explicit dataset field.
+    return metadata.get("dataset", "codereval") == "codereval"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--experiment-root",
         type=Path,
         default=DEFAULT_EXPERIMENT_ROOT,
-        help="Experiment directory or its predictions directory (default: experiments_results/pass@1_t0).",
+        help="Experiment directory or its predictions directory (default: experiments_results_codereval/pass@1_t0).",
     )
     args = parser.parse_args()
     root = predictions_root(args.experiment_root).resolve()
     if not root.is_dir():
         parser.error(f"Predictions directory does not exist: {root}")
 
-    pairs = find_prediction_output_pairs(root)
+    pairs = [
+        pair for pair in find_prediction_output_pairs(root) if is_codereval_output(pair[1])
+    ]
     for index, (cleaned_path, output_path) in enumerate(pairs, start=1):
         print(f"Processing {index}/{len(pairs)}: {cleaned_path}")
         recompute_pair(cleaned_path, output_path, root.parent)

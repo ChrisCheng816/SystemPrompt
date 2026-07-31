@@ -1,5 +1,6 @@
 import random
 import time
+from pathlib import Path
 from common_methods import *
 from datasets import load_dataset
 from datasets import DatasetDict
@@ -31,7 +32,7 @@ def evaluate_generation(
     also_save_pass_at_1=False,
     pass_at_1_output_root=None,
     retriever_device="cuda:0",
-    output_root="experiments_results/pass@1_t0",
+    output_root="experiments_results_codereval/pass@1_t0",
     reservation=None,
     retriever_reservation=None,
 ):
@@ -65,7 +66,7 @@ def evaluate_generation(
                 "source_code": dataset_generation["train"][i][source],  # Join tokens into a single string
                 "target_code": dataset_generation["train"][i][output]  # Join tokens into a single string
             }
-            for i in range(100000)
+            for i in range(min(100000, len(dataset_generation["train"])))
         ]
         print("Example database constructed.")
         # query_code_arr = []
@@ -109,6 +110,7 @@ def evaluate_generation(
     elapsed_time = str(timedelta(seconds=int(time.time() - start_time)))
 
     outputs_to_save = [(pass_at, output_root, predictions)]
+    prediction_paths = []
     if also_save_pass_at_1:
         if pass_at_1_output_root is None:
             raise ValueError("pass_at_1_output_root is required when also_save_pass_at_1 is enabled.")
@@ -116,20 +118,21 @@ def evaluate_generation(
         outputs_to_save.append((1, pass_at_1_output_root, first_candidates))
 
     for saved_pass_at, saved_output_root, saved_predictions in outputs_to_save:
+        run_path = Path(saved_output_root) / "predictions" / f"{output_model_name}_{lang}_{style}_{example_num}-shot"
         if datatype == 0 or datatype == 1:
-            filepath, result = evaluate_metric_gen1(
+            filepath = evaluate_metric_mceval(
                 predictions=saved_predictions,
-                path=f"{saved_output_root}/predictions/{output_model_name}_{lang}_{style}_{example_num}-shot",
-                saving_name=saving_name,
-                lang=lang,
+                path=str(run_path),
+                test_data=test_data,
             )
         else:
             filepath = evaluate_metric_gen2(
                 predictions=saved_predictions,
-                path=f"{saved_output_root}/predictions/{output_model_name}_{lang}_{style}_{example_num}-shot",
+                path=str(run_path),
                 test_data=test_data,
                 lang=lang,
             )
+            prediction_paths.append(Path(filepath) / "predictions.jsonl")
 
         save_result_gen(
             filepath,
@@ -151,3 +154,4 @@ def evaluate_generation(
         reservation.reserve()
     if retriever_reservation is not None:
         retriever_reservation.reserve()
+    return prediction_paths
