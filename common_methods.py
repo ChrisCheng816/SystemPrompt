@@ -26,7 +26,27 @@ logging.getLogger("vllm").propagate = False
 logging.basicConfig(level=logging.ERROR)
 
 MAX_MODEL_LEN = 10240
-MAX_OUTPUT_TOKENS = 1024
+MAX_OUTPUT_TOKENS = 2048
+_HARMONY_ENCODING = None
+
+try:
+    from openai_harmony import (
+        Conversation,
+        DeveloperContent,
+        HarmonyEncodingName,
+        Message,
+        Role,
+        SystemContent,
+        load_harmony_encoding,
+    )
+except ImportError:
+    Conversation = None
+    DeveloperContent = None
+    HarmonyEncodingName = None
+    Message = None
+    Role = None
+    SystemContent = None
+    load_harmony_encoding = None
 
 def ensure_pad_token(tokenizer):
     if tokenizer.pad_token is None:
@@ -60,6 +80,54 @@ def truncate_prompts(prompts, tokenizer, max_length):
     finally:
         tokenizer.truncation_side = old_truncation_side
     return tokenizer.batch_decode(tokenized["input_ids"], skip_special_tokens=False)
+
+def is_gpt_oss_model_name(model_name):
+    return "gpt-oss" in str(model_name).lower()
+
+def render_gpt_oss_prompt(user_content, system_prompt):
+    encoding = get_harmony_encoding()
+    if encoding is None or Message is None:
+        return None
+    messages = [Message.from_role_and_content(Role.SYSTEM, SystemContent.new())]
+    if system_prompt:
+        developer_content = DeveloperContent(instructions=system_prompt)
+        messages.append(Message.from_role_and_content(Role.DEVELOPER, developer_content))
+    messages.append(Message.from_role_and_content(Role.USER, user_content))
+    tokens = encoding.render_conversation_for_completion(
+        Conversation.from_messages(messages),
+        Role.ASSISTANT,
+    )
+    return encoding.decode_utf8(tokens)
+
+def render_chat_prompts(prompts, tokenizer, max_length, model_name=None):
+    if is_gpt_oss_model_name(model_name) or is_gpt_oss_tokenizer(tokenizer):
+        rendered_prompts = []
+        for messages in prompts:
+            system_prompt = ""
+            user_content = ""
+            for message in messages:
+                if message["role"] == "system":
+                    system_prompt = message["content"]
+                elif message["role"] == "user":
+                    user_content = message["content"]
+            rendered_prompt = render_gpt_oss_prompt(user_content, system_prompt)
+            if rendered_prompt is not None:
+                rendered_prompts.append(rendered_prompt)
+            else:
+                rendered_prompts.append(
+                    tokenizer.apply_chat_template(
+                        [
+                            {"role": "developer", "content": system_prompt},
+                            {"role": "user", "content": user_content},
+                        ],
+                        tokenize=False,
+                        add_generation_prompt=True,
+                    )
+                )
+        return truncate_prompts(rendered_prompts, tokenizer, max_length)
+
+    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
+    return truncate_prompts(full_prompt, tokenizer, max_length)
 
 def load_model(model_name, tensor_parallel_size, gpu_memory_utilization, batch_size, reservation=None):
 
@@ -111,11 +179,10 @@ def load_prompt(length, task_description, src_key, tgt_key, test_data, base_prom
 
         prompts.append(messages)
 
-    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
-    full_prompt = truncate_prompts(full_prompt, tokenizer, max_length)
-    return full_prompt, references
+    full_prompts = render_chat_prompts(prompts, tokenizer, max_length, model)
+    return full_prompts, references
 
-def load_prompt_gen(length, task_description, src_key, test_data, base_prompt, tokenizer, system_prompt, max_length=4096):
+def load_prompt_gen(length, task_description, src_key, test_data, base_prompt, tokenizer, system_prompt, max_length=4096, model=None):
     src_data = list(test_data[src_key])
     prompts = []
     counter = 0
@@ -136,9 +203,8 @@ def load_prompt_gen(length, task_description, src_key, test_data, base_prompt, t
 
         prompts.append(messages)
 
-    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
-    full_prompt = truncate_prompts(full_prompt, tokenizer, max_length)
-    return full_prompt
+    full_prompts = render_chat_prompts(prompts, tokenizer, max_length, model)
+    return full_prompts
 
 def evaluate_metric_sum(predictions, references, path):
     counter = 0
@@ -291,12 +357,94 @@ def extract_value(text):
     else:
         print("No match found")
 
+def is_gpt_oss_tokenizer(tokenizer):
+    model_name = str(getattr(tokenizer, "name_or_path", "")).lower()
+    return "gpt-oss" in model_name
+
+def get_harmony_encoding():
+    global _HARMONY_ENCODING
+    if load_harmony_encoding is None:
+        return None
+    if _HARMONY_ENCODING is None:
+        _HARMONY_ENCODING = load_harmony_encoding(HarmonyEncodingName.HARMONY_GPT_OSS)
+    return _HARMONY_ENCODING
+
+def get_stop_token_ids(tokenizer):
+    if is_gpt_oss_tokenizer(tokenizer):
+        encoding = get_harmony_encoding()
+        if encoding is not None:
+            return encoding.stop_tokens_for_assistant_actions()
+    return [tokenizer.eos_token_id] if tokenizer.eos_token_id is not None else None
+
+def message_channel_name(message):
+    channel = getattr(message, "channel", None)
+    if channel is None and hasattr(message, "to_dict"):
+        channel = message.to_dict().get("channel")
+    return getattr(channel, "value", channel)
+
+def message_content_text(message):
+    content = getattr(message, "content", None)
+    if isinstance(content, str):
+        return content
+    if content is None and hasattr(message, "to_dict"):
+        content = message.to_dict().get("content")
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for item in content:
+            if isinstance(item, str):
+                parts.append(item)
+            elif isinstance(item, dict):
+                parts.append(str(item.get("text", "")))
+            else:
+                parts.append(str(getattr(item, "text", "")))
+        return "".join(parts)
+    return ""
+
+def extract_gpt_oss_final_text_from_tokens(token_ids):
+    encoding = get_harmony_encoding()
+    if encoding is None or not token_ids:
+        return None
+    messages = encoding.parse_messages_from_completion_tokens(
+        token_ids,
+        role=Role.ASSISTANT,
+        strict=False,
+    )
+    final_parts = [
+        message_content_text(message)
+        for message in messages
+        if message_channel_name(message) == "final"
+    ]
+    final_text = "".join(final_parts).strip()
+    return final_text or None
+
+def extract_gpt_oss_final_text_from_string(text):
+    if "<|channel|>final<|message|>" not in text:
+        return None
+    final_text = text.rsplit("<|channel|>final<|message|>", 1)[-1]
+    final_text = re.split(r"<\|(?:return|end|call)\|>", final_text, maxsplit=1)[0]
+    return final_text.strip() or None
+
+def decode_candidate(candidate, tokenizer):
+    text = candidate.text.strip()
+    if not is_gpt_oss_tokenizer(tokenizer):
+        return text
+    token_ids = list(getattr(candidate, "token_ids", []) or [])
+    try:
+        final_text = extract_gpt_oss_final_text_from_tokens(token_ids)
+    except Exception:
+        final_text = None
+    if final_text is None:
+        final_text = extract_gpt_oss_final_text_from_string(candidate.text)
+    return (final_text or text).strip()
+
 def compute_metric(prompts, batch_size, tokenizer, model, references, max_length):
     predictions = []
     counter = 1
     for i in range(0, len(prompts), batch_size):
         batch_prompts = prompts[i:i+batch_size]
-        batch_predictions = run_batch(batch_prompts, tokenizer, model, max_length, 512)
+        batch_predictions = run_batch(batch_prompts, tokenizer, model, max_length, MAX_OUTPUT_TOKENS)
         predictions.extend(batch_predictions)
 
         if (i // 200) == counter:
@@ -317,7 +465,7 @@ def compute_metric_tran(prompts, batch_size, tokenizer, model, references, max_l
     counter = 1
     for i in range(0, len(prompts), batch_size):
         batch_prompts = prompts[i:i+batch_size]
-        batch_predictions = run_batch(batch_prompts, tokenizer, model, max_length, 512)
+        batch_predictions = run_batch(batch_prompts, tokenizer, model, max_length, MAX_OUTPUT_TOKENS)
         predictions.extend(batch_predictions)
 
         if (i // 200) == counter:
@@ -346,7 +494,7 @@ def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, temper
             tokenizer,
             model,
             max_length,
-            512,
+            MAX_OUTPUT_TOKENS,
             temperature=temperature,
             num_candidates=num_candidates,
         )
@@ -372,7 +520,7 @@ def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens,
         max_tokens=output_max_tokens,
         temperature=temperature,
         n=num_candidates,
-        stop_token_ids=[tokenizer.eos_token_id] if tokenizer.eos_token_id is not None else None
+        stop_token_ids=get_stop_token_ids(tokenizer)
     )
 
     outputs = model.generate(batch_prompts, sampling_params)
@@ -380,10 +528,10 @@ def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens,
 
     if num_candidates == 1:
         # Keep the historical return shape for translation and summarization callers.
-        predictions = [output.outputs[0].text.strip() for output in outputs]
+        predictions = [decode_candidate(output.outputs[0], tokenizer) for output in outputs]
     else:
         predictions = [
-            [candidate.text.strip() for candidate in output.outputs]
+            [decode_candidate(candidate, tokenizer) for candidate in output.outputs]
             for output in outputs
         ]
 

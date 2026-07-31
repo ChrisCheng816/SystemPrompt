@@ -95,7 +95,17 @@ def evaluate_generation(
 
     predictions= []
     print(f"Loading {len(test_data[src_key])} prompts...")
-    prompts = load_prompt_gen(len(test_data[src_key]), task_description, src_key, test_data, base_prompt, tokenizer, system_prompt, max_length)
+    prompts = load_prompt_gen(
+        len(test_data[src_key]),
+        task_description,
+        src_key,
+        test_data,
+        base_prompt,
+        tokenizer,
+        system_prompt,
+        max_length,
+        model=model_name,
+    )
     prompts = random.sample(prompts, len(prompts)) if shuffled == True else prompts
     start_time = time.time()
     predictions = compute_metric_gen(
