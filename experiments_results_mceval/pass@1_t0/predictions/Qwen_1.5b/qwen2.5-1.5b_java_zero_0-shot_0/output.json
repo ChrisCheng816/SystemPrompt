@@ -1,0 +1,11 @@
+{
+  "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "language": "java",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "elapsed_time": "0:00:20",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.",
+  "temperature": 0.0,
+  "pass_at": 1
+}

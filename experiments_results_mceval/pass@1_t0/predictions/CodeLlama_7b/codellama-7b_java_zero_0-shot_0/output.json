@@ -1,0 +1,11 @@
+{
+  "model_name": "codellama/CodeLlama-7b-Instruct-hf",
+  "language": "java",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "elapsed_time": "0:00:31",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.",
+  "temperature": 0.0,
+  "pass_at": 1
+}
