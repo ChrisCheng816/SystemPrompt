@@ -12,7 +12,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results_mceval"
 FENCED_CODE = re.compile(
-    r"```\s*(?P<language>python|py|java)?\s*\n(?P<code>.*?)```",
+    r"```\s*(?P<language>python|py|java)?[ \t]*\n?(?P<code>.*?)```",
     flags=re.IGNORECASE | re.DOTALL,
 )
 JAVA_METHOD = re.compile(
@@ -25,6 +25,8 @@ JAVA_METHOD = re.compile(
     r"(?:throws\s+[^{]+)?\{"
 )
 TRAILING_MARKERS = (
+    "### It is your turn now!",
+    "### Test case",
     "Additional question:",
     "Answer:",
     "Explanation:",
@@ -34,6 +36,7 @@ TRAILING_MARKERS = (
     "Test the function",
     "Example usage",
     "Usage:",
+    "It can be seen",
 )
 
 
@@ -78,6 +81,74 @@ def trim_trailing_prose(text: str) -> str:
     return text.strip()
 
 
+def strip_bracket_tags(text: str) -> str:
+    text = re.sub(r"(?im)^\s*\[(?:/?PYTHON|/?JAVA)\]\s*$", "", text)
+    text = re.sub(r"(?ims)^\s*\[TESTS\].*", "", text)
+    text = re.sub(r"(?i)\[/?(?:PYTHON|JAVA|TESTS)\]", "", text)
+    return text.strip()
+
+
+def strip_leftover_fences(text: str) -> str:
+    text = re.sub(r"(?im)^\s*```\s*(?:python|py|java)?\s*$", "", text)
+    text = text.replace("```", "")
+    return text.strip()
+
+
+def inline_signature(text: str, entry_point: str | None) -> str | None:
+    if not entry_point:
+        return None
+    pattern = rf"`\s*(def\s+{re.escape(entry_point)}\s*\([^`]*?:)\s*`"
+    match = re.search(pattern, text)
+    return match.group(1).strip() if match else None
+
+
+def restore_python_signature_if_needed(
+    original_text: str,
+    code: str,
+    entry_point: str | None,
+    signature: str | None,
+) -> str:
+    if not entry_point or re.search(rf"(?m)^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(", code):
+        return code
+
+    header = inline_signature(original_text, entry_point) or signature
+    if not header or not header.lstrip().startswith("def "):
+        return code
+    body_lines = code.splitlines()
+    if not body_lines:
+        return code
+    indented_body = [
+        line if not line.strip() or line.startswith((" ", "\t")) else f"    {line}"
+        for line in body_lines
+    ]
+    return "\n".join([header.strip(), *indented_body])
+
+
+def truncate_python_block(text: str, entry_point: str | None) -> str:
+    if not entry_point:
+        return text.strip()
+    lines = text.splitlines()
+    start = None
+    for index, line in enumerate(lines):
+        if re.match(rf"^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(", line):
+            start = index
+            break
+    if start is None:
+        return text.strip()
+
+    base_indent = len(lines[start]) - len(lines[start].lstrip(" \t"))
+    end = len(lines)
+    for index in range(start + 1, len(lines)):
+        line = lines[index]
+        if not line.strip():
+            continue
+        indent = len(line) - len(line.lstrip(" \t"))
+        if indent <= base_indent and not line.lstrip().startswith(("#", "@")):
+            end = index
+            break
+    return "\n".join(lines[start:end]).rstrip()
+
+
 def slice_from_code_start(text: str, language: str, entry_point: str | None) -> str:
     patterns = []
     if language == "python":
@@ -102,7 +173,7 @@ def extract_python_code(text: str, entry_point: str | None) -> str:
     try:
         tree = ast.parse(text)
     except SyntaxError:
-        return text.strip()
+        return truncate_python_block(text, entry_point)
 
     wanted_nodes = []
     found_entry = False
@@ -205,13 +276,16 @@ def extract_java_methods(text: str, entry_point: str | None) -> str:
     return "\n\n".join(code for _, code in methods).strip() or text.strip()
 
 
-def clean_candidate(text: str, language: str, entry_point: str | None) -> str:
+def clean_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:
+    original_text = text
     text = normalize_text(strip_harmony_wrappers(text))
     fenced = pick_fenced_code(text, language, entry_point)
     if fenced is not None:
         text = fenced
     text = normalize_text(text)
+    text = strip_bracket_tags(strip_leftover_fences(text))
     if language == "python":
+        text = restore_python_signature_if_needed(original_text, text, entry_point, signature)
         return extract_python_code(text, entry_point)
     if language == "java":
         return extract_java_methods(text, entry_point)
@@ -244,11 +318,12 @@ def clean_prediction_file(input_path: Path) -> tuple[Path, int]:
             record = json.loads(line)
             language = language_from_record(record)
             entry_point = record.get("entry_point")
+            signature = record.get("signature")
             candidates = record.get("raw_generation")
             if not isinstance(candidates, list) or not all(isinstance(code, str) for code in candidates):
                 raise ValueError(f"Line {line_number} must contain a list of string raw_generation.")
             record["raw_generation"] = [
-                clean_candidate(candidate, language, entry_point) for candidate in candidates
+                clean_candidate(candidate, language, entry_point, signature) for candidate in candidates
             ]
             candidate_count += len(candidates)
             records.append(record)
