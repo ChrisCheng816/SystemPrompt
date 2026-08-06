@@ -108,7 +108,8 @@ def evaluate_generation(
     )
     prompts = random.sample(prompts, len(prompts)) if shuffled == True else prompts
     start_time = time.time()
-    predictions = compute_metric_gen(
+    include_token_metadata = is_gpt_oss_model_name(model_name)
+    generation_result = compute_metric_gen(
         prompts,
         batch_size,
         tokenizer,
@@ -116,24 +117,40 @@ def evaluate_generation(
         max_length,
         temperature=temperature,
         num_candidates=pass_at,
+        include_token_metadata=include_token_metadata,
     )
+    if include_token_metadata:
+        predictions, token_metadata = generation_result
+    else:
+        predictions = generation_result
+        token_metadata = None
     elapsed_time = str(timedelta(seconds=int(time.time() - start_time)))
 
-    outputs_to_save = [(pass_at, output_root, predictions)]
+    outputs_to_save = [(pass_at, output_root, predictions, token_metadata)]
     prediction_paths = []
     if also_save_pass_at_1:
         if pass_at_1_output_root is None:
             raise ValueError("pass_at_1_output_root is required when also_save_pass_at_1 is enabled.")
         first_candidates = [item[0] if isinstance(item, list) else item for item in predictions]
-        outputs_to_save.append((1, pass_at_1_output_root, first_candidates))
+        first_token_metadata = None
+        if token_metadata is not None:
+            first_token_metadata = [
+                {
+                    **item,
+                    "tokenized_results": item["tokenized_results"][:1],
+                }
+                for item in token_metadata
+            ]
+        outputs_to_save.append((1, pass_at_1_output_root, first_candidates, first_token_metadata))
 
-    for saved_pass_at, saved_output_root, saved_predictions in outputs_to_save:
+    for saved_pass_at, saved_output_root, saved_predictions, saved_token_metadata in outputs_to_save:
         run_path = Path(saved_output_root) / "predictions" / f"{output_model_name}_{lang}_{style}_{example_num}-shot"
         if datatype == 0 or datatype == 1:
             filepath = evaluate_metric_mceval(
                 predictions=saved_predictions,
                 path=str(run_path),
                 test_data=test_data,
+                token_metadata=saved_token_metadata,
             )
         else:
             filepath = evaluate_metric_gen2(
@@ -141,6 +158,7 @@ def evaluate_generation(
                 path=str(run_path),
                 test_data=test_data,
                 lang=lang,
+                token_metadata=saved_token_metadata,
             )
             prediction_paths.append(Path(filepath) / "predictions.jsonl")
 

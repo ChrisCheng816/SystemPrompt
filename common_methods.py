@@ -312,23 +312,37 @@ def evaluate_metric_gen1(predictions, path, saving_name = None, lang=None):
                 os.remove(file_path)
     return filepath, result.stdout
 
-def evaluate_metric_mceval(predictions, path, test_data):
-    """Save McEval records with their official fields and raw generations."""
+def normalize_candidate_list(item):
+    return item if isinstance(item, list) else [item]
+
+def save_tokenized_results(filepath, ids, token_metadata):
+    if token_metadata is None:
+        return
+
+    with open(f"{filepath}/predictions_tokenized.jsonl", "w", encoding="utf-8") as f:
+        for i, metadata in enumerate(token_metadata):
+            record = {"_id": ids[i], **metadata}
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+def evaluate_metric_mceval(predictions, path, test_data, token_metadata=None):
+    """Save McEval predictions using the same compact schema as CodeEval."""
     counter = 0
     while os.path.exists(f"{path}_{counter}"):
         counter += 1
     filepath = f"{path}_{counter}"
     os.makedirs(filepath, exist_ok=True)
 
+    ids = test_data["task_id"]
     with open(f"{filepath}/predictions.jsonl", "w", encoding="utf-8") as f:
-        for example, prediction in zip(test_data, predictions, strict=True):
-            record = dict(example)
-            record["raw_generation"] = prediction if isinstance(prediction, list) else [prediction]
+        for i, prediction in enumerate(predictions):
+            candidates = normalize_candidate_list(prediction)
+            record = {"_id": ids[i], "generate_results": candidates}
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    save_tokenized_results(filepath, ids, token_metadata)
 
     return filepath
 
-def evaluate_metric_gen2(predictions, path, test_data = None, lang=None):
+def evaluate_metric_gen2(predictions, path, test_data = None, lang=None, token_metadata=None):
     counter = 0
     while os.path.exists(f"{path}_{counter}"):
         counter += 1
@@ -340,9 +354,10 @@ def evaluate_metric_gen2(predictions, path, test_data = None, lang=None):
 
     with open(f"{filepath}/predictions.jsonl", "w", encoding="utf-8") as f:
         for i, item in enumerate(predictions):
-            candidates = item if isinstance(item, list) else [item]
+            candidates = normalize_candidate_list(item)
             record = {"_id": ids[i], "generate_results": candidates}
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    save_tokenized_results(filepath, ids, token_metadata)
 
     return filepath
 
@@ -426,6 +441,24 @@ def extract_gpt_oss_final_text_from_string(text):
     final_text = re.split(r"<\|(?:return|end|call)\|>", final_text, maxsplit=1)[0]
     return final_text.strip() or None
 
+def looks_like_gpt_oss_reasoning(text):
+    return re.match(r"^\s*analysis(?:\b|[A-Z])", text, flags=re.IGNORECASE) is not None
+
+def json_safe_value(value):
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    return str(value)
+
+def candidate_token_metadata(candidate, final_text):
+    token_ids = list(getattr(candidate, "token_ids", []) or [])
+    return {
+        "text": getattr(candidate, "text", ""),
+        "token_ids": token_ids,
+        "final_text": final_text,
+        "finish_reason": json_safe_value(getattr(candidate, "finish_reason", None)),
+        "stop_reason": json_safe_value(getattr(candidate, "stop_reason", None)),
+    }
+
 def decode_candidate(candidate, tokenizer):
     text = candidate.text.strip()
     if not is_gpt_oss_tokenizer(tokenizer):
@@ -435,9 +468,17 @@ def decode_candidate(candidate, tokenizer):
         final_text = extract_gpt_oss_final_text_from_tokens(token_ids)
     except Exception:
         final_text = None
-    if final_text is None:
-        final_text = extract_gpt_oss_final_text_from_string(candidate.text)
-    return (final_text or text).strip()
+    return (final_text or "").strip()
+
+def decode_candidate_with_metadata(candidate, tokenizer):
+    final_text = decode_candidate(candidate, tokenizer)
+    return final_text, candidate_token_metadata(candidate, final_text)
+
+def output_token_metadata(output, candidate_metadata):
+    return {
+        "prompt_token_ids": list(getattr(output, "prompt_token_ids", []) or []),
+        "tokenized_results": normalize_candidate_list(candidate_metadata),
+    }
 
 def compute_metric(prompts, batch_size, tokenizer, model, references, max_length):
     predictions = []
@@ -484,12 +525,13 @@ def compute_metric_tran(prompts, batch_size, tokenizer, model, references, max_l
 
     return predictions
 
-def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, temperature, num_candidates):
+def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, temperature, num_candidates, include_token_metadata=False):
     predictions = []
+    token_metadata = [] if include_token_metadata else None
     counter = 1
     for i in range(0, len(prompts), batch_size):
         batch_prompts = prompts[i:i+batch_size]
-        batch_predictions = run_batch(
+        batch_result = run_batch(
             batch_prompts,
             tokenizer,
             model,
@@ -497,7 +539,13 @@ def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, temper
             MAX_OUTPUT_TOKENS,
             temperature=temperature,
             num_candidates=num_candidates,
+            include_token_metadata=include_token_metadata,
         )
+        if include_token_metadata:
+            batch_predictions, batch_token_metadata = batch_result
+            token_metadata.extend(batch_token_metadata)
+        else:
+            batch_predictions = batch_result
         predictions.extend(batch_predictions)
 
         if (i // 200) == counter:
@@ -511,9 +559,11 @@ def compute_metric_gen(prompts, batch_size, tokenizer, model, max_length, temper
 
     print("Starting to compute...")
 
+    if include_token_metadata:
+        return predictions, token_metadata
     return predictions
 
-def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens, temperature=0.0, num_candidates=1):
+def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens, temperature=0.0, num_candidates=1, include_token_metadata=False):
     ensure_pad_token(tokenizer)
 
     sampling_params = SamplingParams(
@@ -528,13 +578,34 @@ def run_batch(batch_prompts, tokenizer, model, input_max_len, output_max_tokens,
 
     if num_candidates == 1:
         # Keep the historical return shape for translation and summarization callers.
-        predictions = [decode_candidate(output.outputs[0], tokenizer) for output in outputs]
+        if include_token_metadata:
+            decoded = [decode_candidate_with_metadata(output.outputs[0], tokenizer) for output in outputs]
+            predictions = [item[0] for item in decoded]
+            token_metadata = [
+                output_token_metadata(output, item[1])
+                for output, item in zip(outputs, decoded, strict=True)
+            ]
+        else:
+            predictions = [decode_candidate(output.outputs[0], tokenizer) for output in outputs]
     else:
-        predictions = [
-            [decode_candidate(candidate, tokenizer) for candidate in output.outputs]
-            for output in outputs
-        ]
+        if include_token_metadata:
+            decoded = [
+                [decode_candidate_with_metadata(candidate, tokenizer) for candidate in output.outputs]
+                for output in outputs
+            ]
+            predictions = [[item[0] for item in output] for output in decoded]
+            token_metadata = [
+                output_token_metadata(output, [item[1] for item in output_decoded])
+                for output, output_decoded in zip(outputs, decoded, strict=True)
+            ]
+        else:
+            predictions = [
+                [decode_candidate(candidate, tokenizer) for candidate in output.outputs]
+                for output in outputs
+            ]
 
+    if include_token_metadata:
+        return predictions, token_metadata
     return predictions
 
 # Construct Prompt

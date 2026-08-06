@@ -35,7 +35,10 @@ TRAILING_MARKERS = (
     "<!---",
     "Here is",
     "Here's",
+    "This function",
     "This implementation",
+    "Please note",
+    "Note that",
     "Test the function",
     "Example usage",
     "Usage:",
@@ -43,6 +46,22 @@ TRAILING_MARKERS = (
     "analysisWe need",
     "analysis We need",
 )
+MODEL_FAMILY_MARKERS = {
+    "qwen": (
+        "The above code",
+        "Please let me know",
+    ),
+    "codellama": (
+        "[/INST]",
+        "<s>",
+        "</s>",
+    ),
+    "gpt_oss": (
+        "<|return|>",
+        "<|end|>",
+        "<|call|>",
+    ),
+}
 UNLABELED_ANALYSIS = re.compile(r"^\s*analysis(?:\b|[A-Z])", flags=re.IGNORECASE)
 PROMPT_ECHO = re.compile(
     r"^\s*###\s*It is your turn to generate\b.*", flags=re.IGNORECASE | re.DOTALL
@@ -51,6 +70,17 @@ PROMPT_ECHO = re.compile(
 
 def normalize_text(text: str) -> str:
     return text.replace("\r\n", "\n").replace("\r", "\n").strip()
+
+
+def model_family_from_path(input_path: Path) -> str:
+    path_text = str(input_path).lower()
+    if "qwen" in path_text:
+        return "qwen"
+    if "codellama" in path_text or "code_llama" in path_text:
+        return "codellama"
+    if "gpt-oss" in path_text or "gpt-20b" in path_text or "\\openai\\" in path_text or "/openai/" in path_text:
+        return "gpt_oss"
+    return "generic"
 
 
 def strip_harmony_wrappers(text: str) -> str:
@@ -108,15 +138,34 @@ def pick_fenced_code(text: str, language: str, entry_point: str | None) -> str |
     return candidates[0].group("code")
 
 
-def trim_trailing_prose(text: str) -> str:
-    for marker in TRAILING_MARKERS:
+def trim_trailing_prose(text: str, model_family: str = "generic") -> str:
+    markers = TRAILING_MARKERS + MODEL_FAMILY_MARKERS.get(model_family, ())
+    for marker in markers:
         match = re.search(rf"(?:^|\n)\s*{re.escape(marker)}", text)
         if match:
             text = text[:match.start()]
     return text.strip()
 
 
+def fallback_candidate(original_text: str) -> str:
+    text = normalize_text(strip_harmony_wrappers(original_text))
+    text = strip_inline_code_quotes(text)
+    text = strip_bracket_tags(strip_leftover_fences(text))
+    return normalize_text(text) or normalize_text(original_text)
+
+
+def keep_nonempty(cleaned_text: str | None, original_text: str) -> str:
+    cleaned_text = normalize_text(cleaned_text or "")
+    if cleaned_text:
+        return cleaned_text
+    return fallback_candidate(original_text)
+
+
 def strip_inline_code_quotes(text: str) -> str:
+    stripped = text.strip()
+    if stripped.startswith("`") and stripped.endswith("`") and not stripped.startswith("```"):
+        text = stripped[1:-1]
+
     lines = []
     for line in text.splitlines():
         match = re.match(r"^([ \t]*)`([^`]+)`[ \t]*$", line)
@@ -160,6 +209,10 @@ def restore_python_signature_if_needed(
     header = inline_signature(original_text, entry_point) or signature
     if not header or not header.lstrip().startswith("def "):
         return code
+    bare_signature = rf"(?m)^[ \t]*{re.escape(entry_point)}\s*\([^:\n]*\)\s*(?:->\s*[^:\n]+)?\s*:"
+    if re.search(bare_signature, code):
+        return re.sub(bare_signature, header.strip(), code, count=1)
+
     body_lines = code.splitlines()
     if not body_lines:
         return code
@@ -214,8 +267,8 @@ def slice_from_code_start(text: str, language: str, entry_point: str | None) -> 
     return text[min(starts):] if starts else text
 
 
-def extract_python_code(text: str, entry_point: str | None) -> str:
-    text = trim_trailing_prose(slice_from_code_start(text, "python", entry_point))
+def extract_python_code(text: str, entry_point: str | None, model_family: str = "generic") -> str:
+    text = trim_trailing_prose(slice_from_code_start(text, "python", entry_point), model_family)
     try:
         tree = ast.parse(text)
     except SyntaxError:
@@ -296,8 +349,8 @@ def matching_brace_index(text: str, open_index: int) -> int | None:
     return None
 
 
-def extract_java_methods(text: str, entry_point: str | None) -> str:
-    text = trim_trailing_prose(slice_from_code_start(text, "java", entry_point))
+def extract_java_methods(text: str, entry_point: str | None, model_family: str = "generic") -> str:
+    text = trim_trailing_prose(slice_from_code_start(text, "java", entry_point), model_family)
     methods = []
     seen_spans = set()
     for match in JAVA_METHOD.finditer(text):
@@ -319,37 +372,78 @@ def extract_java_methods(text: str, entry_point: str | None) -> str:
         ordered.extend(code for name, code in methods if name == entry_point)
         ordered.extend(code for name, code in methods if name != entry_point)
         return "\n\n".join(ordered).strip()
-    return "\n\n".join(code for _, code in methods).strip() or text.strip()
+    return "\n\n".join(code for _, code in methods).strip()
 
 
-def clean_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:
+def clean_common_candidate(
+    text: str,
+    language: str,
+    entry_point: str | None,
+    signature: str | None,
+    model_family: str,
+) -> str:
     original_text = text
     text = normalize_text(strip_harmony_wrappers(text))
+    if looks_like_unlabeled_analysis(text):
+        sliced = slice_from_code_start(text, language, entry_point)
+        if sliced == text:
+            return fallback_candidate(original_text)
+        text = sliced
     if PROMPT_ECHO.match(text):
         text = slice_from_code_start(text, language, entry_point)
         if PROMPT_ECHO.match(text):
-            return ""
+            return fallback_candidate(original_text)
     fenced = pick_fenced_code(text, language, entry_point)
     if fenced is not None:
         text = fenced
     text = normalize_text(strip_inline_code_quotes(text))
     if fenced is None and looks_like_unlabeled_analysis(text):
         if language == "python" and not has_real_python_start(text, entry_point):
-            return ""
+            return fallback_candidate(original_text)
         if language == "java" and not has_real_java_start(text, entry_point):
-            return ""
+            return fallback_candidate(original_text)
     text = strip_bracket_tags(strip_leftover_fences(text))
     if language == "python":
         if not has_real_python_start(text, entry_point) and has_real_java_start(text, None):
-            return ""
+            return fallback_candidate(original_text)
         if not looks_like_unlabeled_analysis(text):
             text = restore_python_signature_if_needed(original_text, text, entry_point, signature)
-        return extract_python_code(text, entry_point)
+        return keep_nonempty(extract_python_code(text, entry_point, model_family), original_text)
     if language == "java":
         if not has_real_java_start(text, entry_point) and has_real_python_start(text, None):
-            return ""
-        return extract_java_methods(text, entry_point)
-    return trim_trailing_prose(text)
+            return fallback_candidate(original_text)
+        return keep_nonempty(extract_java_methods(text, entry_point, model_family), original_text)
+    return keep_nonempty(trim_trailing_prose(text, model_family), original_text)
+
+
+def clean_qwen_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:
+    return clean_common_candidate(text, language, entry_point, signature, "qwen")
+
+
+def clean_codellama_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:
+    return clean_common_candidate(text, language, entry_point, signature, "codellama")
+
+
+def clean_gpt_oss_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:
+    return clean_common_candidate(text, language, entry_point, signature, "gpt_oss")
+
+
+def clean_candidate(
+    text: str,
+    language: str,
+    entry_point: str | None,
+    signature: str | None,
+    model_family: str = "generic",
+) -> str:
+    cleaners = {
+        "qwen": clean_qwen_candidate,
+        "codellama": clean_codellama_candidate,
+        "gpt_oss": clean_gpt_oss_candidate,
+    }
+    cleaner = cleaners.get(model_family, clean_common_candidate)
+    if cleaner is clean_common_candidate:
+        return cleaner(text, language, entry_point, signature, "generic")
+    return cleaner(text, language, entry_point, signature)
 
 
 def language_from_record(record: dict) -> str:
@@ -391,6 +485,7 @@ def load_mceval_metadata(input_path: Path) -> dict[str, dict[str, str | None]]:
 def clean_prediction_file(input_path: Path) -> tuple[Path, int]:
     records = []
     candidate_count = 0
+    model_family = model_family_from_path(input_path)
     metadata_by_task_id = load_mceval_metadata(input_path)
     with input_path.open("r", encoding="utf-8") as input_file:
         for line_number, line in enumerate(input_file, start=1):
@@ -406,7 +501,7 @@ def clean_prediction_file(input_path: Path) -> tuple[Path, int]:
             record = {
                 "_id": task_id,
                 "generate_results": [
-                    clean_candidate(candidate, language, entry_point, signature)
+                    clean_candidate(candidate, language, entry_point, signature, model_family)
                     for candidate in candidates
                 ],
             }
