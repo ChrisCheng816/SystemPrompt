@@ -17,19 +17,22 @@ FENCED_CODE = re.compile(
 )
 JAVA_METHOD = re.compile(
     r"(?m)^[ \t]*(?:@\w+(?:\([^)]*\))?\s*)*"
-    r"(?:public|private|protected)?\s*"
-    r"(?:static\s+)?"
-    r"(?:final\s+)?"
-    r"(?:[\w<>\[\],.?]+\s+)+"
+    r"(?:(?:public|private|protected)\s+)?"
+    r"(?:(?:static|final|synchronized|abstract|native|strictfp)\s+)*"
+    r"(?:<[^;\n{}()]+>\s+)?"
+    r"(?:[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\])*(?:\s*\.\.\.)?)\s+"
     r"(?P<name>[A-Za-z_]\w*)\s*\([^;{}]*\)\s*"
     r"(?:throws\s+[^{]+)?\{"
 )
 TRAILING_MARKERS = (
+    "### It is your turn to generate",
     "### It is your turn now!",
     "### Test case",
     "Additional question:",
     "Answer:",
     "Explanation:",
+    "Explanation of the code:",
+    "<!---",
     "Here is",
     "Here's",
     "This implementation",
@@ -37,6 +40,12 @@ TRAILING_MARKERS = (
     "Example usage",
     "Usage:",
     "It can be seen",
+    "analysisWe need",
+    "analysis We need",
+)
+UNLABELED_ANALYSIS = re.compile(r"^\s*analysis(?:\b|[A-Z])", flags=re.IGNORECASE)
+PROMPT_ECHO = re.compile(
+    r"^\s*###\s*It is your turn to generate\b.*", flags=re.IGNORECASE | re.DOTALL
 )
 
 
@@ -54,6 +63,32 @@ def strip_harmony_wrappers(text: str) -> str:
     text = re.sub(r"<\|(?:start|end|message|return|call)\|>", "", text)
     text = re.sub(r"<\|channel\|>\w+", "", text)
     return text.strip()
+
+
+def looks_like_unlabeled_analysis(text: str) -> bool:
+    return UNLABELED_ANALYSIS.search(text) is not None
+
+
+def has_real_python_start(text: str, entry_point: str | None) -> bool:
+    if entry_point and re.search(rf"(?m)^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(", text):
+        return True
+    return re.search(r"(?m)^[ \t]*(?:async\s+)?def\s+\w+\s*\(", text) is not None
+
+
+def java_method_start_pattern(entry_point: str | None = None) -> str:
+    name = re.escape(entry_point) if entry_point else r"[A-Za-z_]\w*"
+    return (
+        r"(?m)^[ \t]*(?:@\w+(?:\([^)]*\))?\s*)*"
+        r"(?:(?:public|private|protected)\s+)?"
+        r"(?:(?:static|final|synchronized|abstract|native|strictfp)\s+)*"
+        r"(?:<[^;\n{}()]+>\s+)?"
+        r"(?:[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\])*(?:\s*\.\.\.)?)\s+"
+        rf"{name}\s*\([^;{{}}]*\)\s*(?:throws\s+[^\{{]+)?\{{"
+    )
+
+
+def has_real_java_start(text: str, entry_point: str | None) -> bool:
+    return re.search(java_method_start_pattern(entry_point), text) is not None
 
 
 def pick_fenced_code(text: str, language: str, entry_point: str | None) -> str | None:
@@ -75,10 +110,21 @@ def pick_fenced_code(text: str, language: str, entry_point: str | None) -> str |
 
 def trim_trailing_prose(text: str) -> str:
     for marker in TRAILING_MARKERS:
-        match = re.search(rf"\n\s*{re.escape(marker)}", text)
+        match = re.search(rf"(?:^|\n)\s*{re.escape(marker)}", text)
         if match:
             text = text[:match.start()]
     return text.strip()
+
+
+def strip_inline_code_quotes(text: str) -> str:
+    lines = []
+    for line in text.splitlines():
+        match = re.match(r"^([ \t]*)`([^`]+)`[ \t]*$", line)
+        if match:
+            lines.append(f"{match.group(1)}{match.group(2)}")
+        else:
+            lines.append(line)
+    return "\n".join(lines).strip()
 
 
 def strip_bracket_tags(text: str) -> str:
@@ -157,8 +203,8 @@ def slice_from_code_start(text: str, language: str, entry_point: str | None) -> 
         patterns.extend((r"(?m)^[ \t]*(?:from\s+\S+\s+import\s+.+|import\s+.+)$", r"(?m)^[ \t]*(?:async\s+)?def\s+"))
     else:
         if entry_point:
-            patterns.append(rf"(?m)^[ \t]*(?:public|private|protected)?[^\n;{{}}]*\b{re.escape(entry_point)}\s*\(")
-        patterns.append(r"(?m)^[ \t]*(?:public|private|protected)[^\n;{}]*\([^;{}]*\)\s*(?:throws\s+[^{]+)?\{")
+            patterns.append(java_method_start_pattern(entry_point))
+        patterns.append(java_method_start_pattern())
 
     starts = []
     for pattern in patterns:
@@ -279,21 +325,35 @@ def extract_java_methods(text: str, entry_point: str | None) -> str:
 def clean_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:
     original_text = text
     text = normalize_text(strip_harmony_wrappers(text))
+    if PROMPT_ECHO.match(text):
+        text = slice_from_code_start(text, language, entry_point)
+        if PROMPT_ECHO.match(text):
+            return ""
     fenced = pick_fenced_code(text, language, entry_point)
     if fenced is not None:
         text = fenced
-    text = normalize_text(text)
+    text = normalize_text(strip_inline_code_quotes(text))
+    if fenced is None and looks_like_unlabeled_analysis(text):
+        if language == "python" and not has_real_python_start(text, entry_point):
+            return ""
+        if language == "java" and not has_real_java_start(text, entry_point):
+            return ""
     text = strip_bracket_tags(strip_leftover_fences(text))
     if language == "python":
-        text = restore_python_signature_if_needed(original_text, text, entry_point, signature)
+        if not has_real_python_start(text, entry_point) and has_real_java_start(text, None):
+            return ""
+        if not looks_like_unlabeled_analysis(text):
+            text = restore_python_signature_if_needed(original_text, text, entry_point, signature)
         return extract_python_code(text, entry_point)
     if language == "java":
+        if not has_real_java_start(text, entry_point) and has_real_python_start(text, None):
+            return ""
         return extract_java_methods(text, entry_point)
     return trim_trailing_prose(text)
 
 
 def language_from_record(record: dict) -> str:
-    task_id = str(record.get("task_id", ""))
+    task_id = str(record.get("_id", record.get("task_id", "")))
     if "/" in task_id:
         language = task_id.split("/", maxsplit=1)[0].lower()
         if language in {"python", "java"}:
@@ -310,21 +370,46 @@ def search_root(experiment_root: Path) -> Path:
     return experiment_root
 
 
+def load_mceval_metadata(input_path: Path) -> dict[str, dict[str, str | None]]:
+    full_path = input_path.with_name("predictions_mceval_full.jsonl")
+    if not full_path.is_file():
+        return {}
+
+    metadata = {}
+    with full_path.open("r", encoding="utf-8") as full_file:
+        for line in full_file:
+            record = json.loads(line)
+            task_id = record.get("task_id", record.get("_id"))
+            if task_id:
+                metadata[str(task_id)] = {
+                    "entry_point": record.get("entry_point"),
+                    "signature": record.get("signature"),
+                }
+    return metadata
+
+
 def clean_prediction_file(input_path: Path) -> tuple[Path, int]:
     records = []
     candidate_count = 0
+    metadata_by_task_id = load_mceval_metadata(input_path)
     with input_path.open("r", encoding="utf-8") as input_file:
         for line_number, line in enumerate(input_file, start=1):
             record = json.loads(line)
             language = language_from_record(record)
-            entry_point = record.get("entry_point")
-            signature = record.get("signature")
-            candidates = record.get("raw_generation")
+            task_id = record.get("_id", record.get("task_id"))
+            task_metadata = metadata_by_task_id.get(str(task_id), {})
+            entry_point = record.get("entry_point", task_metadata.get("entry_point"))
+            signature = record.get("signature", task_metadata.get("signature"))
+            candidates = record.get("generate_results", record.get("raw_generation"))
             if not isinstance(candidates, list) or not all(isinstance(code, str) for code in candidates):
-                raise ValueError(f"Line {line_number} must contain a list of string raw_generation.")
-            record["raw_generation"] = [
-                clean_candidate(candidate, language, entry_point, signature) for candidate in candidates
-            ]
+                raise ValueError(f"Line {line_number} must contain a list of string generate_results.")
+            record = {
+                "_id": task_id,
+                "generate_results": [
+                    clean_candidate(candidate, language, entry_point, signature)
+                    for candidate in candidates
+                ],
+            }
             candidate_count += len(candidates)
             records.append(record)
 
