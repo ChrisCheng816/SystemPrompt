@@ -267,6 +267,7 @@ def main():
                                 pass_at_1_output_root=pass_at_1_output_roots.get(dataset_name),
                                 retriever_device=args.resolved_retriever_device,
                                 output_root=output_roots[dataset_name],
+                                prompt_index=prompt_index,
                                 reservation=reservation,
                                 retriever_reservation=retriever_reservation,
                             )

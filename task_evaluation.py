@@ -33,6 +33,7 @@ def evaluate_generation(
     pass_at_1_output_root=None,
     retriever_device="cuda:0",
     output_root="experiments_results_codereval/pass@1_t0",
+    prompt_index=None,
     reservation=None,
     retriever_reservation=None,
 ):
@@ -151,6 +152,7 @@ def evaluate_generation(
                 path=str(run_path),
                 test_data=test_data,
                 token_metadata=saved_token_metadata,
+                run_index=prompt_index,
             )
         else:
             filepath = evaluate_metric_gen2(
@@ -159,6 +161,7 @@ def evaluate_generation(
                 test_data=test_data,
                 lang=lang,
                 token_metadata=saved_token_metadata,
+                run_index=prompt_index,
             )
             prediction_paths.append(Path(filepath) / "predictions.jsonl")
 
@@ -173,6 +176,7 @@ def evaluate_generation(
             system_prompt,
             temperature,
             saved_pass_at,
+            prompt_index=prompt_index,
         )
     del train_data, test_data, base_prompt, prompts, predictions, model, tokenizer
     gc.collect()

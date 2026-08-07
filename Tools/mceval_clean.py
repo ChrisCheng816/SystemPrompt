@@ -25,9 +25,14 @@ JAVA_METHOD = re.compile(
     r"(?:throws\s+[^{]+)?\{"
 )
 TRAILING_MARKERS = (
+    "### It is your turn",
     "### It is your turn to generate",
     "### It is your turn now!",
+    "### It is your turn again!",
+    "### Example",
     "### Test case",
+    "Input:",
+    "Output:",
     "Additional question:",
     "Answer:",
     "Explanation:",
@@ -147,24 +152,33 @@ def trim_trailing_prose(text: str, model_family: str = "generic") -> str:
     return text.strip()
 
 
-def fallback_candidate(original_text: str) -> str:
+def fallback_candidate(original_text: str, language: str | None = None) -> str:
+    raw_text = normalize_text(original_text)
     text = normalize_text(strip_harmony_wrappers(original_text))
     text = strip_inline_code_quotes(text)
     text = strip_bracket_tags(strip_leftover_fences(text))
-    return normalize_text(text) or normalize_text(original_text)
+    text = normalize_text(text)
+    if text:
+        return text
+    if raw_text:
+        if language == "python":
+            return "pass"
+        if language == "java":
+            return "/* empty generation */"
+    return raw_text
 
 
-def keep_nonempty(cleaned_text: str | None, original_text: str) -> str:
+def keep_nonempty(cleaned_text: str | None, original_text: str, language: str | None = None) -> str:
     cleaned_text = normalize_text(cleaned_text or "")
     if cleaned_text:
         return cleaned_text
-    return fallback_candidate(original_text)
+    return fallback_candidate(original_text, language)
 
 
 def strip_inline_code_quotes(text: str) -> str:
     stripped = text.strip()
-    if stripped.startswith("`") and stripped.endswith("`") and not stripped.startswith("```"):
-        text = stripped[1:-1]
+    if stripped.startswith("`") and not stripped.startswith("```"):
+        text = stripped[1:-1] if stripped.endswith("`") else stripped[1:]
 
     lines = []
     for line in text.splitlines():
@@ -177,9 +191,10 @@ def strip_inline_code_quotes(text: str) -> str:
 
 
 def strip_bracket_tags(text: str) -> str:
-    text = re.sub(r"(?im)^\s*\[(?:/?PYTHON|/?JAVA)\]\s*$", "", text)
+    text = re.sub(r"(?im)^\s*\[(?:/?PYTHON|/?JAVA|/?INST)\]\s*$", "", text)
     text = re.sub(r"(?ims)^\s*\[TESTS\].*", "", text)
-    text = re.sub(r"(?i)\[/?(?:PYTHON|JAVA|TESTS)\]", "", text)
+    text = re.sub(r"(?i)\[/?(?:PYTHON|JAVA|TESTS|INST)\]", "", text)
+    text = re.sub(r"(?i)\[/INST\]", "", text)
     return text.strip()
 
 
@@ -387,33 +402,33 @@ def clean_common_candidate(
     if looks_like_unlabeled_analysis(text):
         sliced = slice_from_code_start(text, language, entry_point)
         if sliced == text:
-            return fallback_candidate(original_text)
+            return fallback_candidate(original_text, language)
         text = sliced
     if PROMPT_ECHO.match(text):
         text = slice_from_code_start(text, language, entry_point)
         if PROMPT_ECHO.match(text):
-            return fallback_candidate(original_text)
+            return fallback_candidate(original_text, language)
     fenced = pick_fenced_code(text, language, entry_point)
     if fenced is not None:
         text = fenced
     text = normalize_text(strip_inline_code_quotes(text))
     if fenced is None and looks_like_unlabeled_analysis(text):
         if language == "python" and not has_real_python_start(text, entry_point):
-            return fallback_candidate(original_text)
+            return fallback_candidate(original_text, language)
         if language == "java" and not has_real_java_start(text, entry_point):
-            return fallback_candidate(original_text)
+            return fallback_candidate(original_text, language)
     text = strip_bracket_tags(strip_leftover_fences(text))
     if language == "python":
         if not has_real_python_start(text, entry_point) and has_real_java_start(text, None):
-            return fallback_candidate(original_text)
+            return keep_nonempty(trim_trailing_prose(text, model_family), original_text, language)
         if not looks_like_unlabeled_analysis(text):
             text = restore_python_signature_if_needed(original_text, text, entry_point, signature)
-        return keep_nonempty(extract_python_code(text, entry_point, model_family), original_text)
+        return keep_nonempty(extract_python_code(text, entry_point, model_family), original_text, language)
     if language == "java":
         if not has_real_java_start(text, entry_point) and has_real_python_start(text, None):
-            return fallback_candidate(original_text)
-        return keep_nonempty(extract_java_methods(text, entry_point, model_family), original_text)
-    return keep_nonempty(trim_trailing_prose(text, model_family), original_text)
+            return keep_nonempty(trim_trailing_prose(text, model_family), original_text, language)
+        return keep_nonempty(extract_java_methods(text, entry_point, model_family), original_text, language)
+    return keep_nonempty(trim_trailing_prose(text, model_family), original_text, language)
 
 
 def clean_qwen_candidate(text: str, language: str, entry_point: str | None, signature: str | None) -> str:

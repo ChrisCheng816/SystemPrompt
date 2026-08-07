@@ -25,9 +25,14 @@ JAVA_METHOD = re.compile(
     r"(?:throws\s+[^{]+)?\{"
 )
 TRAILING_MARKERS = (
+    "### It is your turn",
     "### It is your turn to generate",
     "### It is your turn now!",
+    "### It is your turn again!",
+    "### Example",
     "### Test case",
+    "Input:",
+    "Output:",
     "Additional question:",
     "Answer:",
     "Explanation:",
@@ -100,8 +105,8 @@ def strip_harmony_wrappers(text: str) -> str:
 
 def strip_inline_code_quotes(text: str) -> str:
     stripped = text.strip()
-    if stripped.startswith("`") and stripped.endswith("`") and not stripped.startswith("```"):
-        text = stripped[1:-1]
+    if stripped.startswith("`") and not stripped.startswith("```"):
+        text = stripped[1:-1] if stripped.endswith("`") else stripped[1:]
 
     lines = []
     for line in text.splitlines():
@@ -115,6 +120,14 @@ def strip_leftover_fences(text: str) -> str:
     return text.replace("```", "").strip()
 
 
+def strip_bracket_tags(text: str) -> str:
+    text = re.sub(r"(?im)^\s*\[(?:/?PYTHON|/?JAVA|/?INST)\]\s*$", "", text)
+    text = re.sub(r"(?ims)^\s*\[TESTS\].*", "", text)
+    text = re.sub(r"(?i)\[/?(?:PYTHON|JAVA|TESTS|INST)\]", "", text)
+    text = re.sub(r"(?i)\[/INST\]", "", text)
+    return text.strip()
+
+
 def trim_trailing_prose(text: str, model_family: str) -> str:
     markers = TRAILING_MARKERS + MODEL_FAMILY_MARKERS.get(model_family, ())
     for marker in markers:
@@ -124,17 +137,26 @@ def trim_trailing_prose(text: str, model_family: str) -> str:
     return text.strip()
 
 
-def fallback_candidate(original_text: str) -> str:
+def fallback_candidate(original_text: str, language: str | None = None) -> str:
+    raw_text = normalize_text(original_text)
     text = normalize_text(strip_harmony_wrappers(original_text))
-    text = strip_leftover_fences(strip_inline_code_quotes(text))
-    return normalize_text(text) or normalize_text(original_text)
+    text = strip_bracket_tags(strip_leftover_fences(strip_inline_code_quotes(text)))
+    text = normalize_text(text)
+    if text:
+        return text
+    if raw_text:
+        if language == "python":
+            return "pass"
+        if language == "java":
+            return "/* empty generation */"
+    return raw_text
 
 
-def keep_nonempty(cleaned_text: str | None, original_text: str) -> str:
+def keep_nonempty(cleaned_text: str | None, original_text: str, language: str | None = None) -> str:
     cleaned_text = normalize_text(cleaned_text or "")
     if cleaned_text:
         return cleaned_text
-    return fallback_candidate(original_text)
+    return fallback_candidate(original_text, language)
 
 
 def pick_fenced_code(text: str, language: str | None) -> str | None:
@@ -245,13 +267,6 @@ def matching_brace_index(text: str, open_index: int) -> int | None:
 
 def extract_java_code(text: str, model_family: str) -> str:
     text = trim_trailing_prose(slice_from_code_start(text, "java"), model_family)
-    class_match = re.search(r"(?m)^[ \t]*(?:public\s+)?class\s+\w+.*?\{", text)
-    if class_match:
-        open_index = text.find("{", class_match.end() - 1)
-        close_index = matching_brace_index(text, open_index)
-        if close_index is not None:
-            return text[class_match.start():close_index + 1].strip()
-
     methods = []
     for match in JAVA_METHOD.finditer(text):
         if match.group("name") == "main":
@@ -260,7 +275,16 @@ def extract_java_code(text: str, model_family: str) -> str:
         close_index = matching_brace_index(text, open_index)
         if close_index is not None:
             methods.append(text[match.start():close_index + 1].strip())
-    return "\n\n".join(methods).strip() or text.strip()
+    if methods:
+        return "\n\n".join(methods).strip()
+
+    class_match = re.search(r"(?m)^[ \t]*(?:public\s+)?class\s+\w+.*?\{", text)
+    if class_match:
+        open_index = text.find("{", class_match.end() - 1)
+        close_index = matching_brace_index(text, open_index)
+        if close_index is not None:
+            return text[class_match.start():close_index + 1].strip()
+    return text.strip()
 
 
 def clean_common_candidate(text: str, language: str | None, model_family: str) -> str:
@@ -269,18 +293,18 @@ def clean_common_candidate(text: str, language: str | None, model_family: str) -
     if UNLABELED_ANALYSIS.search(text):
         sliced = slice_from_code_start(text, language)
         if sliced == text:
-            return fallback_candidate(original_text)
+            return fallback_candidate(original_text, language)
         text = sliced
 
     fenced = pick_fenced_code(text, language)
     if fenced is not None:
         text = fenced
-    text = strip_leftover_fences(strip_inline_code_quotes(normalize_text(text)))
+    text = strip_bracket_tags(strip_leftover_fences(strip_inline_code_quotes(normalize_text(text))))
     if language == "python":
-        return keep_nonempty(extract_python_code(text, model_family), original_text)
+        return keep_nonempty(extract_python_code(text, model_family), original_text, language)
     if language == "java":
-        return keep_nonempty(extract_java_code(text, model_family), original_text)
-    return keep_nonempty(trim_trailing_prose(slice_from_code_start(text, language), model_family), original_text)
+        return keep_nonempty(extract_java_code(text, model_family), original_text, language)
+    return keep_nonempty(trim_trailing_prose(slice_from_code_start(text, language), model_family), original_text, language)
 
 
 def clean_qwen_candidate(text: str, language: str | None) -> str:

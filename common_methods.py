@@ -1,6 +1,7 @@
 import re
 import gc
 import os
+import shutil
 import torch
 import json
 import scann
@@ -26,7 +27,7 @@ logging.getLogger("vllm").propagate = False
 logging.basicConfig(level=logging.ERROR)
 
 MAX_MODEL_LEN = 10240
-MAX_OUTPUT_TOKENS = 2048
+MAX_OUTPUT_TOKENS = 4096
 _HARMONY_ENCODING = None
 
 try:
@@ -324,13 +325,24 @@ def save_tokenized_results(filepath, ids, token_metadata):
             record = {"_id": ids[i], **metadata}
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-def evaluate_metric_mceval(predictions, path, test_data, token_metadata=None):
-    """Save McEval predictions using the same compact schema as CodeEval."""
-    counter = 0
-    while os.path.exists(f"{path}_{counter}"):
-        counter += 1
-    filepath = f"{path}_{counter}"
+def prepare_generation_output_dir(path, run_index=None):
+    if run_index is None:
+        counter = 0
+        while os.path.exists(f"{path}_{counter}"):
+            counter += 1
+        filepath = f"{path}_{counter}"
+    else:
+        filepath = f"{path}_{int(run_index)}"
+        if os.path.isdir(filepath):
+            shutil.rmtree(filepath)
+        elif os.path.exists(filepath):
+            os.remove(filepath)
     os.makedirs(filepath, exist_ok=True)
+    return filepath
+
+def evaluate_metric_mceval(predictions, path, test_data, token_metadata=None, run_index=None):
+    """Save McEval predictions using the same compact schema as CodeEval."""
+    filepath = prepare_generation_output_dir(path, run_index)
 
     ids = test_data["task_id"]
     with open(f"{filepath}/predictions.jsonl", "w", encoding="utf-8") as f:
@@ -342,12 +354,8 @@ def evaluate_metric_mceval(predictions, path, test_data, token_metadata=None):
 
     return filepath
 
-def evaluate_metric_gen2(predictions, path, test_data = None, lang=None, token_metadata=None):
-    counter = 0
-    while os.path.exists(f"{path}_{counter}"):
-        counter += 1
-    filepath = f"{path}_{counter}"
-    os.makedirs(filepath, exist_ok=True)
+def evaluate_metric_gen2(predictions, path, test_data = None, lang=None, token_metadata=None, run_index=None):
+    filepath = prepare_generation_output_dir(path, run_index)
 
     data = []
     ids = test_data["id"]
@@ -719,7 +727,7 @@ def save_result_trans(filepath, model_name, direction, style, example_num, count
             "CodeBleu": CodeBleu
         }, f, ensure_ascii=False, indent=2)
 
-def save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt, temperature, pass_at):
+def save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt, temperature, pass_at, prompt_index=None):
     with open(f"{filepath}/output.json", "a", encoding="utf-8") as f:
         json.dump({
             "model_name": model_name,
@@ -727,6 +735,7 @@ def save_result_gen(filepath, model_name, lang, style, example_num, counter, ela
             "style": style,
             "example_num": example_num,
             "counter": counter[0],
+            "prompt_index": prompt_index,
             "elapsed_time": elapsed_time,
             "system_prompt": system_prompt,
             "temperature": temperature,
