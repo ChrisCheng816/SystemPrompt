@@ -4,6 +4,8 @@
   "style": "zero",
   "example_num": 0,
   "counter": 0,
-  "elapsed_time": "0:02:00",
-  "system_prompt": "You are a highly skilled code generator. Your task is to generate executable method from the natural language description."
+  "elapsed_time": "0:08:43",
+  "system_prompt": "You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.",
+  "temperature": 0.0,
+  "pass_at": 1
 }
