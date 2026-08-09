@@ -90,7 +90,13 @@ def evaluate_generation(
 
     # x = "Let's think step-by-step to understand this method first, as shown in the example(s) if provided. Please do not output your thought steps if exist, just output the answer directly ###\n"
     
-    after_description = "Please only output the complete method directly as shown in the examples if provided. Do NOT include any import statements or class declarations. Do not wrap the output in markdown code fences or quote blocks, output raw code only.###\n"
+    language_name = "Java" if lang == "java" else "Python"
+    after_description = (
+        f"Please only output {language_name} code. "
+        "Please only output the complete method directly as shown in the examples if provided. "
+        "Do NOT include any import statements or class declarations. "
+        "Do not wrap the output in markdown code fences or quote blocks, output raw code only.###\n"
+    )
     task_description = f"### It is your turn now! Generating the code based on the instruction provided. {after_description}"
     src_key = source
 
