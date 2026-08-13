@@ -1,0 +1,2601 @@
+LoggerRateLimiter.java:38: error: cannot find symbol
+    if (messageTimestampMap.containsKey(message)) {
+        ^
+  symbol:   variable messageTimestampMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:39: error: cannot find symbol
+        int lastPrintedTimestamp = messageTimestampMap.get(message);
+                                   ^
+  symbol:   variable messageTimestampMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:44: error: cannot find symbol
+    messageTimestampMap.put(message, timestamp);
+    ^
+  symbol:   variable messageTimestampMap
+  location: class LoggerRateLimiter
+3 errors
+LoggerRateLimiter.java:43: error: cannot find symbol
+    Map<String, Integer> messageTimestampMap = new HashMap<>();
+    ^
+  symbol:   class Map
+  location: class LoggerRateLimiter
+1 error
+LoggerRateLimiter.java:42: error: cannot find symbol
+        if (messageMap.containsKey(message)) {
+            ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:43: error: cannot find symbol
+            int lastTimestamp = messageMap.get(message);
+                                ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:47: error: cannot find symbol
+                messageMap.put(message, timestamp);
+                ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:51: error: cannot find symbol
+            messageMap.put(message, timestamp);
+            ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+4 errors
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.HashMap.get(Object)" is null
+	at LoggerRateLimiter_shouldPrintMessage.main(LoggerRateLimiter_shouldPrintMessage.java:20)
+LoggerRateLimiter.java:38: error: cannot find symbol
+    if(!messageMap.containsKey(message)){
+        ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:39: error: cannot find symbol
+        messageMap.put(message, timestamp);
+        ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:40: error: cannot find symbol
+        queue.add(message);
+        ^
+  symbol:   variable queue
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:43: error: cannot find symbol
+        int lastTime = messageMap.get(message);
+                       ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+LoggerRateLimiter.java:45: error: cannot find symbol
+            messageMap.put(message, timestamp);
+            ^
+  symbol:   variable messageMap
+  location: class LoggerRateLimiter
+5 errors
+InsertDeleteGetRandomO1.java:56: error: cannot find symbol
+    if (set.contains(val)) {
+        ^
+  symbol:   variable set
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:57: error: cannot find symbol
+        set.remove(val);
+        ^
+  symbol:   variable set
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:64: error: cannot find symbol
+    if (contains(val)) {
+        ^
+  symbol:   method contains(int)
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:66: error: cannot find symbol
+        removeElement(val);
+        ^
+  symbol:   method removeElement(int)
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:56: error: cannot find symbol
+    Set<Integer> set = new HashSet<>();
+    ^
+  symbol:   class Set
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:56: error: cannot find symbol
+    Set<Integer> set = new HashSet<>();
+                           ^
+  symbol:   class HashSet
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:56: error: cannot find symbol
+    if (mySet.contains(val)) {
+        ^
+  symbol:   variable mySet
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:57: error: cannot find symbol
+        mySet.remove(val);
+        ^
+  symbol:   variable mySet
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:44: error: cannot find symbol
+    if (contains(val)) {
+        ^
+  symbol:   method contains(int)
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:49: error: cannot find symbol
+    dataStructure.add(val);
+    ^
+  symbol:   variable dataStructure
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:46: error: cannot find symbol
+    return set.add(val);
+           ^
+  symbol:   variable set
+  location: class InsertDeleteGetRandomO1
+1 error
+InsertDeleteGetRandomO1.java:54: error: cannot find symbol
+    HashSet<Integer> set = new HashSet<>();
+    ^
+  symbol:   class HashSet
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:54: error: cannot find symbol
+    HashSet<Integer> set = new HashSet<>();
+                               ^
+  symbol:   class HashSet
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:49: error: cannot find symbol
+    Set<Integer> set = new HashSet<>();
+    ^
+  symbol:   class Set
+  location: class InsertDeleteGetRandomO1
+InsertDeleteGetRandomO1.java:49: error: cannot find symbol
+    Set<Integer> set = new HashSet<>();
+                           ^
+  symbol:   class HashSet
+  location: class InsertDeleteGetRandomO1
+2 errors
+InsertDeleteGetRandomO1.java:43: error: cannot find symbol
+    return set.add(val);
+           ^
+  symbol:   variable set
+  location: class InsertDeleteGetRandomO1
+1 error
+ArrayUtils.java:2566: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2634: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2702: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2770: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+ArrayUtils.java:1118: error: final parameter array1 may not be assigned
+        array1 = new byte[0];
+        ^
+ArrayUtils.java:1121: error: final parameter array2 may not be assigned
+        array2 = new byte[0];
+        ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+14 warnings
+ArrayUtils.java:2566: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2634: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2702: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2770: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+ArrayUtils.java:1118: error: final parameter array1 may not be assigned
+        array1 = new byte[0];
+        ^
+ArrayUtils.java:1121: error: final parameter array2 may not be assigned
+        array2 = new byte[0];
+        ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+14 warnings
+ArrayUtils.java:2566: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2634: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2702: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2770: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+ArrayUtils.java:1118: error: final parameter array1 may not be assigned
+            array1 = new byte[0];
+            ^
+ArrayUtils.java:1121: error: final parameter array2 may not be assigned
+            array2 = new byte[0];
+            ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+14 warnings
+ArrayUtils.java:2566: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2634: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2702: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2770: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+ArrayUtils.java:1118: error: final parameter array1 may not be assigned
+        array1 = new byte[0];
+        ^
+ArrayUtils.java:1121: error: final parameter array2 may not be assigned
+        array2 = new byte[0];
+        ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+14 warnings
+ArrayUtils.java:2566: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2634: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2702: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2770: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+ArrayUtils.java:1118: error: final parameter array1 may not be assigned
+        array1 = new byte[0];
+        ^
+ArrayUtils.java:1121: error: final parameter array2 may not be assigned
+        array2 = new byte[0];
+        ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3929: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3960: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3991: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4022: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4053: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4084: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4115: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3932: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3963: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3994: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4025: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4056: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4087: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4118: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2988: error: illegal start of type
+if (array == null) {
+^
+ArrayUtils.java:2988: error: <identifier> expected
+if (array == null) {
+         ^
+ArrayUtils.java:2992: error: illegal start of type
+for (int i = 0; i < array.length; i++) {
+^
+ArrayUtils.java:2992: error: > expected
+for (int i = 0; i < array.length; i++) {
+                                ^
+ArrayUtils.java:2992: error: <identifier> expected
+for (int i = 0; i < array.length; i++) {
+                                   ^
+ArrayUtils.java:2998: error: illegal start of type
+return primitiveArray;
+^
+ArrayUtils.java:2998: error: <identifier> expected
+return primitiveArray;
+                     ^
+7 errors
+Note: ObjectUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: ObjectUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: ObjectUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: ObjectUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: ObjectUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2565: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2633: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2701: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2769: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2837: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2905: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2973: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2561: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2629: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2697: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2765: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2833: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2901: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2969: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3926: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3957: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3988: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4019: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4050: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4081: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4112: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2562: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2630: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2698: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2766: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2834: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2902: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2970: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3927: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3958: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3989: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4020: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4051: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4082: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4113: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2562: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2630: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2698: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2766: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2834: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2902: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2970: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3927: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3958: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3989: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4020: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4051: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4082: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4113: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2562: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2630: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2698: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2766: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2834: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2902: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2970: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3927: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3958: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3989: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4020: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4051: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4082: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4113: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2836: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2904: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2972: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3929: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3960: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3991: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4022: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4053: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4084: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4115: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2836: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2904: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2972: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3929: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3960: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3991: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4022: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4053: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4084: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4115: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2837: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2905: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2973: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2836: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2904: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2972: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3929: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3960: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3991: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4022: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4053: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4084: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4115: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+StringUtils.java:5930: error: final parameter str may not be assigned
+        str = str.toLowerCase();
+        ^
+StringUtils.java:5931: error: final parameter suffix may not be assigned
+        suffix = suffix.toLowerCase();
+        ^
+2 errors
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:581: error: cannot find symbol
+        return EMPTY_ARRAY;
+               ^
+  symbol:   variable EMPTY_ARRAY
+  location: class ArrayUtils
+ArrayUtils.java:583: error: cannot find symbol
+    return array.length == 0 ? EMPTY_ARRAY : array;
+                               ^
+  symbol:   variable EMPTY_ARRAY
+  location: class ArrayUtils
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2560: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2628: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2696: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2764: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2832: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2900: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2968: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3925: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3956: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3987: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4018: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4049: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4080: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4111: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2559: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2627: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2695: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2763: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2831: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2899: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2967: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3924: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3955: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3986: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4017: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4048: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4079: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4110: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2560: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2628: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2696: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2764: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2832: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2900: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2968: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3925: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3956: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3987: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4018: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4049: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4080: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4111: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3933: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3964: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3995: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4026: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4057: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4088: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4119: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+230
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/interviews/codereval/src/main/java//LoggerRateLimiter.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/interviews/codereval/src/main/java//InsertDeleteGetRandomO1.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ObjectUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ObjectUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ObjectUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ObjectUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ObjectUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2905: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2973: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2905: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2973: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2904: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2972: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3929: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3960: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3991: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4022: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4053: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4084: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4115: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2904: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2972: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3929: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3960: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3991: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4022: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4053: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4084: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4115: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2905: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2973: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3930: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3961: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3992: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4023: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4054: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4085: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4116: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2709: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2777: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2845: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2913: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:2981: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3938: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:3969: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4000: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4031: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4062: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4093: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java:4124: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+16 warnings
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+NumberUtils.java:183: error: non-static method isAllZeros(String) cannot be referenced from a static context
+            boolean allZeros = isAllZeros(mant) && isAllZeros(exp);
+                               ^
+NumberUtils.java:183: error: non-static method isAllZeros(String) cannot be referenced from a static context
+            boolean allZeros = isAllZeros(mant) && isAllZeros(exp);
+                                                   ^
+NumberUtils.java:251: error: non-static method isAllZeros(String) cannot be referenced from a static context
+                boolean allZeros = isAllZeros(mant) && isAllZeros(exp);
+                                   ^
+NumberUtils.java:251: error: non-static method isAllZeros(String) cannot be referenced from a static context
+                boolean allZeros = isAllZeros(mant) && isAllZeros(exp);
+                                                       ^
+4 errors
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:71: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            CharUtils.CHAR_ARRAY[i] = new Character((char) i);
+                                      ^
+/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.java:105: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return new Character(ch);
+               ^
+2 warnings
+StringUtils.java:6133: error: <identifier> expected
+Public static String toString(Object object){ 
+      ^
+1 error
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/BooleanUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/ArrayUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/CharUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/NumberUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+javac success!!!/home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java/net/hasor/utils/StringUtils.class
+Traceback (most recent call last):
+  File "/home/travis/builds/java/JavaExec.py", line 194, in <module>
+    stdout, stderr = sp.communicate(timeout=60)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command 'javac -encoding utf8 -cp /home/travis/builds/java/CoderEval-Java-projects/hasor/hasor-commons/src/main/java ArrayUtils.java' timed out after 60 seconds
+ArrayUtils.java:2573: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+            result[i] = new Character(array[i]);
+                        ^
+ArrayUtils.java:2641: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+            result[i] = new Long(array[i]);
+                        ^
+ArrayUtils.java:2702: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+            result[i] = new Integer(array[i]);
+                        ^
+ArrayUtils.java:2770: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+            result[i] = new Short(array[i]);
+                        ^
+ArrayUtils.java:2838: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+            result[i] = new Byte(array[i]);
+                        ^
+ArrayUtils.java:2906: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+            result[i] = new Double(array[i]);
+                        ^
+ArrayUtils.java:2974: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+            result[i] = new Float(array[i]);
+                        ^
+ArrayUtils.java:3931: warning: [removal] Character(char) in Character has been deprecated and marked for removal
+        return (char[]) ArrayUtils.add(array, index, new Character(element), Character.TYPE);
+                                                     ^
+ArrayUtils.java:3962: warning: [removal] Byte(byte) in Byte has been deprecated and marked for removal
+        return (byte[]) ArrayUtils.add(array, index, new Byte(element), Byte.TYPE);
+                                                     ^
+ArrayUtils.java:3993: warning: [removal] Short(short) in Short has been deprecated and marked for removal
+        return (short[]) ArrayUtils.add(array, index, new Short(element), Short.TYPE);
+                                                      ^
+ArrayUtils.java:4024: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        return (int[]) ArrayUtils.add(array, index, new Integer(element), Integer.TYPE);
+                                                    ^
+ArrayUtils.java:4055: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+        return (long[]) ArrayUtils.add(array, index, new Long(element), Long.TYPE);
+                                                     ^
+ArrayUtils.java:4086: warning: [removal] Float(float) in Float has been deprecated and marked for removal
+        return (float[]) ArrayUtils.add(array, index, new Float(element), Float.TYPE);
+                                                      ^
+ArrayUtils.java:4117: warning: [removal] Double(double) in Double has been deprecated and marked for removal
+        return (double[]) ArrayUtils.add(array, index, new Double(element), Double.TYPE);
+                                                       ^
+Note: ArrayUtils.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 warnings
