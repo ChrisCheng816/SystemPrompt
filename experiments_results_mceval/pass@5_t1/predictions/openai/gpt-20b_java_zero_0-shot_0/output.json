@@ -5,7 +5,7 @@
   "example_num": 0,
   "counter": 0,
   "prompt_index": 0,
-  "elapsed_time": "0:04:05",
+  "elapsed_time": "0:04:17",
   "system_prompt": "You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.",
   "temperature": 1.0,
   "pass_at": 5

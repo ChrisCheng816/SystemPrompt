@@ -1,0 +1,84 @@
+[McEval pass@1_t1] [McEval] starting pass@1_t1 with 4 worker(s)
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_7/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_7: 7)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_6/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_6: 6)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_9/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_9: 9)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_6/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_6: 6)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_7/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_7: 7)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_8/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_8: 8)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_5/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_5: 5)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_9/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_9: 9)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_8/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_8: 8)
+[McEval pass@1_t1] Skipped unsupported prediction run: /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_5/predictions.jsonl (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_5: 5)
+[McEval pass@1_t1] Cleaned 1545 candidate(s) in 30 prediction file(s).
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_5 (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_5: 5)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_6 (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_6: 6)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_7 (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_7: 7)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_8 (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_8: 8)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_java_zero_0-shot_9 (Prompt index out of range in run name qwen2.5-1.5b_java_zero_0-shot_9: 9)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_5 (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_5: 5)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_6 (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_6: 6)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_7 (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_7: 7)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_8 (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_8: 8)
+[McEval pass@1_t1] Skipped unsupported prediction run: experiments_results_mceval/pass@1_t1/predictions/Qwen_1.5b/qwen2.5-1.5b_python_zero_0-shot_9 (Prompt index out of range in run name qwen2.5-1.5b_python_zero_0-shot_9: 9)
+[McEval pass@1_t1] [McEval] evaluating 30 prediction file(s) with 4 worker(s)
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t1/predictions/openai/gpt-20b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t1] [McEval] completed pass@1_t1

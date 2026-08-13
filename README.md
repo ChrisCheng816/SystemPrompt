@@ -119,3 +119,40 @@ Rules:
 3. Before writing any code, carefully think step by step the method's purpose stated in the docstring or leading comments, and keep this reasoning private.
 4. The method implementation must handle sufficient edge cases to pass all potential unit tests.
 ```
+
+
+## Prompt wording robustness sets
+
+The original five prompts remain unchanged in `Prompts/gen_prompts.py`. Two
+semantically matched, progressively cumulative wording variants are defined in
+`Prompts/prompt_sets.py` as `paraphrase_a` and `paraphrase_b`. Select one or
+more sets by repeating `--prompt-set`:
+
+```bash
+python main.py   --prompt-set original   --prompt-set paraphrase_a   --prompt-set paraphrase_b   --model-name Qwen/Qwen2.5-Coder-7B-Instruct   --gpu-devices 0,1
+```
+
+Every run directory includes a hyphenated prompt-set suffix, so the three sets
+cannot overwrite one another. The chosen set is also recorded as
+`prompt_set` in `output.json`.
+
+Run both embedding models and retain each iteration with:
+
+```bash
+python Tools/compute_prompt_similarity.py \
+  --device cpu --iteration 6 \
+  --history-output Prompts/prompt_similarity_iterations.csv
+python Tools/compute_prompt_similarity.py \
+  --model Qwen/Qwen3-Embedding-0.6B --device cpu --iteration 7 \
+  --history-output Prompts/prompt_similarity_iterations.csv
+python Tools/compute_prompt_similarity.py \
+  --report-input Prompts/prompt_similarity_iterations.csv
+```
+
+The model-specific default names keep the finalized MiniLM report in
+`Prompts/prompt_similarity.csv` and the Qwen comparison in
+`Prompts/prompt_similarity_qwen.csv`, so one cannot overwrite the other. All
+optimization rounds are appended to `Prompts/prompt_similarity_iterations.csv`.
+The final command reproducibly summarizes that history and marks exactly one
+global winner in `Prompts/prompt_similarity_summary.csv`; the decision uses the
+mean over both original-to-paraphrase pairings, never a per-pair model mix.

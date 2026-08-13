@@ -7,6 +7,7 @@ from datasets import DatasetDict
 from datetime import timedelta
 from model_map import model_map
 from generate_prompts import generate_generation_prompt
+from Prompts.prompt_sets import output_model_name_for_set
 
 GREEN = "\033[92m"
 RESET = "\033[0m"
@@ -34,11 +35,13 @@ def evaluate_generation(
     retriever_device="cuda:0",
     output_root="experiments_results_codereval/pass@1_t0",
     prompt_index=None,
+    prompt_set="original",
     reservation=None,
     retriever_reservation=None,
 ):
     source, prompt_input, output, lang, saving_name = generation_data_selector(datatype)
     output_model_name = model_map.get(model_name, model_name)
+    output_model_name = output_model_name_for_set(output_model_name, prompt_set)
     base_prompt = ""
     print_info(model_name, style, example_num, system_prompt, language = lang, direction = None)
     tokenizer, model, batch_size = load_model(
@@ -183,6 +186,7 @@ def evaluate_generation(
             temperature,
             saved_pass_at,
             prompt_index=prompt_index,
+            prompt_set=prompt_set,
         )
     del train_data, test_data, base_prompt, prompts, predictions, model, tokenizer
     gc.collect()

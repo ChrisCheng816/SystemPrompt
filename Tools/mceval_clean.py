@@ -5,14 +5,23 @@ from __future__ import annotations
 import argparse
 import ast
 import json
+import os
 import re
+import tempfile
+import textwrap
+from functools import lru_cache
 from pathlib import Path
+
+try:
+    from evaluation_common import parse_run_name
+except ModuleNotFoundError:  # Supports `python Tools/...` and `import Tools...`.
+    from Tools.evaluation_common import parse_run_name
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results_mceval"
 FENCED_CODE = re.compile(
-    r"```\s*(?P<language>python|py|java)?[ \t]*\n?(?P<code>.*?)```",
+    r"```[ \t]*(?:(?P<language>[A-Za-z0-9_+#.\\-]+)[ \t]*\r?\n)?(?P<code>.*?)```",
     flags=re.IGNORECASE | re.DOTALL,
 )
 JAVA_METHOD = re.compile(
@@ -20,9 +29,9 @@ JAVA_METHOD = re.compile(
     r"(?:(?:public|private|protected)\s+)?"
     r"(?:(?:static|final|synchronized|abstract|native|strictfp)\s+)*"
     r"(?:<[^;\n{}()]+>\s+)?"
-    r"(?:[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\])*(?:\s*\.\.\.)?)\s+"
-    r"(?P<name>[A-Za-z_]\w*)\s*\([^;{}]*\)\s*"
-    r"(?:throws\s+[^{]+)?\{"
+    r"(?:(?:[A-Za-z_$][\w$]*\s*\.\s*)*[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\s*\])*(?:\s*\.\.\.)?)\s+"
+    r"(?P<name>[A-Za-z_]\w*)\s*\((?:(?!```)[^();{}])*\)\s*"
+    r"(?:throws\s+(?:(?!```)[^{])+)?\{"
 )
 TRAILING_MARKERS = (
     "### It is your turn",
@@ -95,7 +104,7 @@ def strip_harmony_wrappers(text: str) -> str:
         index = lower_text.rfind(marker.lower())
         if index != -1:
             return text[index + len(marker):].strip()
-    text = re.sub(r"<\|(?:start|end|message|return|call)\|>", "", text)
+    text = re.sub(r"<\|[^>\n]*\|>", "", text)
     text = re.sub(r"<\|channel\|>\w+", "", text)
     return text.strip()
 
@@ -117,8 +126,8 @@ def java_method_start_pattern(entry_point: str | None = None) -> str:
         r"(?:(?:public|private|protected)\s+)?"
         r"(?:(?:static|final|synchronized|abstract|native|strictfp)\s+)*"
         r"(?:<[^;\n{}()]+>\s+)?"
-        r"(?:[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\])*(?:\s*\.\.\.)?)\s+"
-        rf"{name}\s*\([^;{{}}]*\)\s*(?:throws\s+[^\{{]+)?\{{"
+        r"(?:(?:[A-Za-z_$][\w$]*\s*\.\s*)*[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\s*\])*(?:\s*\.\.\.)?)\s+"
+        rf"{name}\s*\((?:(?!```)[^;{{}}])*\)\s*(?:throws\s+(?:(?!```)[^\{{])+)?\{{"
     )
 
 
@@ -199,7 +208,7 @@ def strip_bracket_tags(text: str) -> str:
 
 
 def strip_leftover_fences(text: str) -> str:
-    text = re.sub(r"(?im)^\s*```\s*(?:python|py|java)?\s*$", "", text)
+    text = re.sub(r"(?im)^\s*```\s*[A-Za-z0-9_+#.\-]*\s*$", "", text)
     text = text.replace("```", "")
     return text.strip()
 
@@ -268,7 +277,7 @@ def slice_from_code_start(text: str, language: str, entry_point: str | None) -> 
     if language == "python":
         if entry_point:
             patterns.append(rf"(?m)^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(")
-        patterns.extend((r"(?m)^[ \t]*(?:from\s+\S+\s+import\s+.+|import\s+.+)$", r"(?m)^[ \t]*(?:async\s+)?def\s+"))
+        patterns.extend((r"(?m)^[ \t]*class\s+\w+", r"(?m)^[ \t]*(?:from\s+\S+\s+import\s+.+|import\s+.+)$", r"(?m)^[ \t]*(?:async\s+)?def\s+"))
     else:
         if entry_point:
             patterns.append(java_method_start_pattern(entry_point))
@@ -289,28 +298,22 @@ def extract_python_code(text: str, entry_point: str | None, model_family: str = 
     except SyntaxError:
         return truncate_python_block(text, entry_point)
 
-    wanted_nodes = []
-    found_entry = False
-    for node in tree.body:
-        if isinstance(node, (ast.Import, ast.ImportFrom)):
-            wanted_nodes.append(node)
-        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
-            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_"):
-                continue
-            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and entry_point == node.name:
-                found_entry = True
-            wanted_nodes.append(node)
-
-    if entry_point and not found_entry:
+    target = next((node for node in tree.body if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == entry_point), None)
+    if target is None:
+        for node in tree.body:
+            if isinstance(node, ast.ClassDef):
+                target = next((method for method in node.body if isinstance(method, (ast.FunctionDef, ast.AsyncFunctionDef)) and method.name == entry_point), None)
+                if target is not None:
+                    break
+    if target is None:
         return text.strip()
 
     lines = text.splitlines()
-    chunks = []
-    for node in wanted_nodes:
-        start = node.lineno - 1
-        end = getattr(node, "end_lineno", node.lineno)
-        chunks.append("\n".join(lines[start:end]).rstrip())
-    return "\n\n".join(chunk for chunk in chunks if chunk).strip() or text.strip()
+    starts = [target.lineno]
+    starts.extend(decorator.lineno for decorator in target.decorator_list)
+    start = min(starts) - 1
+    end = getattr(target, "end_lineno", target.lineno)
+    return textwrap.dedent("\n".join(lines[start:end])).rstrip()
 
 
 def matching_brace_index(text: str, open_index: int) -> int | None:
@@ -382,12 +385,10 @@ def extract_java_methods(text: str, entry_point: str | None, model_family: str =
         seen_spans.add(span)
         methods.append((name, text[span[0]:span[1]].strip()))
 
-    if entry_point and any(name == entry_point for name, _ in methods):
-        ordered = []
-        ordered.extend(code for name, code in methods if name == entry_point)
-        ordered.extend(code for name, code in methods if name != entry_point)
-        return "\n\n".join(ordered).strip()
-    return "\n\n".join(code for _, code in methods).strip()
+    if entry_point:
+        target = next((code for name, code in methods if name == entry_point), None)
+        return target or text.strip()
+    return methods[0][1] if methods else text.strip()
 
 
 def clean_common_candidate(
@@ -408,7 +409,12 @@ def clean_common_candidate(
         text = slice_from_code_start(text, language, entry_point)
         if PROMPT_ECHO.match(text):
             return fallback_candidate(original_text, language)
-    fenced = pick_fenced_code(text, language, entry_point)
+    target_is_already_present = (
+        has_real_python_start(text, entry_point) if language == "python"
+        else has_real_java_start(text, entry_point) if language == "java"
+        else False
+    )
+    fenced = None if target_is_already_present else pick_fenced_code(text, language, entry_point)
     if fenced is not None:
         text = fenced
     text = normalize_text(strip_inline_code_quotes(text))
@@ -417,7 +423,9 @@ def clean_common_candidate(
             return fallback_candidate(original_text, language)
         if language == "java" and not has_real_java_start(text, entry_point):
             return fallback_candidate(original_text, language)
-    text = strip_bracket_tags(strip_leftover_fences(text))
+    text = strip_bracket_tags(text)
+    if not target_is_already_present:
+        text = strip_leftover_fences(text)
     if language == "python":
         if not has_real_python_start(text, entry_point) and has_real_java_start(text, None):
             return keep_nonempty(trim_trailing_prose(text, model_family), original_text, language)
@@ -479,12 +487,36 @@ def search_root(experiment_root: Path) -> Path:
     return experiment_root
 
 
+@lru_cache(maxsize=1)
+def load_cached_mceval_metadata() -> dict[str, dict[str, str | None]]:
+    """Load official McEval task metadata from the already-downloaded Arrow cache."""
+    dataset_root = REPO_ROOT.parent / ".cache" / "datasets" / "Multilingual-Multimodal-NLP___mc_eval" / "generation"
+    arrow_paths = sorted(dataset_root.glob("**/mc_eval-test.arrow"))
+    if not arrow_paths:
+        return {}
+    try:
+        from datasets import Dataset
+
+        dataset = Dataset.from_file(str(arrow_paths[-1]))
+    except Exception as error:
+        print(f"No readable local McEval task mapping available: {error}")
+        return {}
+    return {
+        str(record["task_id"]): {
+            "entry_point": record.get("entry_point"),
+            "signature": record.get("signature"),
+        }
+        for record in dataset
+        if record.get("task_id")
+    }
+
+
 def load_mceval_metadata(input_path: Path) -> dict[str, dict[str, str | None]]:
+    metadata = dict(load_cached_mceval_metadata())
     full_path = input_path.with_name("predictions_mceval_full.jsonl")
     if not full_path.is_file():
-        return {}
+        return metadata
 
-    metadata = {}
     with full_path.open("r", encoding="utf-8") as full_file:
         for line in full_file:
             record = json.loads(line)
@@ -497,44 +529,67 @@ def load_mceval_metadata(input_path: Path) -> dict[str, dict[str, str | None]]:
     return metadata
 
 
-def clean_prediction_file(input_path: Path) -> tuple[Path, int]:
+def clean_prediction_file(input_path: Path) -> tuple[Path, int] | None:
     records = []
     candidate_count = 0
     model_family = model_family_from_path(input_path)
     metadata_by_task_id = load_mceval_metadata(input_path)
-    with input_path.open("r", encoding="utf-8") as input_file:
-        for line_number, line in enumerate(input_file, start=1):
-            record = json.loads(line)
-            language = language_from_record(record)
-            task_id = record.get("_id", record.get("task_id"))
-            task_metadata = metadata_by_task_id.get(str(task_id), {})
-            entry_point = record.get("entry_point", task_metadata.get("entry_point"))
-            signature = record.get("signature", task_metadata.get("signature"))
-            candidates = record.get("generate_results", record.get("raw_generation"))
-            if not isinstance(candidates, list) or not all(isinstance(code, str) for code in candidates):
-                raise ValueError(f"Line {line_number} must contain a list of string generate_results.")
-            record = {
-                "_id": task_id,
-                "generate_results": [
-                    clean_candidate(candidate, language, entry_point, signature, model_family)
-                    for candidate in candidates
-                ],
-            }
-            candidate_count += len(candidates)
-            records.append(record)
+    try:
+        with input_path.open("r", encoding="utf-8") as input_file:
+            for line_number, line in enumerate(input_file, start=1):
+                record = json.loads(line)
+                language = language_from_record(record)
+                task_id = record.get("_id", record.get("task_id"))
+                task_metadata = metadata_by_task_id.get(str(task_id), {})
+                entry_point = record.get("entry_point", task_metadata.get("entry_point"))
+                signature = record.get("signature", task_metadata.get("signature"))
+                candidates = record.get("generate_results", record.get("raw_generation"))
+                if not isinstance(candidates, list) or not all(isinstance(code, str) for code in candidates):
+                    raise ValueError(f"Line {line_number} must contain a list of string generate_results.")
+                records.append({
+                    "_id": task_id,
+                    "generate_results": [clean_candidate(candidate, language, entry_point, signature, model_family) for candidate in candidates],
+                })
+                candidate_count += len(candidates)
+    except json.JSONDecodeError as error:
+        print(f"Skipped incomplete JSONL: {input_path} ({error})")
+        return None
 
     output_path = input_path.with_name("predictions_cleaned.jsonl")
-    with output_path.open("w", encoding="utf-8") as output_file:
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False, dir=input_path.parent, prefix=".cleaning-", suffix=".jsonl") as output_file:
+        temporary_path = Path(output_file.name)
         for record in records:
             output_file.write(json.dumps(record, ensure_ascii=False) + "\n")
+    os.replace(temporary_path, output_path)
     return output_path, candidate_count
 
 
-def clean_predictions(root: Path) -> tuple[int, int]:
+def clean_predictions(
+    root: Path,
+    exclude_models: set[str] | None = None,
+    include_models: set[str] | None = None,
+) -> tuple[int, int]:
     files_processed = 0
     candidates_processed = 0
+    excluded = exclude_models or set()
+    included = include_models or set()
+    if excluded and included:
+        raise ValueError("--include-model and --exclude-model cannot be used together")
     for input_path in root.rglob("predictions.jsonl"):
-        output_path, candidate_count = clean_prediction_file(input_path)
+        try:
+            run_info = parse_run_name(input_path.parent.name)
+        except ValueError as error:
+            print(f"Skipped unsupported prediction run: {input_path} ({error})")
+            continue
+        if run_info.model in excluded:
+            print(f"Skipped excluded model: {input_path}")
+            continue
+        if included and run_info.model not in included:
+            continue
+        result = clean_prediction_file(input_path)
+        if result is None:
+            continue
+        output_path, candidate_count = result
         files_processed += 1
         candidates_processed += candidate_count
         print(f"Cleaned {candidate_count} candidate(s): {output_path}")
@@ -549,12 +604,26 @@ def main() -> None:
         default=DEFAULT_EXPERIMENT_ROOT,
         help="McEval experiment directory or its predictions directory (default: experiments_results_mceval).",
     )
+    parser.add_argument(
+        "--exclude-model",
+        action="append",
+        default=[],
+        help="Exact parsed model name to skip; may be repeated (e.g. gpt-20b).",
+    )
+    parser.add_argument(
+        "--include-model",
+        action="append",
+        default=[],
+        help="Exact parsed model name to process; may be repeated (e.g. gpt-20b).",
+    )
     args = parser.parse_args()
     root = search_root(args.experiment_root).resolve()
     if not root.is_dir():
         parser.error(f"Predictions directory does not exist: {root}")
 
-    file_count, candidate_count = clean_predictions(root)
+    if args.exclude_model and args.include_model:
+        parser.error("--include-model and --exclude-model cannot be used together")
+    file_count, candidate_count = clean_predictions(root, set(args.exclude_model), set(args.include_model))
     print(f"Cleaned {candidate_count} candidate(s) in {file_count} prediction file(s).")
 
 

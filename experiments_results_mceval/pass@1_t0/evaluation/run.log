@@ -1,0 +1,64 @@
+[McEval pass@1_t0] [McEval] starting pass@1_t0 with 4 worker(s)
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] Cleaned 1545 candidate(s) in 30 prediction file(s).
+[McEval pass@1_t0] [McEval] evaluating 30 prediction file(s) with 4 worker(s)
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 53 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_naive_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_retrieval_3-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] evaluated 50 candidate(s): experiments_results_mceval/pass@1_t0/predictions/openai/gpt-20b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval pass@1_t0] [McEval] completed pass@1_t0

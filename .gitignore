@@ -5,3 +5,9 @@ Intermediate_output/
 *.tar
 paper/
 .venv/
+docs/
+docker/
+tests/
+
+# Per-instance failure logs can be hundreds of MB; keep them local rather than in Git.
+**/failure_modes_by_instance.jsonl

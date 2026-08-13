@@ -1,0 +1,16 @@
+iteration,model,comparison,prompt_index,cosine_similarity,left_words,right_words,prompt_bundle_sha256
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_a,1,0.93989271,20,19,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_a,2,0.95535266,40,38,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_a,3,0.94135553,57,54,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_a,4,0.95400155,82,74,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_a,5,0.95355266,97,88,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_b,1,0.95621312,20,20,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_b,2,0.96039665,40,41,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_b,3,0.96146822,57,56,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_b,4,0.96735060,82,81,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,original__paraphrase_b,5,0.96778440,97,95,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,paraphrase_a__paraphrase_b,1,0.92785841,19,20,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,paraphrase_a__paraphrase_b,2,0.93428564,38,41,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,paraphrase_a__paraphrase_b,3,0.93693280,54,56,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,paraphrase_a__paraphrase_b,4,0.94371414,74,81,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,sentence-transformers/all-MiniLM-L6-v2,paraphrase_a__paraphrase_b,5,0.94598889,88,95,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707

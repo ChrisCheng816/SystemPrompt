@@ -20,6 +20,7 @@ DEFAULT_MODELS = [
 ]
 DEFAULT_METHODS = ("zero", "retrieval")
 AVAILABLE_METHODS = ("zero", "naive", "retrieval")
+AVAILABLE_PROMPT_SETS = ("original", "paraphrase_a", "paraphrase_b")
 FIXED_PROMPT_INDICES = range(5)
 MAX_LENGTHS = {0: 1024, 3: 8192}
 
@@ -99,12 +100,12 @@ def parse_args():
     parser.add_argument(
         "--output-root",
         default=None,
-        help="Optional base root. With both benchmarks, _codereval and _mceval are appended.",
+        help="Optional prompt-group root. With both benchmarks, _codereval/_mceval and pass@*_t* are appended.",
     )
     parser.add_argument(
         "--pass-at-1-output-root",
         default=None,
-        help="Optional base root for extra pass@1 output; benchmark suffixes are added when both run.",
+        help="Optional prompt-group root for extra pass@1 output; benchmark suffixes and pass@1_t1 are appended when both run.",
     )
     parser.add_argument(
         "--method",
@@ -112,6 +113,13 @@ def parse_args():
         choices=AVAILABLE_METHODS,
         dest="methods",
         help="Run only selected fixed methods. Repeat to choose multiple methods.",
+    )
+    parser.add_argument(
+        "--prompt-set",
+        action="append",
+        choices=AVAILABLE_PROMPT_SETS,
+        dest="prompt_sets",
+        help="System-prompt wording set to run. Repeat to run multiple sets; default: original.",
     )
     parser.add_argument(
         "--prompt-index",
@@ -193,8 +201,9 @@ def main():
         retriever_reservation.reserve()
 
     from task_evaluation import evaluate_generation
-    from Prompts.gen_prompts import gen_prompts
+    from Prompts.prompt_sets import PROMPT_SETS
     methods = args.methods or DEFAULT_METHODS
+    prompt_set_names = args.prompt_sets or ("original",)
     prompt_indices = args.prompt_indices or FIXED_PROMPT_INDICES
     selected_datasets = args.datasets or ("codereval", "mceval")
     default_roots = {
@@ -209,7 +218,10 @@ def main():
     elif len(selected_datasets) == 1:
         output_roots = {selected_datasets[0]: args.output_root}
     else:
-        output_roots = {name: f"{args.output_root}_{name}" for name in selected_datasets}
+        output_roots = {
+            name: os.path.join(f"{args.output_root}_{name}", f"pass@{args.pass_at}_t{args.temperature}")
+            for name in selected_datasets
+        }
 
     pass_at_1_output_roots = {}
     if args.also_save_pass_at_1:
@@ -222,7 +234,8 @@ def main():
             pass_at_1_output_roots = {selected_datasets[0]: args.pass_at_1_output_root}
         else:
             pass_at_1_output_roots = {
-                name: f"{args.pass_at_1_output_root}_{name}" for name in selected_datasets
+                name: os.path.join(f"{args.pass_at_1_output_root}_{name}", "pass@1_t1")
+                for name in selected_datasets
             }
     dataset_loaders = {}
     if "codereval" in selected_datasets:
@@ -245,32 +258,35 @@ def main():
             for method in methods:
                 example_num = 0 if method == "zero" else 3
                 max_length = MAX_LENGTHS[example_num]
-                for prompt_index in prompt_indices:
-                    for dataset_name in selected_datasets:
-                        for language in args.language:
-                            dataset, datatype = dataset_loaders[dataset_name][language]
-                            evaluate_generation(
-                                model_name,
-                                method,
-                                example_num=example_num,
-                                test_num=args.test_num,
-                                max_length=max_length,
-                                system_prompt=gen_prompts[prompt_index],
-                                dataset_generation=dataset,
-                                datatype=datatype,
-                                tensor_parallel_size=tensor_parallel_size,
-                                gpu_memory_utilization=args.gpu_memory_utilization,
-                                batch_size=args.batch_size,
-                                temperature=float(args.temperature),
-                                pass_at=args.pass_at,
-                                also_save_pass_at_1=args.also_save_pass_at_1,
-                                pass_at_1_output_root=pass_at_1_output_roots.get(dataset_name),
-                                retriever_device=args.resolved_retriever_device,
-                                output_root=output_roots[dataset_name],
-                                prompt_index=prompt_index,
-                                reservation=reservation,
-                                retriever_reservation=retriever_reservation,
-                            )
+                for prompt_set_name in prompt_set_names:
+                    system_prompts = PROMPT_SETS[prompt_set_name]
+                    for prompt_index in prompt_indices:
+                        for dataset_name in selected_datasets:
+                            for language in args.language:
+                                dataset, datatype = dataset_loaders[dataset_name][language]
+                                evaluate_generation(
+                                    model_name,
+                                    method,
+                                    example_num=example_num,
+                                    test_num=args.test_num,
+                                    max_length=max_length,
+                                    system_prompt=system_prompts[prompt_index],
+                                    dataset_generation=dataset,
+                                    datatype=datatype,
+                                    tensor_parallel_size=tensor_parallel_size,
+                                    gpu_memory_utilization=args.gpu_memory_utilization,
+                                    batch_size=args.batch_size,
+                                    temperature=float(args.temperature),
+                                    pass_at=args.pass_at,
+                                    also_save_pass_at_1=args.also_save_pass_at_1,
+                                    pass_at_1_output_root=pass_at_1_output_roots.get(dataset_name),
+                                    retriever_device=args.resolved_retriever_device,
+                                    output_root=output_roots[dataset_name],
+                                    prompt_index=prompt_index,
+                                    prompt_set=prompt_set_name,
+                                    reservation=reservation,
+                                    retriever_reservation=retriever_reservation,
+                                )
     finally:
         reservation.release()
         if retriever_reservation is not None:

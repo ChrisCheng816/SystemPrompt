@@ -1,0 +1,3 @@
+iteration,model,prompt_bundle_sha256,original_paraphrase_a_mean,original_paraphrase_b_mean,original_pairs_overall_mean,paraphrase_a_paraphrase_b_mean,selected_final_model
+0,Qwen/Qwen3-Embedding-0.6B,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707,0.89946598,0.93940127,0.91943362,0.89758727,False
+0,sentence-transformers/all-MiniLM-L6-v2,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707,0.94883102,0.96264260,0.95573681,0.93775598,True

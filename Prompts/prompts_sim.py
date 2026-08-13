@@ -1,35 +1,17 @@
-# ---------------------
-# Shadow prompts (semantic equivalent versions)
-# ---------------------
+"""Backward-compatible exports for the finalized paraphrase sets."""
 
-shadow_prompt_1 = """Act as an advanced programming assistant specialized in code synthesis. Your objective is to produce a runnable function based on a given natural language specification."""
+from Prompts.prompt_sets import paraphrase_a_prompts, paraphrase_b_prompts
 
 
-shadow_prompt_2 = """Act as an advanced programming assistant specialized in code synthesis. Your objective is to produce a runnable function based on a given natural language specification.
+shadow_a_prompts = paraphrase_a_prompts
+shadow_b_prompts = paraphrase_b_prompts
 
-Guidelines:
-1. Follow the declared function interface, input argument constraints, and expected return format described in the documentation string or preceding comments exactly."""
-
-
-shadow_prompt_3 = """Act as an advanced programming assistant specialized in code synthesis. Your objective is to produce a runnable function based on a given natural language specification.
-
-Guidelines:
-1. Follow the declared function interface, input argument constraints, and expected return format described in the documentation string or preceding comments exactly.
-2. Ensure the implementation appropriately manages abnormal inputs, possible failures, and execution-time problems through suitable error-handling mechanisms."""
-
-
-shadow_prompt_4 = """Act as an advanced programming assistant specialized in code synthesis. Your objective is to produce a runnable function based on a given natural language specification.
-
-Guidelines:
-1. Follow the declared function interface, input argument constraints, and expected return format described in the documentation string or preceding comments exactly.
-2. Ensure the implementation appropriately manages abnormal inputs, possible failures, and execution-time problems through suitable error-handling mechanisms.
-3. Prior to producing the implementation, internally analyze the intended behavior described in the documentation or comments step by step. Do not expose this internal reasoning in your response."""
-
-
-shadow_prompt_5 = """Act as an advanced programming assistant specialized in code synthesis. Your objective is to produce a runnable function based on a given natural language specification.
-
-Guidelines:
-1. Follow the declared function interface, input argument constraints, and expected return format described in the documentation string or preceding comments exactly.
-2. Ensure the implementation appropriately manages abnormal inputs, possible failures, and execution-time problems through suitable error-handling mechanisms.
-3. Prior to producing the implementation, internally analyze the intended behavior described in the documentation or comments step by step. Do not expose this internal reasoning in your response.
-4. Design the implementation to robustly cover diverse boundary conditions and uncommon scenarios so that it can satisfy comprehensive unit testing requirements.
+# Preserve the original module's individual public names. They now point to
+# the finalized first paraphrase set instead of maintaining a third copy.
+(
+    shadow_prompt_1,
+    shadow_prompt_2,
+    shadow_prompt_3,
+    shadow_prompt_4,
+    shadow_prompt_5,
+) = shadow_a_prompts

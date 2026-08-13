@@ -727,7 +727,7 @@ def save_result_trans(filepath, model_name, direction, style, example_num, count
             "CodeBleu": CodeBleu
         }, f, ensure_ascii=False, indent=2)
 
-def save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt, temperature, pass_at, prompt_index=None):
+def save_result_gen(filepath, model_name, lang, style, example_num, counter, elapsed_time, system_prompt, temperature, pass_at, prompt_index=None, prompt_set="original"):
     with open(f"{filepath}/output.json", "a", encoding="utf-8") as f:
         json.dump({
             "model_name": model_name,
@@ -736,6 +736,7 @@ def save_result_gen(filepath, model_name, lang, style, example_num, counter, ela
             "example_num": example_num,
             "counter": counter[0],
             "prompt_index": prompt_index,
+            "prompt_set": prompt_set,
             "elapsed_time": elapsed_time,
             "system_prompt": system_prompt,
             "temperature": temperature,

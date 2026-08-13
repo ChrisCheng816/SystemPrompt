@@ -5,14 +5,23 @@ from __future__ import annotations
 import argparse
 import ast
 import json
+import os
 import re
+import tempfile
+import textwrap
+from functools import lru_cache
 from pathlib import Path
+
+try:
+    from evaluation_common import parse_run_name
+except ModuleNotFoundError:  # Supports `python Tools/...` and `import Tools...`.
+    from Tools.evaluation_common import parse_run_name
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EXPERIMENT_ROOT = REPO_ROOT / "experiments_results_codereval" / "pass@1_t0"
 FENCED_CODE = re.compile(
-    r"```\s*(?P<language>python|py|java)?[ \t]*\n?(?P<code>.*?)```",
+    r"```[ \t]*(?:(?P<language>[A-Za-z0-9_+#.\\-]+)[ \t]*\r?\n)?(?P<code>.*?)```",
     flags=re.IGNORECASE | re.DOTALL,
 )
 JAVA_METHOD = re.compile(
@@ -20,9 +29,9 @@ JAVA_METHOD = re.compile(
     r"(?:(?:public|private|protected)\s+)?"
     r"(?:(?:static|final|synchronized|abstract|native|strictfp)\s+)*"
     r"(?:<[^;\n{}()]+>\s+)?"
-    r"(?:[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\])*(?:\s*\.\.\.)?)\s+"
-    r"(?P<name>[A-Za-z_]\w*)\s*\([^;{}]*\)\s*"
-    r"(?:throws\s+[^{]+)?\{"
+    r"(?:(?:[A-Za-z_$][\w$]*\s*\.\s*)*[A-Za-z_$][\w$]*(?:\s*<[^;\n{}()]*>)?(?:\s*\[\s*\])*(?:\s*\.\.\.)?)\s+"
+    r"(?P<name>[A-Za-z_]\w*)\s*\((?:(?!```)[^();{}])*\)\s*"
+    r"(?:throws\s+(?:(?!```)[^{])+)?\{"
 )
 TRAILING_MARKERS = (
     "### It is your turn",
@@ -98,7 +107,7 @@ def strip_harmony_wrappers(text: str) -> str:
         index = lower_text.rfind(marker.lower())
         if index != -1:
             return text[index + len(marker):].strip()
-    text = re.sub(r"<\|(?:start|message)\|>", "", text)
+    text = re.sub(r"<\|[^>\n]*\|>", "", text)
     text = re.sub(r"<\|channel\|>\w+", "", text)
     return text.strip()
 
@@ -116,7 +125,7 @@ def strip_inline_code_quotes(text: str) -> str:
 
 
 def strip_leftover_fences(text: str) -> str:
-    text = re.sub(r"(?im)^\s*```\s*(?:python|py|java)?\s*$", "", text)
+    text = re.sub(r"(?im)^\s*```\s*[A-Za-z0-9_+#.\-]*\s*$", "", text)
     return text.replace("```", "").strip()
 
 
@@ -172,31 +181,67 @@ def pick_fenced_code(text: str, language: str | None) -> str | None:
 
 
 def python_code_start(text: str) -> int | None:
-    patterns = (
-        r"(?m)^[ \t]*(?:from\s+\S+\s+import\s+.+|import\s+.+)$",
-        r"(?m)^[ \t]*(?:async\s+)?def\s+\w+\s*\(",
-        r"(?m)^[ \t]*class\s+\w+",
-    )
-    starts = [match.start() for pattern in patterns for match in [re.search(pattern, text)] if match]
-    return min(starts) if starts else None
+    matches = [
+        match.start()
+        for pattern in (r"(?m)^[ \t]*(?:async\s+)?def\s+\w+\s*\(", r"(?m)^[ \t]*class\s+\w+")
+        for match in [re.search(pattern, text)]
+        if match is not None
+    ]
+    return min(matches) if matches else None
+
+
+def _python_node_source(lines: list[str], node: ast.AST) -> str:
+    starts = [node.lineno]
+    starts.extend(decorator.lineno for decorator in getattr(node, "decorator_list", []))
+    start = min(starts) - 1
+    end = getattr(node, "end_lineno", node.lineno)
+    return textwrap.dedent("\n".join(lines[start:end])).rstrip()
+
+
+def _first_python_function(tree: ast.Module) -> ast.FunctionDef | ast.AsyncFunctionDef | None:
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and not node.name.startswith("test_"):
+            return node
+        if isinstance(node, ast.ClassDef):
+            for method in node.body:
+                if isinstance(method, (ast.FunctionDef, ast.AsyncFunctionDef)) and not method.name.startswith(("test_", "__")):
+                    return method
+    return None
+
+
+def truncate_python_block(text: str) -> str:
+    lines = text.splitlines()
+    start = next((index for index, line in enumerate(lines) if re.match(r"^[ \t]*(?:async\s+)?def\s+\w+\s*\(", line)), None)
+    if start is None:
+        return text.strip()
+    base_indent = len(lines[start]) - len(lines[start].lstrip(" \t"))
+    end = len(lines)
+    for index in range(start + 1, len(lines)):
+        line = lines[index]
+        if line.strip() and len(line) - len(line.lstrip(" \t")) <= base_indent:
+            end = index
+            break
+    return textwrap.dedent("\n".join(lines[start:end])).rstrip()
 
 
 def java_code_start(text: str) -> int | None:
-    starts = [match.start() for match in JAVA_METHOD.finditer(text)]
-    class_match = re.search(r"(?m)^[ \t]*(?:public\s+)?class\s+\w+", text)
-    if class_match:
-        starts.append(class_match.start())
-    return min(starts) if starts else None
+    match = next(iter(JAVA_METHOD.finditer(text)), None)
+    return match.start() if match else None
 
 
-def slice_from_code_start(text: str, language: str | None) -> str:
-    if language == "python":
-        start = python_code_start(text)
-    elif language == "java":
-        start = java_code_start(text)
+def slice_from_code_start(
+    text: str, language: str | None, entry_point: str | None = None,
+) -> str:
+    if language == "python" and entry_point:
+        match = re.search(
+            rf"(?m)^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(", text,
+        )
+        start = match.start() if match is not None else python_code_start(text)
+    elif language == "java" and entry_point:
+        match = next((candidate for candidate in JAVA_METHOD.finditer(text) if candidate.group("name") == entry_point), None)
+        start = match.start() if match is not None else java_code_start(text)
     else:
-        starts = [value for value in (python_code_start(text), java_code_start(text)) if value is not None]
-        start = min(starts) if starts else None
+        start = python_code_start(text) if language == "python" else java_code_start(text) if language == "java" else None
     return text[start:] if start is not None else text
 
 
@@ -205,17 +250,9 @@ def extract_python_code(text: str, model_family: str) -> str:
     try:
         tree = ast.parse(text)
     except SyntaxError:
-        return text.strip()
-
-    lines = text.splitlines()
-    chunks = []
-    for node in tree.body:
-        if isinstance(node, (ast.Import, ast.ImportFrom, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
-            start = node.lineno - 1
-            end = getattr(node, "end_lineno", node.lineno)
-            chunks.append("\n".join(lines[start:end]).rstrip())
-    return "\n\n".join(chunk for chunk in chunks if chunk).strip() or text.strip()
-
+        return truncate_python_block(text)
+    function = _first_python_function(tree)
+    return _python_node_source(text.splitlines(), function) if function is not None else text.strip()
 
 def matching_brace_index(text: str, open_index: int) -> int | None:
     if open_index < 0:
@@ -276,7 +313,7 @@ def extract_java_code(text: str, model_family: str) -> str:
         if close_index is not None:
             methods.append(text[match.start():close_index + 1].strip())
     if methods:
-        return "\n\n".join(methods).strip()
+        return methods[0]
 
     class_match = re.search(r"(?m)^[ \t]*(?:public\s+)?class\s+\w+.*?\{", text)
     if class_match:
@@ -328,6 +365,149 @@ def clean_candidate(text: str, language: str | None, model_family: str) -> str:
     return cleaners.get(model_family, lambda value, lang: clean_common_candidate(value, lang, "generic"))(text, language)
 
 
+def extract_target_python_code(text: str, entry_point: str, model_family: str) -> str:
+    text = trim_trailing_prose(slice_from_code_start(text, "python", entry_point), model_family)
+    try:
+        tree = ast.parse(text)
+    except SyntaxError:
+        lines = text.splitlines()
+        start = next(
+            (index for index, line in enumerate(lines) if re.match(rf"^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(", line)),
+            None,
+        )
+        if start is None:
+            return text.strip()
+        base_indent = len(lines[start]) - len(lines[start].lstrip(" \t"))
+        end = len(lines)
+        for index in range(start + 1, len(lines)):
+            line = lines[index]
+            if line.strip() and len(line) - len(line.lstrip(" \t")) <= base_indent:
+                end = index
+                break
+        return textwrap.dedent("\n".join(lines[start:end])).rstrip()
+
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == entry_point:
+            return _python_node_source(text.splitlines(), node)
+        if isinstance(node, ast.ClassDef):
+            for method in node.body:
+                if isinstance(method, (ast.FunctionDef, ast.AsyncFunctionDef)) and method.name == entry_point:
+                    return _python_node_source(text.splitlines(), method)
+    return text.strip()
+
+
+def extract_target_java_code(text: str, entry_point: str, model_family: str) -> str:
+    text = trim_trailing_prose(slice_from_code_start(text, "java", entry_point), model_family)
+    for match in JAVA_METHOD.finditer(text):
+        if match.group("name") != entry_point:
+            continue
+        open_index = text.find("{", match.end() - 1)
+        close_index = matching_brace_index(text, open_index)
+        if close_index is not None:
+            return text[match.start():close_index + 1].strip()
+    return text.strip()
+
+
+def pick_target_fenced_code(text: str, language: str | None, entry_point: str) -> str | None:
+    for block in FENCED_CODE.finditer(text):
+        if re.search(rf"\b{re.escape(entry_point)}\s*\(", block.group("code")):
+            return block.group("code")
+    return pick_fenced_code(text, language)
+
+
+def clean_candidate_for_task(
+    text: str, language: str | None, model_family: str, entry_point: str | None,
+) -> str:
+    if not entry_point or language not in {"python", "java"}:
+        return clean_candidate(text, language, model_family)
+
+    original_text = text
+    text = normalize_text(strip_harmony_wrappers(text))
+    if UNLABELED_ANALYSIS.search(text):
+        sliced = slice_from_code_start(text, language)
+        if sliced == text:
+            return fallback_candidate(original_text, language)
+        text = sliced
+    if language == "python":
+        target_is_already_present = re.search(
+            rf"(?m)^[ \t]*(?:async\s+)?def\s+{re.escape(entry_point)}\s*\(", text,
+        ) is not None
+    else:
+        target_is_already_present = any(
+            match.group("name") == entry_point for match in JAVA_METHOD.finditer(text)
+        )
+    fenced = None if target_is_already_present else pick_target_fenced_code(text, language, entry_point)
+    if fenced is not None:
+        text = fenced
+    text = strip_inline_code_quotes(normalize_text(text))
+    text = strip_bracket_tags(text)
+    if not target_is_already_present:
+        text = strip_leftover_fences(text)
+    if language == "python":
+        cleaned = extract_target_python_code(text, entry_point, model_family)
+    else:
+        cleaned = extract_target_java_code(text, entry_point, model_family)
+    return keep_nonempty(cleaned, original_text, language)
+
+
+def entry_point_from_input(task_input: str, language: str) -> str | None:
+    if language == "python":
+        try:
+            tree = ast.parse(task_input)
+        except SyntaxError:
+            return None
+        function = _first_python_function(tree)
+        return function.name if function is not None else None
+    if language == "java":
+        match = next(iter(JAVA_METHOD.finditer(task_input)), None)
+        return match.group("name") if match is not None else None
+    return None
+
+
+def load_legacy_entry_points(language: str) -> dict[str, str]:
+    """Read a locally exported task table from the frozen CoderEval image, if present."""
+    legacy_path = REPO_ROOT / f"codereval_legacy_{language}_tasks.json"
+    if not legacy_path.is_file():
+        return {}
+    try:
+        payload = json.loads(legacy_path.read_text(encoding="utf-8"))
+        records = payload.get("RECORDS", payload) if isinstance(payload, dict) else payload
+        if not isinstance(records, list):
+            raise ValueError("expected a record list or a RECORDS field")
+        return {
+            str(record["_id"]): str(record["name"])
+            for record in records
+            if isinstance(record, dict) and record.get("_id") and record.get("name")
+        }
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        print(f"Ignoring unreadable legacy CodeREval {language} task mapping: {error}")
+        return {}
+
+
+@lru_cache(maxsize=None)
+def load_codereval_entry_points(language: str | None) -> dict[str, str]:
+    if language not in {"python", "java"}:
+        return {}
+    entry_points = load_legacy_entry_points(language)
+    try:
+        from datasets import DownloadConfig, load_dataset
+
+        dataset = load_dataset(
+            f"vitaleantonio/codereval-{language}",
+            split="train",
+            download_config=DownloadConfig(local_files_only=True),
+        )
+        entry_points.update({
+            str(record["id"]): entry_point
+            for record in dataset
+            if (entry_point := entry_point_from_input(str(record.get("input", "")), language)) is not None
+        })
+    except Exception as error:
+        if not entry_points:
+            print(f"No local CodeREval {language} task mapping available: {error}")
+    return entry_points
+
+
 def predictions_root(experiment_root: Path) -> Path:
     if experiment_root.name == "predictions":
         return experiment_root
@@ -337,40 +517,71 @@ def predictions_root(experiment_root: Path) -> Path:
     return experiment_root
 
 
-def clean_prediction_file(input_path: Path) -> tuple[Path, int]:
+def clean_prediction_file(input_path: Path) -> tuple[Path, int] | None:
     model_family = model_family_from_path(input_path)
     language = language_from_path(input_path)
+    entry_points = load_codereval_entry_points(language)
     records = []
     candidates_processed = 0
-    with input_path.open("r", encoding="utf-8") as input_file:
-        for line_number, line in enumerate(input_file, start=1):
-            record = json.loads(line)
-            candidates = record.get("generate_results", record.get("raw_generation", []))
-            if not isinstance(candidates, list) or not all(isinstance(code, str) for code in candidates):
-                raise ValueError(f"Line {line_number} must contain a list of string generate_results.")
-            records.append(
-                {
-                    "_id": record.get("_id", record.get("id")),
+    try:
+        with input_path.open("r", encoding="utf-8") as input_file:
+            for line_number, line in enumerate(input_file, start=1):
+                record = json.loads(line)
+                candidates = record.get("generate_results", record.get("raw_generation", []))
+                if not isinstance(candidates, list) or not all(isinstance(code, str) for code in candidates):
+                    raise ValueError(f"Line {line_number} must contain a list of string generate_results.")
+                task_id = record.get("_id", record.get("id"))
+                records.append({
+                    "_id": task_id,
                     "generate_results": [
-                        clean_candidate(candidate, language, model_family)
+                        clean_candidate_for_task(candidate, language, model_family, entry_points.get(str(task_id)))
                         for candidate in candidates
                     ],
-                }
-            )
-            candidates_processed += len(candidates)
+                })
+                candidates_processed += len(candidates)
+    except json.JSONDecodeError as error:
+        print(f"Skipped incomplete JSONL: {input_path} ({error})")
+        return None
 
     output_path = input_path.with_name("predictions_cleaned.jsonl")
-    with output_path.open("w", encoding="utf-8") as output_file:
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False, dir=input_path.parent, prefix=".cleaning-", suffix=".jsonl") as output_file:
+        temporary_path = Path(output_file.name)
         for record in records:
             output_file.write(json.dumps(record, ensure_ascii=False) + "\n")
+    os.replace(temporary_path, output_path)
     return output_path, candidates_processed
 
 
-def clean_predictions(root: Path) -> tuple[int, int]:
+def clean_predictions(
+    root: Path,
+    exclude_models: set[str] | None = None,
+    include_models: set[str] | None = None,
+    languages: set[str] | None = None,
+) -> tuple[int, int]:
     files_processed = 0
     candidates_processed = 0
+    excluded = exclude_models or set()
+    included = include_models or set()
+    selected_languages = languages or set()
+    if excluded and included:
+        raise ValueError("--include-model and --exclude-model cannot be used together")
     for input_path in root.rglob("predictions.jsonl"):
-        output_path, candidate_count = clean_prediction_file(input_path)
+        try:
+            run_info = parse_run_name(input_path.parent.name)
+        except ValueError as error:
+            print(f"Skipped unsupported prediction run: {input_path} ({error})")
+            continue
+        if run_info.model in excluded:
+            print(f"Skipped excluded model: {input_path}")
+            continue
+        if included and run_info.model not in included:
+            continue
+        if selected_languages and run_info.language not in selected_languages:
+            continue
+        result = clean_prediction_file(input_path)
+        if result is None:
+            continue
+        output_path, candidate_count = result
         files_processed += 1
         candidates_processed += candidate_count
         print(f"Cleaned {candidate_count} candidate(s): {output_path}")
@@ -385,12 +596,29 @@ def main() -> None:
         default=DEFAULT_EXPERIMENT_ROOT,
         help="Experiment directory or its predictions directory (default: experiments_results_codereval/pass@1_t0).",
     )
+    parser.add_argument(
+        "--exclude-model",
+        action="append",
+        default=[],
+        help="Exact parsed model name to skip; may be repeated (e.g. gpt-20b).",
+    )
+    parser.add_argument(
+        "--include-model",
+        action="append",
+        default=[],
+        help="Exact parsed model name to process; may be repeated (e.g. gpt-20b).",
+    )
+    parser.add_argument("--language", choices=("java", "python"), action="append", dest="languages")
     args = parser.parse_args()
     root = predictions_root(args.experiment_root).resolve()
     if not root.is_dir():
         parser.error(f"Predictions directory does not exist: {root}")
 
-    file_count, candidate_count = clean_predictions(root)
+    if args.exclude_model and args.include_model:
+        parser.error("--include-model and --exclude-model cannot be used together")
+    file_count, candidate_count = clean_predictions(
+        root, set(args.exclude_model), set(args.include_model), set(args.languages or [])
+    )
     print(f"Cleaned {candidate_count} candidate(s) in {file_count} prediction file(s).")
 
 

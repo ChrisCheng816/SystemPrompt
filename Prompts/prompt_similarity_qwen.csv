@@ -1,0 +1,16 @@
+iteration,model,comparison,prompt_index,cosine_similarity,left_words,right_words,prompt_bundle_sha256
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_a,1,0.95244396,20,19,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_a,2,0.93102139,40,38,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_a,3,0.88693380,57,54,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_a,4,0.86770117,82,74,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_a,5,0.85922956,97,88,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_b,1,0.95597893,20,20,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_b,2,0.92253900,40,41,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_b,3,0.93935442,57,56,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_b,4,0.93522686,82,81,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,original__paraphrase_b,5,0.94390714,97,95,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,paraphrase_a__paraphrase_b,1,0.95822453,19,20,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,paraphrase_a__paraphrase_b,2,0.94465071,38,41,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,paraphrase_a__paraphrase_b,3,0.87866420,54,56,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,paraphrase_a__paraphrase_b,4,0.85658681,74,81,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
+0,Qwen/Qwen3-Embedding-0.6B,paraphrase_a__paraphrase_b,5,0.84981012,88,95,ce20985afe798b1a6ce7598345c2da151e47769e1e3497e1442df5aeec100707
