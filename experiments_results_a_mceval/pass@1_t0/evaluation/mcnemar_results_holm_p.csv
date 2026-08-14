@@ -1,0 +1,13 @@
+ID,Model,Task,Method,Shot,Compare,OR,p_value,p_value_holm,p_value_fdr_bh
+1,codellama-34b-paraphrase-a,python,zero,0-shot,BASE vs STRUCT,1.5,1.0,1.0,1.0
+2,codellama-34b-paraphrase-a,python,zero,0-shot,BASE vs ROBUST,1.667,0.6875,1.0,0.91667
+3,codellama-34b-paraphrase-a,python,zero,0-shot,BASE vs REASONING,2.0,0.45312,1.0,0.90625
+4,codellama-34b-paraphrase-a,python,zero,0-shot,BASE vs EDGE,3.0,0.21875,0.875,0.875
+5,gpt-20b-paraphrase-a,python,zero,0-shot,BASE vs STRUCT,4.0,0.07031,0.28125,0.28125
+6,gpt-20b-paraphrase-a,python,zero,0-shot,BASE vs ROBUST,1.25,1.0,1.0,1.0
+7,gpt-20b-paraphrase-a,python,zero,0-shot,BASE vs REASONING,1.6,0.54883,1.0,1.0
+8,gpt-20b-paraphrase-a,python,zero,0-shot,BASE vs EDGE,1.4,0.75391,1.0,1.0
+9,qwen2.5-32b-paraphrase-a,python,zero,0-shot,BASE vs STRUCT,1.0,1.0,1.0,1.0
+10,qwen2.5-32b-paraphrase-a,python,zero,0-shot,BASE vs ROBUST,1.667,0.6875,1.0,1.0
+11,qwen2.5-32b-paraphrase-a,python,zero,0-shot,BASE vs REASONING,0.5,0.625,1.0,1.0
+12,qwen2.5-32b-paraphrase-a,python,zero,0-shot,BASE vs EDGE,1.333,1.0,1.0,1.0

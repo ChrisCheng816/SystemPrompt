@@ -28,6 +28,7 @@ def evaluate_generation(
     tensor_parallel_size=1,
     gpu_memory_utilization=0.94,
     batch_size=4,
+    max_num_seqs=None,
     temperature=0.0,
     pass_at=1,
     also_save_pass_at_1=False,
@@ -49,6 +50,7 @@ def evaluate_generation(
         tensor_parallel_size=tensor_parallel_size,
         gpu_memory_utilization=gpu_memory_utilization,
         batch_size=batch_size,
+        max_num_seqs=max_num_seqs,
         reservation=reservation,
     )
     train_data = dataset_generation["train"].select(range(example_num)) if example_num else dataset_generation["train"]

@@ -130,7 +130,7 @@ def render_chat_prompts(prompts, tokenizer, max_length, model_name=None):
     full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
     return truncate_prompts(full_prompt, tokenizer, max_length)
 
-def load_model(model_name, tensor_parallel_size, gpu_memory_utilization, batch_size, reservation=None):
+def load_model(model_name, tensor_parallel_size, gpu_memory_utilization, batch_size, max_num_seqs=None, reservation=None):
 
     tokenizer = AutoTokenizer.from_pretrained(
         model_name,
@@ -141,14 +141,17 @@ def load_model(model_name, tensor_parallel_size, gpu_memory_utilization, batch_s
     if reservation is not None:
         reservation.release()
 
-    llm = LLM(
-        model=model_name,
-        tensor_parallel_size=tensor_parallel_size,
-        dtype="auto",
-        trust_remote_code=True,
-        max_model_len=MAX_MODEL_LEN,
-        gpu_memory_utilization=gpu_memory_utilization,
-    )
+    llm_args = {
+        "model": model_name,
+        "tensor_parallel_size": tensor_parallel_size,
+        "dtype": "auto",
+        "trust_remote_code": True,
+        "max_model_len": MAX_MODEL_LEN,
+        "gpu_memory_utilization": gpu_memory_utilization,
+    }
+    if max_num_seqs is not None:
+        llm_args["max_num_seqs"] = max_num_seqs
+    llm = LLM(**llm_args)
     return tokenizer, llm, batch_size
 
 def load_prompt(length, task_description, src_key, tgt_key, test_data, base_prompt, tokenizer, system_prompt, model, max_length=4096):

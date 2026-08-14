@@ -1,0 +1,7 @@
+model,task,method,shot,pass@k,pass@k_40,pass@k_185,pass@k_294,pass@k_480,pass@k_638
+codellama-34b-paraphrase-a,java,zero,0-shot,pass@1,32.17,30.87,31.74,31.30,32.17
+codellama-34b-paraphrase-a,python,zero,0-shot,pass@1,21.74,22.17,22.17,21.30,21.74
+gpt-20b-paraphrase-a,java,zero,0-shot,pass@1,42.17,43.48,40.43,38.26,40.43
+gpt-20b-paraphrase-a,python,zero,0-shot,pass@1,26.09,26.52,23.91,25.65,23.48
+qwen2.5-32b-paraphrase-a,java,zero,0-shot,pass@1,39.57,42.61,37.83,38.26,38.70
+qwen2.5-32b-paraphrase-a,python,zero,0-shot,pass@1,27.39,29.57,26.52,25.65,24.78

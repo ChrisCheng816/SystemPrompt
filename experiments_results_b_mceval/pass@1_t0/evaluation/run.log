@@ -1,0 +1,65 @@
+=== McEval: experiments_results_b_mceval ===
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_2/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_4/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_1/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_0/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_1/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_3/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_2/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_4/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_3/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_0/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_1/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_4/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_2/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_0/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_4/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_1/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_2/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_0/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_3/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_3/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_2/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_4/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_1/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_1/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_3/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_0/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_3/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_0/predictions_cleaned.jsonl
+Cleaned 53 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_4/predictions_cleaned.jsonl
+Cleaned 50 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_2/predictions_cleaned.jsonl
+Cleaned 1545 candidate(s) in 30 prediction file(s).
+[McEval] evaluating 30 prediction file(s) with 4 worker(s)
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/CodeLlama_34b/codellama-34b-paraphrase-b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/Qwen_32b/qwen2.5-32b-paraphrase-b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval] evaluated 53 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_java_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_0/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_1/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_2/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_3/predictions_cleaned.jsonl
+[McEval] evaluated 50 candidate(s): experiments_results_b_mceval/pass@1_t0/predictions/openai/gpt-20b-paraphrase-b_python_zero_0-shot_4/predictions_cleaned.jsonl
+[McEval statistics] rebuilt matrices from 1545 verdict(s)
+[McEval statistics] McNemar rows: java=12, python=12

@@ -147,20 +147,34 @@ def build_docker_command(
 
 def build_workspace_chown_command(
     docker_args: list[str],
+    image: str,
     workspace: Path,
     uid: int,
     gid: int,
-) -> list[str] | None:
-    """Return a narrow ownership-restoration command when Docker uses sudo."""
+) -> list[str]:
+    """Return a narrow ownership-restoration command for evaluator output files."""
     if docker_args and docker_args[0] == "sudo":
         return ["sudo", "chown", "-R", f"{uid}:{gid}", str(workspace)]
-    return None
+    return [
+        *docker_args,
+        "run",
+        "--rm",
+        "--user",
+        "0:0",
+        "-v",
+        f"{workspace}:/workspace",
+        "-w",
+        "/workspace",
+        image,
+        "chown",
+        "-R",
+        f"{uid}:{gid}",
+        "/workspace",
+    ]
 
 
-def restore_workspace_ownership(docker_args: list[str], workspace: Path) -> None:
-    command = build_workspace_chown_command(docker_args, workspace, os.getuid(), os.getgid())
-    if command is None:
-        return
+def restore_workspace_ownership(docker_args: list[str], image: str, workspace: Path) -> None:
+    command = build_workspace_chown_command(docker_args, image, workspace, os.getuid(), os.getgid())
     result = subprocess.run(command, check=False)
     if result.returncode != 0:
         print(f"[CoderEval] could not restore workspace ownership: {workspace}", flush=True)
@@ -186,10 +200,10 @@ def run_docker_eval(
     try:
         subprocess.run(command, check=True)
     except subprocess.CalledProcessError:
-        restore_workspace_ownership(docker_args, workspace)
+        restore_workspace_ownership(docker_args, image, workspace)
         print(f"[CoderEval] worker {worker_index}: failed; workspace preserved: {workspace}", flush=True)
         raise
-    restore_workspace_ownership(docker_args, workspace)
+    restore_workspace_ownership(docker_args, image, workspace)
     return workspace
 
 
@@ -320,6 +334,11 @@ def normalize_codereval_out(out_path: Path, run_info) -> list[dict]:
     return normalized
 
 
+def selected_run_names_from_records(records: list[dict]) -> list[str]:
+    """Return exactly the run names represented by newly collected verdict records."""
+    return sorted({str(record["run_name"]) for record in records if record.get("run_name")})
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--experiment-root", type=Path, default=REPO_ROOT / "experiments_results_codereval" / "pass@1_t0")
@@ -378,7 +397,12 @@ def main() -> None:
     all_records = []
     for out_root in out_roots:
         all_records.extend(collect_out_files(out_root, experiment_root))
-    selected_run_names = [parse_run_name(path.parent.name).run_name for path in prediction_files] if not (args.collect_only or args.collect_workspace) else []
+    if args.collect_workspace:
+        selected_run_names = selected_run_names_from_records(all_records)
+    elif args.collect_only:
+        selected_run_names = []
+    else:
+        selected_run_names = [parse_run_name(path.parent.name).run_name for path in prediction_files]
     merged_records = merge_selected_failure_records(
         eval_dir / "failure_modes_by_instance.jsonl", all_records, selected_run_names
     ) if selected_run_names else all_records

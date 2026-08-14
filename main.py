@@ -3,9 +3,13 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
+from pathlib import Path
 
+from model_map import model_map
+from Prompts.prompt_sets import output_model_name_for_set
 from runtime import GPUReservation, configure_cuda_visibility, parse_gpu_devices
 
 
@@ -23,6 +27,42 @@ AVAILABLE_METHODS = ("zero", "naive", "retrieval")
 AVAILABLE_PROMPT_SETS = ("original", "paraphrase_a", "paraphrase_b")
 FIXED_PROMPT_INDICES = range(5)
 MAX_LENGTHS = {0: 1024, 3: 8192}
+
+
+def generation_run_path(output_root, model_name, prompt_set, language, style, example_num, prompt_index):
+    output_model_name = output_model_name_for_set(model_map.get(model_name, model_name), prompt_set)
+    return (
+        Path(output_root)
+        / "predictions"
+        / f"{output_model_name}_{language}_{style}_{example_num}-shot_{prompt_index}"
+    )
+
+
+def is_complete_generation_run(run_path, expected_metadata, expected_ids):
+    """Return True only for an intact generation output matching this invocation."""
+    output_path = Path(run_path) / "output.json"
+    predictions_path = Path(run_path) / "predictions.jsonl"
+    if not output_path.is_file() or not predictions_path.is_file():
+        return False
+    try:
+        with output_path.open(encoding="utf-8") as handle:
+            metadata = json.load(handle)
+        if any(metadata.get(key) != value for key, value in expected_metadata.items()):
+            return False
+        with predictions_path.open(encoding="utf-8") as handle:
+            records = [json.loads(line) for line in handle if line.strip()]
+    except (OSError, json.JSONDecodeError):
+        return False
+    if len(records) != len(expected_ids):
+        return False
+    pass_at = expected_metadata["pass_at"]
+    return all(
+        isinstance(record, dict)
+        and record.get("_id") == task_id
+        and isinstance(record.get("generate_results"), list)
+        and len(record["generate_results"]) == pass_at
+        for record, task_id in zip(records, expected_ids, strict=True)
+    )
 
 
 def parse_args():
@@ -62,6 +102,17 @@ def parse_args():
         help="vLLM tensor-parallel size (default: number of --gpu-devices).",
     )
     parser.add_argument("--batch-size", type=int, default=4, help="Prompts per vLLM request batch.")
+    parser.add_argument(
+        "--max-num-seqs",
+        type=int,
+        default=None,
+        help="Optional vLLM concurrent-sequence cap; set to batch size to limit KV-cache preallocation.",
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Skip only existing runs whose metadata and predictions fully match this invocation.",
+    )
     parser.add_argument(
         "--gpu-memory-utilization",
         type=float,
@@ -138,6 +189,8 @@ def parse_args():
         parser.error("--also-save-pass-at-1 requires --temperature 1 --pass-at 5.")
     if args.batch_size < 1:
         parser.error("--batch-size must be positive.")
+    if args.max_num_seqs is not None and args.max_num_seqs < 1:
+        parser.error("--max-num-seqs must be positive.")
     if args.gpu_reserve_mb is not None and args.gpu_reserve_mb < 0:
         parser.error("--gpu-reserve-mb cannot be negative.")
     if args.gpu_reserve_free_mb < 0:
@@ -264,6 +317,34 @@ def main():
                         for dataset_name in selected_datasets:
                             for language in args.language:
                                 dataset, datatype = dataset_loaders[dataset_name][language]
+                                if args.resume:
+                                    expected_metadata = {
+                                        "model_name": model_name,
+                                        "language": language,
+                                        "style": method,
+                                        "example_num": example_num,
+                                        "prompt_index": prompt_index,
+                                        "prompt_set": prompt_set_name,
+                                        "system_prompt": system_prompts[prompt_index],
+                                        "temperature": float(args.temperature),
+                                        "pass_at": args.pass_at,
+                                    }
+                                    run_path = generation_run_path(
+                                        output_roots[dataset_name],
+                                        model_name,
+                                        prompt_set_name,
+                                        language,
+                                        method,
+                                        example_num,
+                                        prompt_index,
+                                    )
+                                    task_id_field = "task_id" if datatype in (0, 1) else "id"
+                                    if is_complete_generation_run(
+                                        run_path, expected_metadata, dataset["test"][task_id_field]
+                                    ):
+                                        print(f"[resume] skip complete: {dataset_name}/{run_path.name}")
+                                        continue
+                                    print(f"[resume] generate missing or invalid: {dataset_name}/{run_path.name}")
                                 evaluate_generation(
                                     model_name,
                                     method,
@@ -276,6 +357,7 @@ def main():
                                     tensor_parallel_size=tensor_parallel_size,
                                     gpu_memory_utilization=args.gpu_memory_utilization,
                                     batch_size=args.batch_size,
+                                    max_num_seqs=args.max_num_seqs,
                                     temperature=float(args.temperature),
                                     pass_at=args.pass_at,
                                     also_save_pass_at_1=args.also_save_pass_at_1,

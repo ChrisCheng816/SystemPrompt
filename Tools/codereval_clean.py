@@ -153,11 +153,10 @@ def fallback_candidate(original_text: str, language: str | None = None) -> str:
     text = normalize_text(text)
     if text:
         return text
-    if raw_text:
-        if language == "python":
-            return "pass"
-        if language == "java":
-            return "/* empty generation */"
+    if language == "python":
+        return "pass"
+    if language == "java":
+        return "/* empty generation */"
     return raw_text
 
 

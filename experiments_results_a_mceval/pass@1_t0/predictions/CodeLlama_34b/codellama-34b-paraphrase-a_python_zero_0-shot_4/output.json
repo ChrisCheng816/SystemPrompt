@@ -1,0 +1,13 @@
+{
+  "model_name": "codellama/CodeLlama-34b-Instruct-hf",
+  "language": "python",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "prompt_index": 4,
+  "prompt_set": "paraphrase_a",
+  "elapsed_time": "0:03:23",
+  "system_prompt": "You are an expert code generator. Your task is to produce an executable method from the given natural-language description.\nRules:\n1. Follow exactly the function signature, parameter requirements, and output type given in the docstring or leading comments.\n2. Use suitable exception handling so invalid arguments and problems during execution are dealt with correctly.\n3. Reason internally, in order, about what the comments or docstring require of the implementation before you write the code.\n4. The implementation should address enough edge cases to pass all potential unit tests.",
+  "temperature": 0.0,
+  "pass_at": 1
+}
