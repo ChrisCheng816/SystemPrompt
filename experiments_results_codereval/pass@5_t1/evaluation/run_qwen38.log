@@ -1,0 +1,158 @@
+[CoderEval pass@5_t1] [CoderEval] starting pass@5_t1 with 8 worker(s)
+[CoderEval pass@5_t1] <unknown>:27: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:29: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:27: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:28: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:9: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:10: SyntaxWarning: invalid escape sequence '\}'
+[CoderEval pass@5_t1] <unknown>:9: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:10: SyntaxWarning: invalid escape sequence '\}'
+[CoderEval pass@5_t1] <unknown>:9: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:10: SyntaxWarning: invalid escape sequence '\}'
+[CoderEval pass@5_t1] <unknown>:9: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:10: SyntaxWarning: invalid escape sequence '\}'
+[CoderEval pass@5_t1] <unknown>:126: SyntaxWarning: invalid escape sequence '\w'
+[CoderEval pass@5_t1] <unknown>:126: SyntaxWarning: invalid escape sequence '\w'
+[CoderEval pass@5_t1] <unknown>:126: SyntaxWarning: invalid escape sequence '\w'
+[CoderEval pass@5_t1] <unknown>:126: SyntaxWarning: invalid escape sequence '\w'
+[CoderEval pass@5_t1] <unknown>:41: SyntaxWarning: invalid escape sequence '\d'
+[CoderEval pass@5_t1] <unknown>:41: SyntaxWarning: invalid escape sequence '\d'
+[CoderEval pass@5_t1] <unknown>:41: SyntaxWarning: invalid escape sequence '\d'
+[CoderEval pass@5_t1] <unknown>:41: SyntaxWarning: invalid escape sequence '\d'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:37: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:37: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:37: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:37: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:3: SyntaxWarning: invalid escape sequence '\*'
+[CoderEval pass@5_t1] <unknown>:16: SyntaxWarning: invalid escape sequence '\?'
+[CoderEval pass@5_t1] <unknown>:19: SyntaxWarning: invalid escape sequence '\?'
+[CoderEval pass@5_t1] <unknown>:16: SyntaxWarning: invalid escape sequence '\?'
+[CoderEval pass@5_t1] <unknown>:17: SyntaxWarning: invalid escape sequence '\?'
+[CoderEval pass@5_t1] <unknown>:218: SyntaxWarning: invalid escape sequence '\('
+[CoderEval pass@5_t1] <unknown>:222: SyntaxWarning: invalid escape sequence '\)'
+[CoderEval pass@5_t1] <unknown>:218: SyntaxWarning: invalid escape sequence '\('
+[CoderEval pass@5_t1] <unknown>:222: SyntaxWarning: invalid escape sequence '\)'
+[CoderEval pass@5_t1] <unknown>:218: SyntaxWarning: invalid escape sequence '\('
+[CoderEval pass@5_t1] <unknown>:222: SyntaxWarning: invalid escape sequence '\)'
+[CoderEval pass@5_t1] <unknown>:218: SyntaxWarning: invalid escape sequence '\('
+[CoderEval pass@5_t1] <unknown>:222: SyntaxWarning: invalid escape sequence '\)'
+[CoderEval pass@5_t1] <unknown>:33: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:33: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:8: SyntaxWarning: invalid escape sequence '\{'
+[CoderEval pass@5_t1] <unknown>:13: SyntaxWarning: invalid escape sequence '\s'
+[CoderEval pass@5_t1] <unknown>:13: SyntaxWarning: invalid escape sequence '\s'
+[CoderEval pass@5_t1] <unknown>:13: SyntaxWarning: invalid escape sequence '\s'
+[CoderEval pass@5_t1] <unknown>:13: SyntaxWarning: invalid escape sequence '\s'
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_0/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_0/predictions.jsonl", "raw_sha256": "b637a33cec9537b430621f8c7a1b05e46e0c650f05374790e30453ff824df4e2", "records": 230, "run": "qwen3.8-27b-original_java_retrieval_3-shot_0", "status": "cleaned", "structural_issues": {"target_method_missing": 395}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_1/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_1/predictions.jsonl", "raw_sha256": "3ece0d376fe9d13946a5e8d7321fd7db68cfc4924f270b070502419c14b81e01", "records": 230, "run": "qwen3.8-27b-original_java_retrieval_3-shot_1", "status": "cleaned", "structural_issues": {"target_method_missing": 335}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_2/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_2/predictions.jsonl", "raw_sha256": "f57123dab460fabb46558bf4d82b9a2be610bac8748d375a28e40076abdb21ff", "records": 230, "run": "qwen3.8-27b-original_java_retrieval_3-shot_2", "status": "cleaned", "structural_issues": {"target_method_missing": 261}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_3/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_3/predictions.jsonl", "raw_sha256": "9051a1669b84126be5455b068887857041155ac2cdbd805d957170cbbb666815", "records": 230, "run": "qwen3.8-27b-original_java_retrieval_3-shot_3", "status": "cleaned", "structural_issues": {"target_method_missing": 118}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_4/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_retrieval_3-shot_4/predictions.jsonl", "raw_sha256": "aca7b512ca7d2a8dff288172dba112efa6dc0766427cce8af5918168da2078b3", "records": 230, "run": "qwen3.8-27b-original_java_retrieval_3-shot_4", "status": "cleaned", "structural_issues": {"target_method_missing": 55}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_0/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_0/predictions.jsonl", "raw_sha256": "696fe34938a3111be5399771674d0214b92371fe4ca946dae11df64e38c59d09", "records": 230, "run": "qwen3.8-27b-original_java_zero_0-shot_0", "status": "cleaned", "structural_issues": {"target_method_missing": 44}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_1/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_1/predictions.jsonl", "raw_sha256": "7a19b71062a80a67aa428635ecb712bf1e9dedf9e6236d09a51d0854d6a2dcff", "records": 230, "run": "qwen3.8-27b-original_java_zero_0-shot_1", "status": "cleaned", "structural_issues": {"target_method_missing": 78}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_2/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_2/predictions.jsonl", "raw_sha256": "a6a484c362a10c70afa89c002038ba45e9a1e9306594f64950dc2fd61d5b882b", "records": 230, "run": "qwen3.8-27b-original_java_zero_0-shot_2", "status": "cleaned", "structural_issues": {"target_method_missing": 59}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_3/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_3/predictions.jsonl", "raw_sha256": "594f7e8d23a92b1a53848d6b38e58c7850183c0ee178cadfe8e387297e672eff", "records": 230, "run": "qwen3.8-27b-original_java_zero_0-shot_3", "status": "cleaned", "structural_issues": {"target_method_missing": 35}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_4/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "java", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_java_zero_0-shot_4/predictions.jsonl", "raw_sha256": "4477e6f3ead3d477f975b8801c529edefd5d84840ac5f9a430efa2b08534b9e3", "records": 230, "run": "qwen3.8-27b-original_java_zero_0-shot_4", "status": "cleaned", "structural_issues": {"target_method_missing": 24}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_0/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_0/predictions.jsonl", "raw_sha256": "57258cffd630aa323ceb0fcb7b72ae248fa54701037e21fb40546f21ca255dd4", "records": 230, "run": "qwen3.8-27b-original_python_retrieval_3-shot_0", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 91}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_1/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_1/predictions.jsonl", "raw_sha256": "1948b37411626b39467bff4019ea4be3679c34b4cba518cd532e2ece5d8156c6", "records": 230, "run": "qwen3.8-27b-original_python_retrieval_3-shot_1", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 77}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_2/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_2/predictions.jsonl", "raw_sha256": "1ba76a95b70f491a16c9ce61f9edda31552ae65a7565b1115aeed1098c3554d8", "records": 230, "run": "qwen3.8-27b-original_python_retrieval_3-shot_2", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 79}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_3/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_3/predictions.jsonl", "raw_sha256": "f7418032492f61f2babe0330f91e6d3c00e5187627dd0990fc1f8488531c8d83", "records": 230, "run": "qwen3.8-27b-original_python_retrieval_3-shot_3", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 84}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_4/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_retrieval_3-shot_4/predictions.jsonl", "raw_sha256": "7a29c92ed99487cf759182abdbe5094cbc4444fad32a844b31259b6b2e37f0eb", "records": 230, "run": "qwen3.8-27b-original_python_retrieval_3-shot_4", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 82}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_0/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_0/predictions.jsonl", "raw_sha256": "c49aad931c0c81af13190571ebcc04f2e949e3e1a16180a0e85e7f1be97a9895", "records": 230, "run": "qwen3.8-27b-original_python_zero_0-shot_0", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 158}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_1/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_1/predictions.jsonl", "raw_sha256": "5b081e576e5f95a6be97d0e525dda90e73422a7e3710b5b18836c0188ea76bde", "records": 230, "run": "qwen3.8-27b-original_python_zero_0-shot_1", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 116}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_2/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_2/predictions.jsonl", "raw_sha256": "c9f3c10af120b34bf1f2deccb582cfc20173c2bb427e59a0719cd2d048cd8b13", "records": 230, "run": "qwen3.8-27b-original_python_zero_0-shot_2", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 117}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_3/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_3/predictions.jsonl", "raw_sha256": "eee7134e4d937c3c763a3890251759f8f8d7fb9fe90ba92b6655690a8f9ea3cc", "records": 230, "run": "qwen3.8-27b-original_python_zero_0-shot_3", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 130}, "written": true}
+[CoderEval pass@5_t1] {"candidates": 1150, "cleaned_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_4/predictions_cleaned.jsonl", "dataset": "codereval", "detail": "230 complete records", "language": "python", "presentation_issues": {}, "raw_file": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b/qwen3.8-27b-original_python_zero_0-shot_4/predictions.jsonl", "raw_sha256": "d97375015c78ca8b723e9fa835f80dee852686e7ada008d42ad8820018b7805d", "records": 230, "run": "qwen3.8-27b-original_python_zero_0-shot_4", "status": "cleaned", "structural_issues": {"target_missing_or_unparsable": 151}, "written": true}
+[CoderEval pass@5_t1] SUMMARY {"blocked": 0, "cleaned": 20, "dataset": "codereval", "incomplete": 0, "mode": "write", "pass_dir": "pass@5_t1", "ready": 0, "root": "/scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/predictions/Qwen3.8_27b", "runs_seen": 20, "skipped_other_models": 0}
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 5: evaluating 2 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 7: evaluating 2 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 3: evaluating 3 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 6: evaluating 2 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 2: evaluating 3 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 1: evaluating 3 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 8: evaluating 2 run(s)
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 4: evaluating 3 run(s)
+[CoderEval pass@5_t1] [CoderEval] queued 2 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/2] java: qwen3.8-27b-original_java_retrieval_3-shot_4
+[CoderEval pass@5_t1] [CoderEval] queued 3 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/3] java: qwen3.8-27b-original_java_retrieval_3-shot_3
+[CoderEval pass@5_t1] [CoderEval] queued 2 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/2] java: qwen3.8-27b-original_java_zero_0-shot_2
+[CoderEval pass@5_t1] [CoderEval] queued 2 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/2] java: qwen3.8-27b-original_java_zero_0-shot_0
+[CoderEval pass@5_t1] [CoderEval] queued 3 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/3] java: qwen3.8-27b-original_java_retrieval_3-shot_1
+[CoderEval pass@5_t1] [CoderEval] queued 3 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/3] java: qwen3.8-27b-original_java_retrieval_3-shot_0
+[CoderEval pass@5_t1] [CoderEval] queued 3 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/3] java: qwen3.8-27b-original_java_retrieval_3-shot_2
+[CoderEval pass@5_t1] [CoderEval] queued 2 prediction file(s)
+[CoderEval pass@5_t1] [CoderEval 1/2] java: qwen3.8-27b-original_java_zero_0-shot_1
+[CoderEval pass@5_t1] [CoderEval 1/3] exit=0: qwen3.8-27b-original_java_retrieval_3-shot_1
+[CoderEval pass@5_t1] [CoderEval 2/3] java: qwen3.8-27b-original_java_zero_0-shot_4
+[CoderEval pass@5_t1] [CoderEval 1/3] exit=0: qwen3.8-27b-original_java_retrieval_3-shot_2
+[CoderEval pass@5_t1] [CoderEval 2/3] python: qwen3.8-27b-original_python_retrieval_3-shot_0
+[CoderEval pass@5_t1] [CoderEval 1/3] exit=0: qwen3.8-27b-original_java_retrieval_3-shot_3
+[CoderEval pass@5_t1] [CoderEval 2/3] python: qwen3.8-27b-original_python_retrieval_3-shot_1
+[CoderEval pass@5_t1] [CoderEval 1/2] exit=0: qwen3.8-27b-original_java_retrieval_3-shot_4
+[CoderEval pass@5_t1] [CoderEval 2/2] python: qwen3.8-27b-original_python_retrieval_3-shot_2
+[CoderEval pass@5_t1] [CoderEval 1/2] exit=0: qwen3.8-27b-original_java_zero_0-shot_0
+[CoderEval pass@5_t1] [CoderEval 2/2] python: qwen3.8-27b-original_python_retrieval_3-shot_3
+[CoderEval pass@5_t1] [CoderEval 1/2] exit=0: qwen3.8-27b-original_java_zero_0-shot_1
+[CoderEval pass@5_t1] [CoderEval 2/2] python: qwen3.8-27b-original_python_retrieval_3-shot_4
+[CoderEval pass@5_t1] [CoderEval 1/3] exit=0: qwen3.8-27b-original_java_retrieval_3-shot_0
+[CoderEval pass@5_t1] [CoderEval 2/3] java: qwen3.8-27b-original_java_zero_0-shot_3
+[CoderEval pass@5_t1] [CoderEval 1/2] exit=0: qwen3.8-27b-original_java_zero_0-shot_2
+[CoderEval pass@5_t1] [CoderEval 2/2] python: qwen3.8-27b-original_python_zero_0-shot_0
+[CoderEval pass@5_t1] [CoderEval 2/2] exit=0: qwen3.8-27b-original_python_retrieval_3-shot_3
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 6: completed
+[CoderEval pass@5_t1] [CoderEval 2/3] exit=0: qwen3.8-27b-original_python_retrieval_3-shot_1
+[CoderEval pass@5_t1] [CoderEval 3/3] python: qwen3.8-27b-original_python_zero_0-shot_4
+[CoderEval pass@5_t1] [CoderEval 2/3] exit=0: qwen3.8-27b-original_python_retrieval_3-shot_0
+[CoderEval pass@5_t1] [CoderEval 3/3] python: qwen3.8-27b-original_python_zero_0-shot_3
+[CoderEval pass@5_t1] [CoderEval 2/2] exit=0: qwen3.8-27b-original_python_retrieval_3-shot_4
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 7: completed
+[CoderEval pass@5_t1] [CoderEval 2/2] exit=0: qwen3.8-27b-original_python_retrieval_3-shot_2
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 5: completed
+[CoderEval pass@5_t1] [CoderEval 2/2] exit=0: qwen3.8-27b-original_python_zero_0-shot_0
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 8: completed
+[CoderEval pass@5_t1] [CoderEval 3/3] exit=0: qwen3.8-27b-original_python_zero_0-shot_3
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 3: completed
+[CoderEval pass@5_t1] [CoderEval 3/3] exit=0: qwen3.8-27b-original_python_zero_0-shot_4
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 4: completed
+[CoderEval pass@5_t1] [CoderEval 2/3] exit=0: qwen3.8-27b-original_java_zero_0-shot_4
+[CoderEval pass@5_t1] [CoderEval 3/3] python: qwen3.8-27b-original_python_zero_0-shot_2
+[CoderEval pass@5_t1] [CoderEval 2/3] exit=0: qwen3.8-27b-original_java_zero_0-shot_3
+[CoderEval pass@5_t1] [CoderEval 3/3] python: qwen3.8-27b-original_python_zero_0-shot_1
+[CoderEval pass@5_t1] [CoderEval 3/3] exit=0: qwen3.8-27b-original_python_zero_0-shot_2
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 2: completed
+[CoderEval pass@5_t1] [CoderEval 3/3] exit=0: qwen3.8-27b-original_python_zero_0-shot_1
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] worker 1: completed
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w6-s5t63u_c/predictions/qwen3.8-27b-original_java_zero_0-shot_0/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w6-s5t63u_c/predictions/qwen3.8-27b-original_python_retrieval_3-shot_3/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w7-7rmlfd4o/predictions/qwen3.8-27b-original_java_zero_0-shot_1/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1149 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w7-7rmlfd4o/predictions/qwen3.8-27b-original_python_retrieval_3-shot_4/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w5-p7pee89s/predictions/qwen3.8-27b-original_java_retrieval_3-shot_4/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1148 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w5-p7pee89s/predictions/qwen3.8-27b-original_python_retrieval_3-shot_2/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w8-h2h7ncvd/predictions/qwen3.8-27b-original_java_zero_0-shot_2/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w8-h2h7ncvd/predictions/qwen3.8-27b-original_python_zero_0-shot_0/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w3-30de5v5a/predictions/qwen3.8-27b-original_java_retrieval_3-shot_2/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1148 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w3-30de5v5a/predictions/qwen3.8-27b-original_python_retrieval_3-shot_0/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w3-30de5v5a/predictions/qwen3.8-27b-original_python_zero_0-shot_3/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w4-ztqofmyn/predictions/qwen3.8-27b-original_java_retrieval_3-shot_3/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1149 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w4-ztqofmyn/predictions/qwen3.8-27b-original_python_retrieval_3-shot_1/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1149 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w4-ztqofmyn/predictions/qwen3.8-27b-original_python_zero_0-shot_4/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w2-bsoqhu2w/predictions/qwen3.8-27b-original_java_retrieval_3-shot_1/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w2-bsoqhu2w/predictions/qwen3.8-27b-original_java_zero_0-shot_4/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w2-bsoqhu2w/predictions/qwen3.8-27b-original_python_zero_0-shot_2/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w1-lmsughs2/predictions/qwen3.8-27b-original_java_retrieval_3-shot_0/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w1-lmsughs2/predictions/qwen3.8-27b-original_java_zero_0-shot_3/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] Collected 1150 candidate(s): /scratch/zcheng06/SystemPrompt_working/experiments_results_codereval/pass@5_t1/evaluation/codereval-qwen38-w1-lmsughs2/predictions/qwen3.8-27b-original_python_zero_0-shot_1/predictions_cleaned.jsonl_out.jsonl
+[CoderEval pass@5_t1] [Qwen3.8 CodeEval] evaluated 20 run(s) with 8 worker(s), collected 22993 verdicts
+[CoderEval pass@5_t1] [CoderEval] completed pass@5_t1

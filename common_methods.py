@@ -100,6 +100,23 @@ def render_gpt_oss_prompt(user_content, system_prompt):
     )
     return encoding.decode_utf8(tokens)
 
+def template_thinking_kwargs(tokenizer):
+    """Switch off chat-template reasoning, for templates that expose the switch.
+
+    Gated on the template text rather than on the model name: a template that
+    never mentions ``enable_thinking`` receives no extra keyword, so prompts for
+    every previously evaluated model render byte-for-byte as before.
+
+    Qwen3-family templates emit a ``<think>`` block by default.  Leaving that on
+    would confound the Reason prompt, whose whole content is an instruction to
+    reason privately, with a model default.
+    """
+    template = getattr(tokenizer, "chat_template", None) or ""
+    if "enable_thinking" in template:
+        return {"enable_thinking": False}
+    return {}
+
+
 def render_chat_prompts(prompts, tokenizer, max_length, model_name=None):
     if is_gpt_oss_model_name(model_name) or is_gpt_oss_tokenizer(tokenizer):
         rendered_prompts = []
@@ -127,7 +144,12 @@ def render_chat_prompts(prompts, tokenizer, max_length, model_name=None):
                 )
         return truncate_prompts(rendered_prompts, tokenizer, max_length)
 
-    full_prompt = tokenizer.apply_chat_template(prompts, tokenize=False, add_generation_prompt=True)
+    full_prompt = tokenizer.apply_chat_template(
+        prompts,
+        tokenize=False,
+        add_generation_prompt=True,
+        **template_thinking_kwargs(tokenizer),
+    )
     return truncate_prompts(full_prompt, tokenizer, max_length)
 
 def load_model(model_name, tensor_parallel_size, gpu_memory_utilization, batch_size, max_num_seqs=None, reservation=None):

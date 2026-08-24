@@ -9,5 +9,8 @@ model_map = {
     "codellama/CodeLlama-13b-Instruct-hf": "CodeLlama_13b/codellama-13b",
     "codellama/CodeLlama-34b-Instruct-hf": "CodeLlama_34b/codellama-34b",
 
-    "openai/gpt-oss-20b": "openai/gpt-20b"
+    "openai/gpt-oss-20b": "openai/gpt-20b",
+
+    # General-purpose, run from .venv-qwen38 (needs vllm>=0.19, transformers>=5)
+    "Qwen/Qwen3.8-27B": "Qwen3.8_27b/qwen3.8-27b",
 }

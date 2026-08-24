@@ -8,6 +8,8 @@ paper/
 docs/
 docker/
 tests/
+.venv-qwen38/
 
 # Per-instance failure logs can be hundreds of MB; keep them local rather than in Git.
 **/failure_modes_by_instance.jsonl
+.superpowers/
