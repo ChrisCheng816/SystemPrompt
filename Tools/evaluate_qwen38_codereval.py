@@ -39,7 +39,11 @@ except ModuleNotFoundError:
     from Tools import evaluate_codereval
 
 
-MODEL_NAME = "qwen3.8-27b-original"
+QWEN38_MODELS = frozenset({
+    "qwen3.8-27b-original",
+    "qwen3.8-27b-paraphrase-a",
+    "qwen3.8-27b-paraphrase-b",
+})
 MODEL_DIRECTORY = "Qwen3.8_27b"
 
 
@@ -54,7 +58,7 @@ def cleaned_prediction_files(root: Path) -> list[Path]:
     files = []
     for path in sorted(root.rglob("predictions_cleaned.jsonl")):
         run_info = parse_run_name(path.parent.name)
-        if run_info.model != MODEL_NAME:
+        if run_info.model not in QWEN38_MODELS:
             raise ValueError(f"Refusing non-Qwen3.8 prediction file: {path}")
         files.append(path)
     if not files:
@@ -72,7 +76,7 @@ def mirror_cleaned_predictions(root: Path, workspace: Path, sources: list[Path])
 
 def collect_records(output_root: Path, experiment_root: Path) -> list[dict]:
     records = evaluate_codereval.collect_out_files(output_root, experiment_root)
-    if any(record.get("model") != MODEL_NAME for record in records):
+    if any(record.get("model") not in QWEN38_MODELS for record in records):
         raise ValueError("Refusing non-Qwen3.8 evaluator output.")
     return records
 

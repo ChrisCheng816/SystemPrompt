@@ -1,0 +1,13 @@
+{
+  "model_name": "Qwen/Qwen3.8-27B",
+  "language": "python",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "prompt_index": 0,
+  "prompt_set": "paraphrase_a",
+  "elapsed_time": "0:06:52",
+  "system_prompt": "You are an expert code generator. Your task is to produce an executable method from the given natural-language description.",
+  "temperature": 0.0,
+  "pass_at": 1
+}

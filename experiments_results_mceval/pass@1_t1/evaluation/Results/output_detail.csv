@@ -41,3 +41,7 @@ qwen2.5-7b,java,zero,0-shot,pass@1,62.26,56.60,64.15,62.26,62.26
 qwen2.5-7b,python,naive,3-shot,pass@1,50.00,58.00,52.00,60.00,50.00
 qwen2.5-7b,python,retrieval,3-shot,pass@1,50.00,50.00,46.00,52.00,44.00
 qwen2.5-7b,python,zero,0-shot,pass@1,58.00,46.00,56.00,52.00,60.00
+qwen3.8-27b-original,java,retrieval,3-shot,pass@1,67.92,64.15,62.26,62.26,66.04
+qwen3.8-27b-original,java,zero,0-shot,pass@1,66.04,64.15,64.15,69.81,64.15
+qwen3.8-27b-original,python,retrieval,3-shot,pass@1,70.00,72.00,78.00,66.00,66.00
+qwen3.8-27b-original,python,zero,0-shot,pass@1,78.00,72.00,70.00,64.00,66.00

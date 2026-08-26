@@ -1,0 +1,13 @@
+{
+  "model_name": "Qwen/Qwen3.8-27B",
+  "language": "java",
+  "style": "zero",
+  "example_num": 0,
+  "counter": 0,
+  "prompt_index": 4,
+  "prompt_set": "paraphrase_b",
+  "elapsed_time": "0:13:00",
+  "system_prompt": "You are a highly skilled code-generation assistant. Your task is to create an executable method from the natural-language description provided.\nRules:\n1. The function signature, parameter requirements, and output type specified in the docstring or leading comments must be followed strictly.\n2. The implementation must handle potential invalid inputs and runtime issues using appropriate exception-handling behavior.\n3. Carefully reason step by step about the method purpose stated in the docstring or leading comments before writing code, while keeping that reasoning private.\n4. The implementation must address enough edge cases to pass all potential unit tests.",
+  "temperature": 0.0,
+  "pass_at": 1
+}

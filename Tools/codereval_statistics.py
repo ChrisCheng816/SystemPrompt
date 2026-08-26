@@ -66,6 +66,8 @@ def _mcnemar_rows(csv_dir: Path, language: str) -> list[dict]:
             candidate_only = sum(row["BASE"] == 0 and row[column] == 1 for row in matrix)
             both_fail = sum(row["BASE"] == 0 and row[column] == 0 for row in matrix)
             result = mcnemar([[both_pass, base_only], [candidate_only, both_fail]], exact=True, correction=False)
+            # Direct paired odds ratio: prompt-only wins / Base-only wins.
+            # OR > 1 therefore favors the prompt variant.
             global_id += 1
             rows.append(
                 {
@@ -75,7 +77,7 @@ def _mcnemar_rows(csv_dir: Path, language: str) -> list[dict]:
                     "Method": method,
                     "Shot": shot,
                     "Compare": f"BASE vs {column}",
-                    "OR": round((base_only + 1) / (candidate_only + 1), 3),
+                    "OR": round((candidate_only + 1) / (base_only + 1), 3),
                     "p_value": round(float(result.pvalue), 5),
                 }
             )

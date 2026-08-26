@@ -47,7 +47,7 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
 
             pvals_raw.append(float(result.pvalue))
 
-            or_smooth = (b + 1) / (c + 1)
+            or_smooth = (c + 1) / (b + 1)
 
             global_id += 1
             all_results.append({

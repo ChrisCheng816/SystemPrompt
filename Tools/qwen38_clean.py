@@ -37,7 +37,11 @@ except ModuleNotFoundError:  # Supports both `python Tools/...` and imports.
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MODEL_NAME = "qwen3.8-27b-original"
+QWEN38_MODELS = frozenset({
+    "qwen3.8-27b-original",
+    "qwen3.8-27b-paraphrase-a",
+    "qwen3.8-27b-paraphrase-b",
+})
 MODEL_DIRECTORY = "Qwen3.8_27b"
 DATASETS = ("mceval", "codereval")
 THINK_BLOCK = re.compile(r"<think>.*?</think>\s*", flags=re.IGNORECASE | re.DOTALL)
@@ -434,7 +438,7 @@ def append_manifest(root: Path, entry: dict[str, Any]) -> None:
 
 def clean_file(path: Path, dataset: str, pass_dir: str, write: bool) -> dict[str, Any]:
     run_info = parse_run_name(path.parent.name)
-    if run_info.model != MODEL_NAME:
+    if run_info.model not in QWEN38_MODELS:
         return {"run": path.parent.name, "status": "skipped_other_model"}
     validation = read_complete_jsonl(path, dataset, run_info.language, pass_dir)
     base = {
@@ -539,7 +543,7 @@ def main() -> None:
     root = qwen_root(args.dataset, args.pass_dir, args.experiment_root)
     results, skipped_other = process_root(args.dataset, args.pass_dir, root, args.write)
     if not results:
-        raise SystemExit(f"No {MODEL_NAME} prediction files found under {root}")
+        raise SystemExit(f"No whitelisted Qwen3.8 prediction files found under {root}")
     for result in results:
         print(json.dumps(result, ensure_ascii=False, sort_keys=True))
     summary = {

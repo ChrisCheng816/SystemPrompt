@@ -32,7 +32,11 @@ except ModuleNotFoundError:
     from Tools import evaluate_mceval
 
 
-MODEL_NAME = "qwen3.8-27b-original"
+QWEN38_MODELS = frozenset({
+    "qwen3.8-27b-original",
+    "qwen3.8-27b-paraphrase-a",
+    "qwen3.8-27b-paraphrase-b",
+})
 MODEL_DIRECTORY = "Qwen3.8_27b"
 
 
@@ -43,7 +47,7 @@ def cleaned_prediction_files(experiment_root: Path) -> list[Path]:
     files: list[Path] = []
     for path in sorted(root.rglob("predictions_cleaned.jsonl")):
         info = parse_run_name(path.parent.name)
-        if info.model != MODEL_NAME:
+        if info.model not in QWEN38_MODELS:
             raise ValueError(f"Refusing non-Qwen3.8 prediction file: {path}")
         files.append(path)
     if not files:
@@ -55,7 +59,7 @@ def evaluate_cleaned_file(path_text: str, task_by_id: dict[str, dict], limit: in
     """Evaluate Qwen-cleaned code directly; do not invoke the generic cleaner."""
     path = Path(path_text)
     info = parse_run_name(path.parent.name)
-    if info.model != MODEL_NAME:
+    if info.model not in QWEN38_MODELS:
         raise ValueError(f"Refusing non-Qwen3.8 prediction file: {path}")
 
     records: list[dict] = []
