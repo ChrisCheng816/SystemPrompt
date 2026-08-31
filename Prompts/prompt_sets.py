@@ -33,7 +33,6 @@ _B_RULES = (
     "The implementation must address enough edge cases to pass all potential unit tests.",
 )
 
-
 def _build_cumulative_prompts(base: str, rules: tuple[str, ...]) -> list[str]:
     prompts = [base]
     accumulated = base + "\nRules:"
