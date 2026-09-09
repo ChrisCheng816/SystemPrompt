@@ -17,7 +17,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--anchor-mb", type=int, default=512)
     return parser.parse_args()
 
-
 def main() -> None:
     args = parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_id

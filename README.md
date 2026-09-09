@@ -81,19 +81,27 @@ Within the `predictions/` directory (The file naming convention follows the same
 
 ## System Prompts
 
-### Base: 
+The experiments use three semantically matched, cumulative system-prompt sets.
+Within each set, every subsequent prompt adds one instruction to the preceding prompt.
+
+### Original System Prompts
+
+#### Base
+
 ```
 You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
 ```
 
-### Structure-Constrained: 
+#### Structure-Constrained
+
 ```
 You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
 Rules:
 1. Strictly adhere to the function signature, parameter requirements, and output type specified in the docstring or leading comments.
 ```
 
-### Robust-Handling: 
+#### Robust-Handling
+
 ```
 You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
 Rules:
@@ -101,7 +109,8 @@ Rules:
 2. The method implementation must handle potential invalid inputs and runtime issues with exception-handling behavior as appropriate.
 ```
 
-### Reasoning-Guided: 
+#### Reasoning-Guided
+
 ```
 You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
 Rules:
@@ -110,7 +119,8 @@ Rules:
 3. Before writing any code, carefully think step by step the method's purpose stated in the docstring or leading comments, and keep this reasoning private.
 ```
 
-### Edge-Coverage: 
+#### Edge-Coverage
+
 ```
 You are a highly skilled code generator. Your task is to generate an executable method from the natural language description.
 Rules:
@@ -120,19 +130,109 @@ Rules:
 4. The method implementation must handle sufficient edge cases to pass all potential unit tests.
 ```
 
+### Imperative System Prompts
+
+#### Base
+
+```
+You are an expert code generator. Your task is to produce an executable method from the given natural-language description.
+```
+
+#### Structure-Constrained
+
+```
+You are an expert code generator. Your task is to produce an executable method from the given natural-language description.
+Rules:
+1. Follow exactly the function signature, parameter requirements, and output type given in the docstring or leading comments.
+```
+
+#### Robust-Handling
+
+```
+You are an expert code generator. Your task is to produce an executable method from the given natural-language description.
+Rules:
+1. Follow exactly the function signature, parameter requirements, and output type given in the docstring or leading comments.
+2. Use suitable exception handling so invalid arguments and problems during execution are dealt with correctly.
+```
+
+#### Reasoning-Guided
+
+```
+You are an expert code generator. Your task is to produce an executable method from the given natural-language description.
+Rules:
+1. Follow exactly the function signature, parameter requirements, and output type given in the docstring or leading comments.
+2. Use suitable exception handling so invalid arguments and problems during execution are dealt with correctly.
+3. Reason internally, in order, about what the comments or docstring require of the implementation before you write the code.
+```
+
+#### Edge-Coverage
+
+```
+You are an expert code generator. Your task is to produce an executable method from the given natural-language description.
+Rules:
+1. Follow exactly the function signature, parameter requirements, and output type given in the docstring or leading comments.
+2. Use suitable exception handling so invalid arguments and problems during execution are dealt with correctly.
+3. Reason internally, in order, about what the comments or docstring require of the implementation before you write the code.
+4. The implementation should address enough edge cases to pass all potential unit tests.
+```
+
+### Declarative System Prompts
+
+#### Base
+
+```
+You are a highly skilled code-generation assistant. Your task is to create an executable method from the natural-language description provided.
+```
+
+#### Structure-Constrained
+
+```
+You are a highly skilled code-generation assistant. Your task is to create an executable method from the natural-language description provided.
+Rules:
+1. The function signature, parameter requirements, and output type specified in the docstring or leading comments must be followed strictly.
+```
+
+#### Robust-Handling
+
+```
+You are a highly skilled code-generation assistant. Your task is to create an executable method from the natural-language description provided.
+Rules:
+1. The function signature, parameter requirements, and output type specified in the docstring or leading comments must be followed strictly.
+2. The implementation must handle potential invalid inputs and runtime issues using appropriate exception-handling behavior.
+```
+
+#### Reasoning-Guided
+
+```
+You are a highly skilled code-generation assistant. Your task is to create an executable method from the natural-language description provided.
+Rules:
+1. The function signature, parameter requirements, and output type specified in the docstring or leading comments must be followed strictly.
+2. The implementation must handle potential invalid inputs and runtime issues using appropriate exception-handling behavior.
+3. Carefully reason step by step about the method purpose stated in the docstring or leading comments before writing code, while keeping that reasoning private.
+```
+
+#### Edge-Coverage
+
+```
+You are a highly skilled code-generation assistant. Your task is to create an executable method from the natural-language description provided.
+Rules:
+1. The function signature, parameter requirements, and output type specified in the docstring or leading comments must be followed strictly.
+2. The implementation must handle potential invalid inputs and runtime issues using appropriate exception-handling behavior.
+3. Carefully reason step by step about the method purpose stated in the docstring or leading comments before writing code, while keeping that reasoning private.
+4. The implementation must address enough edge cases to pass all potential unit tests.
+```
 
 ## Prompt wording robustness sets
 
-The original five prompts remain unchanged in `Prompts/gen_prompts.py`. Two
-semantically matched, progressively cumulative wording variants are defined in
-`Prompts/prompt_sets.py` as `paraphrase_a` and `paraphrase_b`. Select one or
-more sets by repeating `--prompt-set`:
+The CLI names are `original` (Original System Prompts), `paraphrase_a`
+(Imperative System Prompts), and `paraphrase_b` (Declarative System Prompts).
+Select one or more sets by repeating `--prompt-set`:
 
 ```bash
 python main.py   --prompt-set original   --prompt-set paraphrase_a   --prompt-set paraphrase_b   --model-name Qwen/Qwen2.5-Coder-7B-Instruct   --gpu-devices 0,1
 ```
 
-Every run directory includes a hyphenated prompt-set suffix, so the three sets
+Every run directory includes a hyphenated prompt-set suffix, so the selected sets
 cannot overwrite one another. The chosen set is also recorded as
 `prompt_set` in `output.json`.
 
@@ -156,3 +256,36 @@ optimization rounds are appended to `Prompts/prompt_similarity_iterations.csv`.
 The final command reproducibly summarizes that history and marks exactly one
 global winner in `Prompts/prompt_similarity_summary.csv`; the decision uses the
 mean over both original-to-paraphrase pairings, never a per-pair model mix.
+
+For a complementary lexical analysis, compute the Shannon entropy of each
+prompt with:
+
+```bash
+python Tools/compute_prompt_entropy.py
+```
+
+This writes `Prompts/prompt_entropy.csv` (one row per set and prompt level) and
+`Prompts/prompt_entropy_summary.csv` (the mean over the five cumulative prompt
+levels in each set). Entropy is calculated in bits over lower-cased lexical
+word tokens; punctuation, numbering, and line breaks are excluded so the score
+reflects wording diversity rather than list formatting. The normalized score is
+`H / log2(V)`, where `V` is the number of distinct tokens in that prompt. It is
+a lexical-diversity complement to embedding cosine similarity, not a measure of
+semantic equivalence or prompt quality.
+
+For the directly relevant surface-form analysis, run:
+
+```bash
+python Tools/compute_prompt_surface_metrics.py
+```
+
+This writes `Prompts/prompt_surface_metrics.csv` for all 15 corresponding prompt
+pairs and `Prompts/prompt_surface_metrics_summary.csv` for their pairwise means.
+Both metrics use the same lower-cased word-token preprocessing as the entropy
+analysis. `lexical_jaccard_overlap` is the fraction of unique words shared by
+the two prompts, so lower values directly indicate more distinct wording.
+`normalized_token_edit_distance` is a secondary robustness check: it is word
+insertions, deletions, and substitutions divided by the longer prompt. For the
+paper, report Jaccard lexical overlap alongside cosine similarity: high cosine
+similarity and low lexical overlap directly support semantic equivalence with
+surface-form variation.
